@@ -1,1 +1,52 @@
-/documentclass{IEEETran}
+\documentclass[letterpaper,10pt,draftclsnofoot,onecolumn, titlepage]{IEEEtran}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{array}
+\usepackage{listings}
+
+
+
+%\usepackage{balance}
+%\usepackage[TABBOTCAP, tight]{subfigure}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node}
+
+\usepackage{geometry}
+\geometry{textheight=8.5in, textwidth=6in}
+
+
+
+
+\newcommand{\toc}{\tableofcontents}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\huge Forge API Project Statement\par}
+\vfill
+{\LARGE Griffin Gonsalves, Shawn Cross, Paul Kwak\par}
+{\vspace{2mm}}
+{\large CS444 - Senior Capstone Fall Term. \par}
+{\vspace{10mm}}
+%{\large Abstract here?\par}
+\end{titlepage}
+
+%normal doc begins
+\section{Abstract}
+{Group 20’s project branches from an Autodesk prototype project called VRok.it, which is a simple web-based 3D model viewer and mobile virtual reality (VR) explorer. Group 20’s project will expand upon its features and functionalities on a new website, with a focus on utilizing the Forge API. Conventionally, viewing 3D models in VR is a challenge if you have model files on many devices, or have a headset that only works in conjunction with a smartphone. Group 20’s project aims to do this by utilizing a web-based software that uses the Forge API in conjunction with Amazon Web Services. The project will also be expanded with new ideas as the project is developed.\par}
+\section{Problem Definition}
+{Currently most of the cad software that is available can be expensive to get and can be very difficult to use if you don’t know what you are doing. There is also not a lot of software available that allows users to easily and affordably go between viewing their cad files in a 3D model viewer and on a VR device. With so many smartphones and other devices now supporting VR many more users can afford to take advantage of VR technologies. Each different smartphone and device however can operate at a different optimal specification depending on the hardware that it is using. With so many different devices it is hard to know exactly what a user would be able to display on their specific device. Larger models and models that are very detailed or have many of different parts can take a lot of effort to render in 3D. In turn that would make these models hard to view in a VR environment with a device that doesn’t have a lot of power. Most users don't want to have to worry about this though and just want the software to make it work for them on whichever device they might have. The user should be able to simply upload any cad file they have and then have it be viewable in a 3D viewer.  The software should take the model they uploaded, figure out what device they are trying to use to view it in VR on and alter the model so that it is usable on their device. The software should also be able to let the user know if the model they are trying to view is just too large for the device they are trying to use. 
+\par}
+\section{Proposed Solution}
+{One of the goals of the project is to increase functionality and optimize performance on an increased array of devices. We are currently planning to solve this with polycount limits based on if a user is working on web or if they are on mobile, and if they are using a virtual reality solution in order to create the best possible experience. Essentially, we hope use this to improve the usability of the software and ensure a smooth experience. We plan on seeking out new methods of improving performance, such as removing portions of a model if parts are too small. We can measure things like framerate, stability, and processing times which can later be used to optimize the software.\par}
+\section{Performance Metrics}
+{When viewing models there should be a smooth framerate in order to have a good viewing experience. The finished project will be able to make suggestions on what the users object quality should be based on the device that they are currently using. We hope that we will be able to demonstrate the project using a VR or augmented reality device, and the project site. \par}
+
+%bib stuff
+%\bibliographystyle{IEEEtran}
+%\bibliography{gonsalvg_writingAssign1_038}
+\end{document}
