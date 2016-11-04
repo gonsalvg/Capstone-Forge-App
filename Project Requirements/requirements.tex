@@ -1,11 +1,9 @@
-% This file was converted to LaTeX by Writer2LaTeX ver. 1.0.2
-% see http://writer2latex.sourceforge.net for more info
 %########################################
 %CS 461 CAPSTONE 
 %GROUP 20 - Griffin Gonsalves, Paul Kwak, Shawn Cross
 %FALL 2016
 %########################################
- \documentclass[letterpaper, 10pt, draftclsnofoot, onecolumn]{IEEEtran}
+\documentclass[letterpaper, 10pt, draftclsnofoot, onecolumn]{IEEEtran}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
@@ -16,6 +14,8 @@
 \usepackage{supertabular}
 \usepackage{hhline}
 \usepackage{hyperref}
+
+\usepackage{digsig} %not a default package... just for signature field on final page.
 
 \usepackage{comment}
 
@@ -114,7 +114,7 @@
 \makeatother
 \title{Forge API Project Requirements}
 \author{Shawn Cross, Griffin Gonsalves, Paul Kwak}
-%\date{2010-11-18T11:33:37.30}
+\date{2016-11-3}
 \begin{document}
 \clearpage\setcounter{page}{1}\pagestyle{Standard}
 \thispagestyle{FirstPage}
@@ -256,7 +256,7 @@ Version [0.1]
 \par}
 
 {\centering\selectlanguage{english}\bfseries\color{black}
-[10/28/2016]
+[11/3/2016]
 \par}
 
 
@@ -308,7 +308,7 @@ RECORD OF CHANGES
 
 
 \bigskip
-
+%\end{comment}
 \begin{flushleft}
 \tablehead{}
 \begin{supertabular}{|m{0.47685984in}|m{0.6087598in}|m{1.3587599in}|m{0.23375985in}|m{2.0462599in}|m{0.7337598in}|m{0.6330598in}|}
@@ -671,7 +671,7 @@ Approved\\\hline
 MODIFIED
 \ }\foreignlanguage{english}{\textbf{D}}\foreignlanguage{english}{ -
 DELETED}}
-
+\end{comment}
 
 
 
@@ -702,7 +702,7 @@ Section\ \ Page}
 \tableofcontents
 
 \bigskip
-\end{comment}
+
 
 
 
@@ -947,9 +947,9 @@ USER CHARACTERISTICS}
 This subsection of the document should describe those general
 characteristics of the intended users of the product including
 educational level, experience, and technical expertise. \ It should not
-be used to state speci[FB01?]c requirements, but rather should provide
-the reasons why certain speci[FB01?]c requirements are later
-speci[FB01?]ed in Section 3 of this document.}
+be used to state specific requirements, but rather should provide
+the reasons why certain specific requirements are later
+specied in Section 3 of this document.}
 \end{comment}
 {\selectlanguage{english}\color{black}
 When finished this product should be usable by anyone that has access to a CAD file. If the user is want to use the VR portion of the website then they will need access to some VR headset. If the user does have access to a VR headset they should not need any extra Knowledge other than how to use the headset.  }
@@ -1220,20 +1220,24 @@ Hardware Interfaces}
 {\selectlanguage{english}\color{black}
 \foreignlanguage{english}{\ }\foreignlanguage{english}{[ insert your
 text here ]}}
-
+\end{comment}
 \subsubsection[Software
 Interfaces]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Software Interfaces}
 {\selectlanguage{english}\color{black}
-\foreignlanguage{english}{\ }\foreignlanguage{english}{[ insert your
-text here ]}}
+\foreignlanguage{english}{\ }\foreignlanguage{english}{1.	Interface between the computer and the website, for the uploading of CAD models from a user's hard drive into the website for viewing. Input will be CAD models while the output will be the website window in which the users model is displayed.
+2.	Interface between the website and the device the user wishes to view the model on. Currently vrok.it uses a QR code to accomplish this. Input is the QR code scanned by the phone, output is the manipulatable model in a environment for viewing.
+3.	User interface for viewing model on smartphone. Their phones touchscreen that gathers input and the output is the manipulation they make to the model.
+}}
 
 \subsubsection[User
 Interfaces]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 User Interfaces}
 {\selectlanguage{english}\color{black}
-\foreignlanguage{english}{\ }\foreignlanguage{english}{[ insert your
-text here ]}}
+\foreignlanguage{english}{\ }\foreignlanguage{english}{The main user interface will be the Vrok-It website in which the user will be able to upload a CAD model and then view it in the large model viewer at the center of the webpage. The user will be able interact with the model through use of their mouse. They will have options to rotate the model look at an exploded view of the model, along with other options. }}
+
+\begin{comment}
+
 
 \subsubsection[Other Communication
 Interfaces]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -2268,6 +2272,34 @@ APPENDIX B. \ [insert name here]}
 
 
 \end{comment}
+\newpage
+\null
+\vfill
+\clearpage\setcounter{page}{1}\pagestyle{Convertvi}
+\begin{flushleft}
 
+
+	\begin{Form}
+		\digsigfield{14cm}{3cm}{Sign Here} 	
+		\rule{5in}{.4mm}\\
+			Patti Vrobel\hspace{60ex}Date
+	\end{Form}
+		
+	\vspace{1cm}	
+	
+	\rule{5in}{.4mm}\\
+	Griffin Gonsalves\hspace{55ex}Date
+		
+	\vspace{1cm}	
+	
+	\rule{5in}{.4mm}\\
+	Shawn Cross\hspace{59ex}Date
+	
+	\vspace{1cm}	
+	
+	\rule{5in}{.4mm}\\
+	Paul Kwak\hspace{61ex}Date
+
+\end{flushleft}
 
 \end{document}
