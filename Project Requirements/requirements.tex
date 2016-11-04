@@ -764,9 +764,16 @@ DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
 {\selectlanguage{english}\color{black}
 	CAD: Computer Aided design is software used to design and view 3D models.
 }
+
+{\selectlanguage{english}\color{black}
+	CAD file: The type of files that can be uploaded to the website for viewing in the large model viewer.
+	We will  narrow down what types of files can be used as we progress through the development process.
+}
+
 {\selectlanguage{english}\color{black}
 	FORGE: A collection of CAD API services provided by Autodesk.
 }
+
 {\selectlanguage{english}\color{black}
 	VR: Acronym for virtual reality, typically a peripheral device or smartphone
 }
@@ -927,10 +934,18 @@ not intended to show a design of a product, but simply shows the
 logical relationships among variables.}
 \end{comment}
 {\selectlanguage{english}\color{black}
-1.	Allows upload of CAD files
-2.	Allows uploaded files to be viewed as 3D models
-3.	"Viewable" 3D models being files that can be moved around and viewed from different angles.
-4.	Allow the files to be viewed in VR (Google Cardboard)
+1.	The user is able to pick from a list of 3D models or upload one of their own CAD files.
+
+2.	once a model is chosen or a file is uploaded the 3D models will be seen in the large model viewer at the 
+	center of the website.
+
+3.	"Viewable" 3D models can be interacted with by the user in the large model viewer in multiple ways.
+
+4.	The user will have the ability to connect a smartphone to the website through the use of a QR scanner
+	and web servers. 
+
+5.	Once connected to a smartphone, the current model should be able to be viewed in VR with a the use
+	of a VR headset such as Google Cardboard. 
 }
 
 \subsection[USER
@@ -1697,6 +1712,72 @@ Detailed functional requirements of this feature}
 
 \bigskip
 
+\subsubsection[{File upload}]{\selectlanguage{english}\rmfamily\bfseries\color{black}The ability for the user to upload a CAD file of Their choosing}
+\vspace{5ex}
+{\foreignlanguage{english}{\ }\foreignlanguage{english}{Introduction/Purpose
+of this feature}}
+{\selectlanguage{english}\color{black}
+This This will allow the user to be able to upload any CAD files in which they have access to the website. }
+
+\paragraph[Input/Output sequence for this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Input/Output sequence for this feature}
+{\selectlanguage{english}\color{black}
+The user will select a file from their computer that they would like to upload to the website. After finishing the upload process the 
+model that was in the file should be viewable on the website. }
+
+\paragraph[Design constraints of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
+constraints of this feature}
+{\selectlanguage{english}\color{black}
+The file must be a CAD specific file and the user must have access to it on their machine. }
+
+\paragraph[Performance requirements of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Performance requirements of this feature}
+{\selectlanguage{english}\color{black}
+The file must be able to be uplaoded in a reasonable amount of time depending on the size of the file. This should take at most 1 minute. }
+
+\paragraph[Detailed functional requirements of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Detailed functional requirements of this feature}
+
+%end of upload feature
+
+\subsubsection[{Viewable model}]{\selectlanguage{english}\rmfamily\bfseries\color{black}The user should be able to see and interact with their model}
+\paragraph[\ Introduction/Purpose of this
+feature]{\foreignlanguage{english}{\ }\foreignlanguage{english}{Introduction/Purpose
+of this feature}}
+{\selectlanguage{english}\color{black}
+The user should be able to see the model that they have chosen or uploaded to the site in the large model viewer. They should also be able to
+interact with that model in the large model viewer.  }
+
+\paragraph[Input/Output sequence for this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Input/Output sequence for this feature}
+{\selectlanguage{english}\color{black}
+The user will chose from the list of predefined models or upload their own model. The model will now be view able in the large model viewer and
+the user should be able to interact with that model. }
+
+\paragraph[Design constraints of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
+constraints of this feature}
+{\selectlanguage{english}\color{black}
+The must not be so large or detailed that the website can not render it. }
+
+\paragraph[Performance requirements of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Performance requirements of this feature}
+{\selectlanguage{english}\color{black}
+The model should be displayed in full in the large model viewer and should not be hard to interact with. }
+
+\paragraph[Detailed functional requirements of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Detailed functional requirements of this feature}
+
+%end of feature 2
+
+
 \subsubsection[{Hardware Detection}]{\selectlanguage{english}\rmfamily\bfseries\color{black} System
 feature 1: Hardware Detection}
 \paragraph[\ Introduction/Purpose of this
@@ -1729,10 +1810,10 @@ Detailed functional requirements of this feature}
 
 
 
-%end of feature 1
+%end of feature 3
 
 \subsubsection[{Viewable VR Models}]{\selectlanguage{english}\rmfamily\bfseries\color{black} System
-feature 1: Hardware Detection}
+feature 2: Viewable in VR}
 \paragraph[\ Introduction/Purpose of this
 feature]{\foreignlanguage{english}{\ }\foreignlanguage{english}{Introduction/Purpose
 of this feature}}
