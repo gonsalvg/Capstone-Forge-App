@@ -15,7 +15,7 @@
 \usepackage{hhline}
 \usepackage{hyperref}
 
-\usepackage{digsig} %not a default package... just for signature field on final page.
+%\usepackage{digsig} %not a default package... just for signature field on final page.
 
 \usepackage{comment}
 
@@ -762,11 +762,14 @@ The scope of this project includes developing new software solutions over the co
 ABBREVIATIONS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
 {\selectlanguage{english}\color{black}
-CAD: Computer Aided design is software used to design and view 3D models. 
-FORGE: A collection of CAD API services provided by Autodesk.
-VR: Acronym for virtual reality, typically a peripheral device or smartphone
+	CAD: Computer Aided design is software used to design and view 3D models.
 }
-
+{\selectlanguage{english}\color{black}
+	FORGE: A collection of CAD API services provided by Autodesk.
+}
+{\selectlanguage{english}\color{black}
+	VR: Acronym for virtual reality, typically a peripheral device or smartphone
+}
 \begin{comment}
 
 \bigskip
@@ -815,35 +818,30 @@ Specification\\\hline
 \end{flushleft}
 \end{comment}
 
-\begin{comment}
 
 
 \subsection[REFERENCES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 REFERENCES}
 {\selectlanguage{english}\itshape\color{black}
-This section shall list full bibliographic citations of all documents
-referenced in this report. \ This section shall also identify the
-source for all materials not available in printed form (e.g., web-based
-information) and list the complete URL along with owner, author,
-posting date, and date last visited.}
-
+Sources}
+%TODO : maybe use a bibtex file for this when closer to completion
 {\selectlanguage{english}\color{black}
-i.	https://developer.autodesk.com/	
-ii.	https://github.com/KeanW/vr-party
-iii.	Vrok.it
+
+\url{https://developer.autodesk.com/}
+
+\url{https://github.com/KeanW/vr-party}
+
+\url{Vrok.it}
 }
 
 \subsection[OVERVIEW AND
 RESTRICTIONS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 OVERVIEW AND RESTRICTIONS}
 {\selectlanguage{english}\itshape\color{black}
-This paragraph shall describe the organization of this document and
-shall describe any security or privacy considerations associated with
-its use.}
-
+}
+%TODO
 {\selectlanguage{english}\color{black}
-This document is for limited release only to UI CS personnel working on
-the project and [ state others who will receive the document ].}
+}
 
 
 \bigskip
@@ -878,9 +876,6 @@ requirement number and linked to its SDD and test references.}
 {\selectlanguage{english}\color{black}
 Sections 5 and up are appendices including original information and
 communications used to create this document.}
-
-\end{comment}
-
 
 
 
@@ -2271,7 +2266,7 @@ APPENDIX B. \ [insert name here]}
 \bigskip
 
 
-\end{comment}
+
 \newpage
 \null
 \vfill
@@ -2301,5 +2296,7 @@ APPENDIX B. \ [insert name here]}
 	Paul Kwak\hspace{61ex}Date
 
 \end{flushleft}
+
+\end{comment}
 
 \end{document}
