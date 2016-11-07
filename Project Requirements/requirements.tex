@@ -15,9 +15,7 @@
 \usepackage{hhline}
 
 \usepackage{hyperref}
-%\usepackage{digsig} %not a default package... just for signature field on final page.
-%\usepackage{graphicx}
-%\graphicspath{{/}}
+\usepackage{digsig} %not a default package... just for signature field on final page.
 \usepackage{comment}
 
 
@@ -50,7 +48,7 @@
 % Pages styles
 \makeatletter
 \newcommand\ps@Standard{
-  \renewcommand\@oddhead{\selectlanguage{english}\rmfamily\color{black} Forge API Project\hfill }
+  \renewcommand\@oddhead{\selectlanguage{english}\rmfamily\color{black} Forge VR Explorer\hfill }
   \renewcommand\@evenhead{\@oddhead}
   \renewcommand\@oddfoot{\foreignlanguage{english}{\textcolor{black}{SSRS Page }}\foreignlanguage{english}{\textcolor{black}{\thepage{}}}}
   \renewcommand\@evenfoot{\@oddfoot}
@@ -191,7 +189,7 @@ Corvallis, OR \ 97331
 \par}
 
 \clearpage{\centering\selectlanguage{english}\bfseries\color{black}
-\foreignlanguage{english}{\MakeUppercase{\ }}\foreignlanguage{english}{\MakeUppercase{Forge API Project SSRS}}
+\foreignlanguage{english}{\MakeUppercase{\ }}\foreignlanguage{english}{\MakeUppercase{Forge VR Explorer SSRS}}
 \par}
 
 {\centering\selectlanguage{english}\bfseries\color{black}
@@ -349,11 +347,11 @@ SYSTEM FEATURES}
 \subsubsection[{File Uploading}]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 	The ability for the user to upload a CAD file of their choosing
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
-feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+feature]{\hangindent2pt \selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
+{\selectlanguage{english}\color{black} \hangindent2pt
 	This will allow the user to be able to upload any CAD files in which they have access to the website.
 }
 
@@ -393,7 +391,7 @@ Detailed functional requirements }
 \subsubsection[{Viewable Model}]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 	The user should be able to see and interact with their model
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -434,9 +432,9 @@ Detailed functional requirements }
 %end of feature 2
 
 \subsubsection[{Smartphone Connection}]{\selectlanguage{english}\rmfamily\bfseries\color{black} User should be able to connect their 
-	device tothe Vrok-It website through the use of a QR scanner
+	device to the Vrok-It website through the use of a QR scanner
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -448,8 +446,7 @@ Introduction/Purpose }
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
 {\selectlanguage{english}\color{black}
-	The user scans the QR code on the website with a QR application on their phone. The model that is currently in the Forge viewer 
-	on the website will now be displayed on the phone. 
+	The user scans the QR code on the website with a QR application on their phone. The model that is currently in the Forge viewer on the website will now be displayed on the phone. 
 }
 
 \paragraph[Design constraints of this
@@ -463,6 +460,7 @@ constraints }
 \paragraph[Performance requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
+
 {\selectlanguage{english}\color{black}
 	The phone should be connected to the website within a few seconds. This might vary depending on how good of an Internet 
 	connection the user currently has. 
@@ -482,7 +480,7 @@ Detailed functional requirements }
 \subsubsection[{Data Management}]{\selectlanguage{english}\rmfamily\bfseries\color{black}  
 	User access to files on A360 and Fusion 360
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -524,7 +522,7 @@ Detailed functional requirements }
 \subsubsection[{Model Derivative}]{\selectlanguage{english}\rmfamily\bfseries\color{black} \rmfamily\bfseries\color{black}  
 	User can convert their files.
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -564,7 +562,7 @@ Detailed functional requirements }
 \subsubsection[{Hardware Detection}]{\selectlanguage{english}\rmfamily\bfseries\color{black}  
 	Hardware Detection
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -609,7 +607,7 @@ Detailed functional requirements }
 \subsubsection[{Google Cardboard}]{\selectlanguage{english}\rmfamily\bfseries\color{black} 
 	A viewable model in VR 
 }
-
+\smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -655,7 +653,7 @@ Introduction/Purpose }
 	In order to accommodate for new features, we would like to redesign the landing, and key interaction areas of the website. 
 	This will allow for more creative development as the project progresses, as well as improve the look of the project as a whole.
 }
-
+\smallskip
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
 {\selectlanguage{english}\color{black}
@@ -688,11 +686,11 @@ Detailed functional requirements }
 \section[GANTT CHART/SIGNATURES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 GANTT CHART \& SIGNATURES}
 
-\begin{comment}
+%\begin{comment}
 \newpage
 \null
 \vfill
-\clearpage\setcounter{page}{1}\pagestyle{Convertvi}
+%\clearpage\setcounter{page}{1}\pagestyle{Convertvi}
 \begin{flushleft}
 
 
@@ -718,6 +716,6 @@ GANTT CHART \& SIGNATURES}
 	Paul Kwak\hspace{61ex}Date
 
 \end{flushleft}
-\end{comment}
+%\end{comment}
 
 \end{document}
