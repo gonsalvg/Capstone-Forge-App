@@ -331,7 +331,7 @@ SYSTEM FEATURES}
 \subsubsection[{File Uploading}]{\rmfamily\bfseries\color{black}
 	The ability for the user to upload a CAD file of their choosing
 }
-\smallskip
+
 
 \paragraph[Introduction/Purpose of this feature]
 {\selectlanguage{english}\rmfamily\bfseries\color{black} Introduction/Purpose }
@@ -366,7 +366,7 @@ Detailed functional requirements }
 \subsubsection[{Viewable Model}]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 	The user should be able to see and interact with their model
 }
-\smallskip
+
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -381,7 +381,7 @@ Input/Output sequence }
 
 \paragraph[Design constraints of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design constraints }
-	The must not be so large or detailed that the website can not render it.
+	The model must not be so large or detailed that the website can not render it.
 
 
 \paragraph[Performance requirements of this
@@ -398,14 +398,14 @@ Detailed functional requirements }
 %end of feature 2
 
 \subsubsection[{Smartphone Connection}]{\selectlanguage{english}\rmfamily\bfseries\color{black} User should be able to connect their 
-	device to the Vrok-It website through the use of a QR scanner
+	device to the project website through the use of a QR scanner
 }
 
-\smallskip
+
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-	Connecting the phone to the Vrok-It website is needed so that the user will be able to view their model in a VR environment. 
+	Connecting the phone to the project website is needed so that the user will be able to view their model in a VR environment. 
 
 \paragraph[Input/Output sequence for this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -418,6 +418,8 @@ feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
 	The user must have a smartphone that is capable of using a QR scanning application. The phone also has access to an Internet 
 	connection. 
+	
+	If the user opts to view the model in VR, then a VR solution is required for the user's device.
 
 \paragraph[Performance requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -437,7 +439,7 @@ Detailed functional requirements }
 \subsubsection[{Data Management}]{\selectlanguage{english}\rmfamily\bfseries\color{black}  
 	User access to files on A360 and Fusion 360
 }
-\smallskip
+
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -453,10 +455,14 @@ Input/Output sequence }
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
 	Must have an account with either A360 or Fusion 360. 
+	
+	Must conform to API general use cases
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-	The access to the user files should be relatively  fast.
+	The files should load in a viewable format.
+	
+	The files should only be visible if they are viewable.
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
@@ -469,7 +475,7 @@ Detailed functional requirements }
 \subsubsection[{Model Derivative}]{\selectlanguage{english}\rmfamily\bfseries\color{black} \rmfamily\bfseries\color{black}  
 	User can convert their files.
 }
-\smallskip
+
 
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -488,7 +494,7 @@ constraints }
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-	Must do this in a relatively quick time.
+	The program should clearly display viewable files.
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
@@ -500,7 +506,7 @@ Detailed functional requirements }
 \subsubsection[{Hardware Detection}]{\selectlanguage{english}\rmfamily\bfseries\color{black}  
 	Hardware Detection
 }
-\smallskip
+
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
@@ -535,20 +541,22 @@ Detailed functional requirements }
 \subsubsection[{Google Cardboard}]{\selectlanguage{english}\rmfamily\bfseries\color{black} 
 	A viewable model in VR 
 }
-\smallskip
+
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-	View the VR model on the user's device using peripherals such as Google Cardboard   
+	View the model on the user's device in VR using peripherals such as Google Cardboard.   
 
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-	A 3D model / A VR Model displayed on the user's device  
+	Input: A functioning model uploaded to the project site.
+	
+	Output: A model displayed on the user's device.
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-	Depends heavily on hardware on the device that the user is using. Devices with low end hardware will likely not be able to 
-	display models that are large or have a lot of detail very well  
+	Depends heavily on hardware on the device that the user is using. Devices with low-end hardware will likely not be able to 
+	display models that are large or have a lot of detail very well.  
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
@@ -570,10 +578,12 @@ Introduction/Purpose }
 	In order to accommodate for new features, we would like to redesign the landing, and key interaction areas of the website. 
 	This will allow for more creative development as the project progresses, as well as improve the look of the project as a whole.
 
-\smallskip
+
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-	Website source files and control. The output An updated and structured web layout.
+	Input: Website source files and control. 
+	
+	Output: An updated and structured web layout.
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
@@ -581,7 +591,7 @@ constraints }
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-	The updated website must have similar performance(load times) to the original site.
+	The updated website must have support for the same sources as the Vrok-it website.
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
@@ -594,6 +604,9 @@ Detailed functional requirements }
 \clearpage
 \section[GANTT CHART/SIGNATURES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 GANTT CHART \& SIGNATURES}
+
+
+	
 
 %\begin{comment}
 \newpage
