@@ -15,9 +15,8 @@
 \usepackage{hhline}
 
 \usepackage{hyperref}
-\usepackage{digsig} %not a default package... just for signature field on final page.
+%\usepackage{digsig} %not a default package... just for signature field on final page.
 \usepackage{comment}
-
 
 \hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=SYSTEMS AND SOFTWARE REQUIREMENTS SPECIFICATION (SSRS) TEMPLATE, pdfauthor=Clinton Jeffery, pdfsubject=, pdfkeywords=}
 \usepackage[pdftex]{graphicx}
@@ -26,9 +25,18 @@
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
 \renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-\renewcommand\theparagraph{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
 
+\parindent0pt
+\parskip 1.5ex plus 0.2ex minus 0.1ex
 \makeatletter
+
+\def\subsubsection{\@startsection{subsubsection}% name
+                                 {3}% level
+                                 {\z@}% indent (formerly \parindent)
+                                 {1ex plus 0.1ex minus 0.1ex}% before skip
+                                 {1ex}% after skip
+                                 {\normalfont\normalsize}}% style
+
 \newcommand\arraybslash{\let\\\@arraycr}
 \makeatother
 % Page layout (geometry)
@@ -48,7 +56,7 @@
 % Pages styles
 \makeatletter
 \newcommand\ps@Standard{
-  \renewcommand\@oddhead{\selectlanguage{english}\rmfamily\color{black} Forge VR Explorer\hfill }
+  \renewcommand\@oddhead{\hfill }
   \renewcommand\@evenhead{\@oddhead}
   \renewcommand\@oddfoot{\foreignlanguage{english}{\textcolor{black}{SSRS Page }}\foreignlanguage{english}{\textcolor{black}{\thepage{}}}}
   \renewcommand\@evenfoot{\@oddfoot}
@@ -63,7 +71,7 @@
 }
 \makeatother
 \pagestyle{Standard}
-\setlength\tabcolsep{1mm}
+%\setlength\tabcolsep{1mm}
 \renewcommand\arraystretch{1.3}
 % footnotes configuration
 \makeatletter
@@ -210,29 +218,22 @@ Section\ \ Page}
 
 \section[Introduction]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction}
-
-\foreignlanguage{english}{\textit{}}\foreignlanguage{english}{ \ }
-{\selectlanguage{english}\color{black}
 	The system being developed is intended to be a place in which users with CAD files can go and easily view those files 
 	in both a 3D viewer and optionally in VR. This provides a solution to those who don't have access to expensive CAD 
 	programs or fancy VR headsets as it will be a free to use web services that is usable with entry level VR equipment. 
 	The intended user for this project is a person that would likely not experienced with CAD software and would not have 
 	access to software that supports CAD files.  
-}
 
 \subsection[SCOPE]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 SCOPE}
-{\selectlanguage{english}\color{black}
 	The scope of this project includes developing new software solutions over the course of roughly 3 months. This software
  	should allow for the upload of a 3D model file to be viewed in browser and then also into a VR environment. Having a 
 	platform that allows for simple 3D viewing on screen into a transition to VR would allow many to have access to such 
 	functionality. 
-}
 
 \subsection[DEFINITIONS, ACRONYMS, AND
 ABBREVIATIONS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
-{\selectlanguage{english}\color{black}
 	\begin{flushleft}
 	\textbf{CAD}: Computer Aided design is software used to design and view 3D models.
 
@@ -246,14 +247,11 @@ DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
 
 	\textbf{VR}: Acronym for virtual reality, typically a peripheral device or smartphone
 	\end{flushleft} 
-}
 	
 \subsection[REFERENCES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 REFERENCES}
-%{\selectlanguage{english}\itshape\color{black}
 %Sources}
 % maybe use a bibtex file for this when closer to completion
-{\selectlanguage{english}\color{black}
 	\begin{flushleft}
 	\url{https://developer.autodesk.com/}\newline
 
@@ -261,21 +259,18 @@ REFERENCES}
 
 	\url{Vrok.it}\newline
 	\end{flushleft}
-}
 
-\clearpage\section[OVERALL
+\clearpage
+
+\section[OVERALL
 DESCRIPTION]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 OVERALL DESCRIPTION}
 
 \subsection[PRODUCT
 PERSPECTIVE]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 PRODUCT PERSPECTIVE}
-{\selectlanguage{english}\color{black}
-
-{\selectlanguage{english}\color{black}
 	The product would be jump-started from the Vrok-It platform that has already been created. 
 	We would adding features to the product that will enhance the overall usability of the current system. 
-}
 
 \subsection[PRODUCT
 FUNCTIONS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -294,17 +289,13 @@ PRODUCT FUNCTIONS}
 	5. Once connected to a smartphone, the current model should be able to be viewed in VR with a the use
 	of a VR headset such as Google Cardboard. 
 	\end{flushleft}
-}
 
 \subsection[USER
 CHARACTERISTICS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 USER CHARACTERISTICS}
-
-{\selectlanguage{english}\color{black}
 	When finished this product should be usable by anyone that has access to a CAD file. If the user is want to use the VR 
 	portion of the website then they will need access to some VR headset. If the user does have access to a VR headset they 
 	should not need any extra Knowledge other than how to use the headset.  
-}
 
 \subsection[SYSTEM LEVEL (NON{}-FUNCTIONAL)
 REQUIREMENTS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -313,24 +304,19 @@ SYSTEM LEVEL (NON-FUNCTIONAL) REQUIREMENTS}
 \subsubsection[Software
 Interfaces]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Software Interfaces}
-{\selectlanguage{english}\color{black}\foreignlanguage{english}{\ }\foreignlanguage{english}{
 	Interface between the computer and the website, for the uploading of CAD models from a user's hard drive into the 
 	website for viewing. Input will be CAD models while the output will be the website window in which the users model 
 	is displayed. Interface between the website and the device the user wishes to view the model on. Currently vrok.it uses a 
 	QR code to accomplish this-Input is the QR code scanned by the phone, output is the manipulatable model in a environment 
 	for viewing. The User interface for viewing model on smartphone is another interface. A user's touchscreen that gathers 
 	input and the output is the manipulation they make to the model.
-}}
 
 \subsubsection[User
 Interfaces]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 User Interfaces}
-{\selectlanguage{english}\color{black}
-\foreignlanguage{english}{\ }\foreignlanguage{english}{
 	The main user interface will be the website(TBD) in which the user will be able to upload a CAD model and then view it in 
 	the Forge viewer at the center of the webpage. The user will be able interact with the model through use of their 
 	mouse. They will have options to rotate the model look at an exploded view of the model, along with other options. 
-}}
 
 \section[SPECIFIC
 REQUIREMENTS]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -342,49 +328,38 @@ FEATURES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 SYSTEM FEATURES}
 \medskip
 
-%shift inward under subsections
-
-\subsubsection[{File Uploading}]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+\subsubsection[{File Uploading}]{\rmfamily\bfseries\color{black}
 	The ability for the user to upload a CAD file of their choosing
 }
 \smallskip
-\paragraph[Introduction/Purpose of this
-feature]{\hangindent2pt \selectlanguage{english}\rmfamily\bfseries\color{black}
-Introduction/Purpose }
-{\selectlanguage{english}\color{black} \hangindent2pt
+
+\paragraph[Introduction/Purpose of this feature]
+{\selectlanguage{english}\rmfamily\bfseries\color{black} Introduction/Purpose }
 	This will allow the user to be able to upload any CAD files in which they have access to the website.
-}
 
 \paragraph[Input/Output sequence:]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	The user will select a file from their computer that they would like to upload to the website. After finishing the upload process 
 	the model that was in the file should be viewable on the website. 
-}
 
 \paragraph[Design constraints of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	The file must be a CAD specific file and the user must have access to it on their machine. 
-}
 
 \paragraph[Performance requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	The file must be able to be uploaded in a reasonable amount of time depending on the size of the file. This should take at 
 	most 1 minute. 
-}
+
 
 \paragraph[Detailed functional requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black} 
 	The user should be able to upload his/her file to the website using a standard popup window. The software must determine if 
 	the file is a reasonable size(<50MB), and is an accepted format. After the file is uploaded, it is then made available to the 
 	other components of the software to be used.
- }
 
 %end of upload feature
 
@@ -395,85 +370,67 @@ Detailed functional requirements }
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	The user should be able to see the model that they have chosen or uploaded to the site in the Forge viewer. They 
 	should also be able to interact with that model in the Forge viewer. 
- }
 
 \paragraph[Input/Output sequence for this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	The user will chose from the list of predefined models or upload their own model. The model will now be view able in the large 
 	model viewer and the user should be able to interact with that model.
- }
 
 \paragraph[Design constraints of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design constraints }
-{\selectlanguage{english}\color{black}
 	The must not be so large or detailed that the website can not render it.
-}
+
 
 \paragraph[Performance requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	The model should be displayed in full in the Forge viewer and should not be hard to interact with. 
-}
 
 \paragraph[Detailed functional requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	The Forge viewer will present the user's model in a window set into the webpage. This window must be interactive, and display the 
 	user's model correctly. The viewer should be able to display a reasonably sized(<50MB) model. 
-}
 
 %end of feature 2
 
 \subsubsection[{Smartphone Connection}]{\selectlanguage{english}\rmfamily\bfseries\color{black} User should be able to connect their 
 	device to the Vrok-It website through the use of a QR scanner
 }
+
 \smallskip
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	Connecting the phone to the Vrok-It website is needed so that the user will be able to view their model in a VR environment. 
-}
 
 \paragraph[Input/Output sequence for this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
-	The user scans the QR code on the website with a QR application on their phone. The model that is currently in the Forge viewer on the website will now be displayed on the phone. 
-}
+	The user scans the QR code on the website with a QR application on their phone. The model that is currently in the Forge viewer
+	on the website will now be displayed on the phone. 
 
 \paragraph[Design constraints of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	The user must have a smartphone that is capable of using a QR scanning application. The phone also has access to an Internet 
 	connection. 
-}
 
 \paragraph[Performance requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-
-{\selectlanguage{english}\color{black}
 	The phone should be connected to the website within a few seconds. This might vary depending on how good of an Internet 
 	connection the user currently has. 
-}
 
 \paragraph[Detailed functional requirements of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	In order to provide VR functionality for an android device, the software must first establish a connection. Using a QR scanner, 
 	the android device will be linked to a mobile version of the viewer displayed in stereoscopic format. This requires a stable 
 	Internet connection in order to deliver the content to the device.
- }
 
 %end feature 3
 
@@ -484,38 +441,28 @@ Detailed functional requirements }
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	Users that have files in A360 or in Fusion 360 should be able to gain access through those files from the
 	website.
-}
 
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	The user should be able to somehow identify that they want to gain access to their files on either A360
 	or Fusion 360. Using the Forge Data Management API the user should then have access to both of these
 	Cloud storage sites.
-}
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	Must have an account with either A360 or Fusion 360. 
-}
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	The access to the user files should be relatively  fast.
-}
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	The website give users the option to access their A360 and Fusion 360 accounts. This should be done through
 	the use of the Forge Data Management API. Once the user has access to these accounts they should then be 
 	able to obtain the files they want to use and upload them to the Forge viewer.
-}
 
 %End of feature 4
 
@@ -523,39 +470,30 @@ Detailed functional requirements }
 	User can convert their files.
 }
 \smallskip
+
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	With the use of the Forge Model Derivative API users should be able to convert any source files that they have into SVF format
 	so that they can be displayed in the Forge viewer.
-}
 
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	The user will upload a source file that they want to convert. The model derivative API will take the source file and return the 
 	converted file.
-}
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	Must use appropriate CAD source files. 
-}
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	Must do this in a relatively quick time.
-}
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	The website must allow users to take their CAD source files and convert them to a file that will be usable in the
 	Forge viewer.    
-}
 
 %End of feature 5
 
@@ -566,41 +504,31 @@ Detailed functional requirements }
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	This feature serves as a way for the software to understand the hardware its being run on. This will be the foundation for 
 	giving a user feedback on potential experience viewing.
-}
 
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	The user connects their phone to Vrok-It through the use of a QR scanner. After connection it should verify what type of 
 	device that the user has connected.
-}
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	Reliance on the user giving permission to allow the software to get information about hardware specifications. Similar to 
 	Androids permissions the user many not want to give information out so our hardware detection may be hindered and 
 	unable to function at all. 
-}
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	Needs to be able to obtain hardware specification as fast as possible to give users feedback immediately. The sooner 
 	our software understands the user's hardware the faster it can give a recommendation about optimal viewing. 
-}
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	The software must be able to detect the user's smartphone when it connects using the QR code provided. When a 
 	connection is made, the software will then detect the device, verify it is supported. If device is known, the software 
 	then will use presets for the viewer on the device, otherwise it should alert the user about incompatibility and 
 	performance conflicts. These alerts will inform the user that the device will not operate optimally with the project. 
-}
 
 %end of feature 6
 
@@ -611,36 +539,26 @@ Detailed functional requirements }
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	View the VR model on the user's device using peripherals such as Google Cardboard   
-}
 
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	A 3D model / A VR Model displayed on the user's device  
-}
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	Depends heavily on hardware on the device that the user is using. Devices with low end hardware will likely not be able to 
 	display models that are large or have a lot of detail very well  
-}
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	The models need to be able to be manipulated by the viewer. If they are too large, the models will cause errors if they are 
 	modified within the viewer.  
-}
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	The VR model viewer displayed on the Android device must be supported on Google Cardboard's lenses. The model must 
 	be tracked properly in the model viewer. The model viewer on the mobile device can be controlled by the webpage.  
-}
 
 %end of feature 7
 
@@ -649,36 +567,27 @@ Detailed functional requirements }
 \paragraph[Introduction/Purpose of this
 feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Introduction/Purpose }
-{\selectlanguage{english}\color{black}
 	In order to accommodate for new features, we would like to redesign the landing, and key interaction areas of the website. 
 	This will allow for more creative development as the project progresses, as well as improve the look of the project as a whole.
-}
+
 \smallskip
 \paragraph[Input/Output sequence]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Input/Output sequence }
-{\selectlanguage{english}\color{black}
 	Website source files and control. The output An updated and structured web layout.
-}
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
-{\selectlanguage{english}\color{black}
 	This website must support the Forge API, the Forge viewer, and must be viewable on mobile. 
-}
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Performance requirements }
-{\selectlanguage{english}\color{black}
 	The updated website must have similar performance(load times) to the original site.
-}
 
 \paragraph[Detailed functional requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 Detailed functional requirements }
-{\selectlanguage{english}\color{black}
 	The website must be able to properly display the project. The updated site will include a new landing,
 	separate pages for the project, as well as being able to content as we expand. Key functionality such as uploading
 	a model file and viewing the file should be accessible as soon as the user loads the site.   
-}
 
 %end of feature 8
 
@@ -695,7 +604,7 @@ GANTT CHART \& SIGNATURES}
 
 
 	\begin{Form}
-		\digsigfield{14cm}{3cm}{Sign Here} 	
+		%\digsigfield{14cm}{3cm}{Sign Here} 	
 		\rule{5in}{.4mm}\\
 			Patti Vrobel\hspace{60ex}Date
 	\end{Form}
