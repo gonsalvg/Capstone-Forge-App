@@ -18,7 +18,7 @@
 %\usepackage{digsig} %not a default package... just for signature field on final page.
 \usepackage{comment}
 
-\hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=SYSTEMS AND SOFTWARE REQUIREMENTS SPECIFICATION (SSRS) TEMPLATE, pdfauthor=Clinton Jeffery, pdfsubject=, pdfkeywords=}
+\hypersetup{pdftex, colorlinks=true, linkcolor=black, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=SYSTEMS AND SOFTWARE REQUIREMENTS SPECIFICATION (SSRS) TEMPLATE, pdfauthor=Clinton Jeffery, pdfsubject=, pdfkeywords=}
 \usepackage[pdftex]{graphicx}
 % Outline numbering
 \setcounter{secnumdepth}{3}
@@ -436,6 +436,39 @@ Detailed functional requirements }
 
 %end feature 3
 
+\subsubsection[{Forge Authentication}]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+	Use the Fogres token-based Authentication.
+}
+
+\paragraph[Introduction/Purpose of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Introduction/Purpose }
+	This is used to get authentication and authorization when using Forges other APIs. This provides security for the users using 
+	the APIs on the website. 
+
+\paragraph[Input/Output sequence for this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Input/Output sequence }
+	This is created automatically every time a user accesses the website.
+
+\paragraph[Design constraints of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design constraints }
+	The user must be able to gain access to the website.
+
+
+\paragraph[Performance requirements of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Performance requirements }
+	N/A. 
+
+\paragraph[Detailed functional requirements of this
+feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+Detailed functional requirements }
+	During the loading of the web page the authentication API should generate a Token For the user in case they want to use 
+	either the data management API or the model derivative API. 
+
+%end of feature 4
+
 \subsubsection[{Data Management}]{\selectlanguage{english}\rmfamily\bfseries\color{black}  
 	User access to files on A360 and Fusion 360
 }
@@ -454,6 +487,8 @@ Input/Output sequence }
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
+	The authentication API must have created a Token for the API to use.
+
 	Must have an account with either A360 or Fusion 360. 
 	
 	Must conform to API general use cases
@@ -470,7 +505,7 @@ Detailed functional requirements }
 	the use of the Forge Data Management API. Once the user has access to these accounts they should then be 
 	able to obtain the files they want to use and upload them to the Forge viewer.
 
-%End of feature 4
+%End of feature 5
 
 \subsubsection[{Model Derivative}]{\selectlanguage{english}\rmfamily\bfseries\color{black} \rmfamily\bfseries\color{black}  
 	User can convert their files.
@@ -490,6 +525,8 @@ Input/Output sequence }
 
 \paragraph[Design constraints]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design
 constraints }
+	The authentication API must have created a Token for the API to use.
+
 	Must use appropriate CAD source files. 
 
 \paragraph[Performance requirements]{\selectlanguage{english}\rmfamily\bfseries\color{black}
@@ -501,7 +538,7 @@ Detailed functional requirements }
 	The website must allow users to take their CAD source files and convert them to a file that will be usable in the
 	Forge viewer.    
 
-%End of feature 5
+%End of feature 6
 
 \subsubsection[{Hardware Detection}]{\selectlanguage{english}\rmfamily\bfseries\color{black}  
 	Hardware Detection
@@ -536,7 +573,7 @@ Detailed functional requirements }
 	then will use presets for the viewer on the device, otherwise it should alert the user about incompatibility and 
 	performance conflicts. These alerts will inform the user that the device will not operate optimally with the project. 
 
-%end of feature 6
+%end of feature 7
 
 \subsubsection[{Google Cardboard}]{\selectlanguage{english}\rmfamily\bfseries\color{black} 
 	A viewable model in VR 
@@ -568,7 +605,7 @@ Detailed functional requirements }
 	The VR model viewer displayed on the Android device must be supported on Google Cardboard's lenses. The model must 
 	be tracked properly in the model viewer. The model viewer on the mobile device can be controlled by the webpage.  
 
-%end of feature 7
+%end of feature 8
 
 \subsubsection[{Website Redesign}]{\selectlanguage{english}\rmfamily\bfseries\color{black} }
 
@@ -599,7 +636,7 @@ Detailed functional requirements }
 	separate pages for the project, as well as being able to content as we expand. Key functionality such as uploading
 	a model file and viewing the file should be accessible as soon as the user loads the site.   
 
-%end of feature 8
+%end of feature 9
 
 \clearpage
 \section[GANTT CHART/SIGNATURES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
