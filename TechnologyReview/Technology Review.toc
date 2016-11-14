@@ -1,0 +1,25 @@
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {2}Technologies}{3}{section.2}
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {3}Conclusion}{10}{section.3}
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {4}Bibliography}{10}{section.4}

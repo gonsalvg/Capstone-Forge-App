@@ -130,7 +130,7 @@ Abstract
 	Forge VR Explorer aims to do this by utilizing a web-based software that uses the features of the Autodesk Forge API. 
 	The project will also be expanded with new ideas and stretch goals as the project is developed.
 \par}
-
+\clearpage
 {\centering\selectlanguage{english}\bfseries\color{black}
 TABLE OF CONTENTS
 \par}
@@ -279,33 +279,84 @@ Technologies}
 			\item{Select Option:} I would say that the plug-in is the best way to go since we can integrate the library directly into our project and not have to worry about making 
 			any calls to an outside API. 
 		\end{enumerate}
-	\item{Technology 4}
+	\item{Website UI Redesign}
 		\begin{enumerate}
-			\item{Option}
+			\item{Options}
+				\begin{itemize}
+					\item{Bootstrap}
+					Making the page into a bootstrap styled website would mean porting the existing project to a new source of web files from our existing. Making this change would enable the team to make a simple and clean interface for the website that should still support the existing project content. Bootstrap is completely free and there are even templates available to assist in creation of a project that we may find useful.
+					\item{AngularJS+jQuery}
+					Redesigning the entire site does not require starting from the ground up. We can implement a javascript framework that would help us organize and manage the site. Angular JS would assist us in creating a better interface for the website without that much learning required. Our project is already using javascript to handle much of the project operations, but implementing a framework for the layout and UI should not conflict with the rest of the project.
+					\item{WordPress}
+					WordPress is another high-level framework that can generate a layout for a project. Wordpress has the advantage of using many pre-created templates in order to display a page. Wordpress is highly supported by many browsers, and could simplify the process of creating updates to the site. There is also the added benefit of a very pristine looking webpage without spending too much time developing it.
+				\end{itemize}
 			\item{Goals}
+			Improve organization and visual appeal
 			\item{Criteria being evaluated}
+				\begin{itemize}
+					\item{Development time}
+					\item{Presentation}
+					\item{Learning curve}
+				\end{itemize}
 			\item{Table?}
 			\item{Discussion}
+			
+			Each option provides the advantage of creating a fresh clean interface, but each does so at a significant cost. In weighing the options, using AngularJS would be the best option for the project. Because the site already has a working page, we think it would benefit the project more to spend less time developing the updated UI and more time on the focus of our project. After learning the basics, AngularJS should provide a great interface for our website that improves our development process.
 			\item{Select Option}
 		\end{enumerate}
-	\item{Technology 5}
+	\item{Data Management API}
 		\begin{enumerate}
 			\item{Option}
+				\begin{itemize}
+					\item{Forge Data Management API: Belonging to the Forge collection of APIs created by Autodesk, this software allows for the user to pull project files from an Autodesk A360 library that contains a user's project files. These files could be filtered and shown in a user interface, which is a criteria for this technology. Once a website is registered with the API, and a user is logged in, files may be accessed in the interface.  The usage of the API is straightforward, after setup with the API, we would only need to include a provided configuration and setup on the site which could assist in rapidly developing this feature.}
+					
+					\item{OneDrive API: Another common cloud service is Microsoft's OneDrive. Microsoft provides a File Picker API through their Javascript SDK, which is also the main scripting language used in our project. After registering the app with Microsoft's API, one may implement a "Open from OneDrive" button which opens a File Picking window where the user may pick a file from their drive. This API would support all major web browsers, in addition to the most current mobile browsers. This API should have no problem integrating with our other assets, and provides a UI popup for selecting the file.}
+
+					\item{Google Drive API: A similar, but more general use case API that fits the bill is the Google Drive API. This API lets a user log into their google account and access their files stored on Google Drive. Google claims the API works flawlessly in a straightforward HTML web document, so compatibility should not be an issue with other components in the project. Furthermore, since the API supports the viewing and interaction with user's files in an interface, the API meets the criteria of having an interface. This interface, called the Google Picker, functions as the interface for picking the file.}
+					
+					
+				\end{itemize}
 			\item{Goals}
+			To provide an alternate method of file upload to the project through a cloud service.
+			
 			\item{Criteria being evaluated}
+			\begin{itemize}
+					\item{Amount of time to implement}
+					\item{Level of browser/device support}
+					\item{Project asset/Website compatibility}
+					\item{File picking user interface}
+				\end{itemize}
 			\item{Table?}
-			\item{Discussion}
-			\item{Select Option}
+			\item{Discussion:}
+			This sounds like a cut and dry choice for the Forge API, as we are already using Autodesk APIs and libraries on the site in addition to other Forge components. Using this API could save development time as the app need only be registered with the Forge service once, and appears relatively trivial to implement in the site. The Microsoft API seems useful, but the OneDrive cloud service is not oriented to provide large files on demand, and configuration seems much more complex. On the other hand, the Google Drive API seems like it could be a suitable backup. The functionality seems slightly more complex, however this would provide cloud access for users on the most used cloud platform.
+			\item{Select Option:}
+			Due to the inertia of using the Forge Collection, I think the best option for the project is to include the Forge Data Management API. It meets each of the criteria for the project and should function as a useful feature when completed. 
 		\end{enumerate}
-	\item{Technology 6}
+		
+	\item{VR Model Viewer}
 		\begin{enumerate}
 			\item{Option}
+				\begin{itemize}
+					\item{Forge Large Model Viewer}
+					\item{WebVR Rendering}
+					\item{Unity 3D}
+				\end{itemize}
 			\item{Goals}
-			\item{Criteria being evaluated}
-			\item{Table?}
-			\item{Discussion}
-			\item{Select Option}
-		\end{enumerate}
+			Provide a viewing interface in which to view a 3D model.
+			
+			\item{Criteria being evaluated:}
+			
+			\begin{itemize}
+					\item{}
+					\item{}
+					\item{}
+			\end{itemize}
+			
+		\item{Table?}
+			\item{Discussion:}
+			\item{Select Option:}
+	\end{enumerate}
+		
 	\item{Technology 7}
 		\begin{enumerate}
 			\item{Option}
