@@ -126,7 +126,7 @@ Abstract
 	The Forge VR Explorer branches from an Autodesk prototype project called Vrok-It, which is a simple web-based 3D 
 	model viewer and mobile virtual reality (VR) explorer. The project will expand upon its ability to display uploaded 3D 
 	models in browser and in VR, and improve its accessibility. Conventionally, viewing 3D models in VR is a challenge if 
-	you have model files on many devices, or have a headset that only works in conjunction with a smartphone. The 
+	you have model files on many devices, or have a headset that only works in conjunction with a smart-phone. The 
 	Forge VR Explorer aims to do this by utilizing a web-based software that uses the features of the Autodesk Forge API. 
 	The project will also be expanded with new ideas and stretch goals as the project is developed.
 \par}
@@ -178,34 +178,18 @@ Technologies}
 						upload file file feature the way we want it. Though there will be some time for learning how to use the API and some time to completely
 						create the feature, there is a lot of good documentation on this API that should make the process go smoothly.  
 				\end{itemize}
-			\item{Goals}
 			\item{Criteria being evaluated}
 				\begin{enumerate}
-					\item How much time will it take compared to how important it is to the overall project.
-					\item How much effort will have to go into learning how to complete the task.
-					\item Even if one options isn't exactly what you want does the time benefit outweigh making it exactly the way you wanted.
-					\item Which option will offer the most secure way to upload the file.
+					\item How much time will it take to integrate into our project: The plug-in will definitely take the least amount of time to add this to the project. I 
+					think that the other two options will both take more time to do since you will have to create the upload feature from scratch.
+					\item How much effort will have to go into learning how to complete the task: The plug-in won't take a lot of time to learn how to use since you just 
+					need to add the library to the project and then you can use it. The other two options will take more time to learn how to do but shouldn't be to much 
+					time since there is a lot of documentation and examples on-line showing how to do this. 
+					\item Will the upload feature do exactly what you wanted it to do: If you aren't really particular about what the file upload button looks like or how it shows
+					the progress of the upload then the plug-in would work just fine. However if you want to make the upload button look a certain way and show its progress a
+					certain way then one of the other two options is going to be best. 
+					\item Which option will offer the most secure way to upload the file: All three options offer the same amount of security. 
 				\end{enumerate}
-			\item{Table}
-				\begin{center}
-					\begin{tabular}{ | m{10em} | m{10em} | m{10em} | }
-						\hline
-						Options & Time taken to complete task & Time to learn \\
-						
-						\hline
-						Option 1 & This should take a minimal amount of time to complete this task &  It should also not take a lot of time to  
-						learn how to get the plug-in to work with the website \\
-
-						\hline
-						Option 2 & This will allow for a more customizable option, however the time to complete the task will be longer & Depending on
-						what you are trying to get the feature to do the time to learn could be anywhere from a medium to long period of time  \\
-						
-						\hline
-						Option 3 & This will allow you to create the file upload feature exactly like you want it, it will take a little more time though. 
-						 & This shouldn't take a long time to learn since there is a lot of good documentation and examples online \\
-						\hline
-					\end{tabular}
-				\end{center}
 			\item{Discussion:} The plug-in option will definitely save the most time in terms of learning it and getting it to work in on the website, 
 					however it will likely give you little in the way of customizing and making the file upload feature work exactly how you would want 
 					it to. Both of the options to make you own file upload feature will result in a longer time to learn how to do this as well as a longer
@@ -216,14 +200,15 @@ Technologies}
 					that it will take to do this. I also think that the use of the file API is better since it is well documented, easy to find examples
 					for, and has many of the features that we wanted built into it.
 		\end{enumerate}
-	\item{FIle conversion}
+	\item{File conversion}
 		\begin{enumerate}
 			\item{Option}
 				\begin{itemize}
-					\item accusoft API: This is an API that allows users to convert their CAD files in to raster files such as svg (scalable vector graphic) files that could 
+
+					\item accusoft API: This is an API that allows users to convert their CAD files in to raster files such as SVG (scalable vector graphic) files that could 
 						to view in the model viewer. This API does cost money and depending on how many conversions the user is planning on doing this option
-						could turn out to be relatively expensive. There is not a lot of documentation on how this API can be integrated into a application so 
-						that may make it take longer to get the task complete.
+						could turn out to be relatively expensive. There is a lot of documentation on how this API can be integrated into an application but it seems
+						as though the integration process could be harder if you are not using a certain types of applications.
 
 					\item  Forge Model derivative API: This API has the ability to take users CAD source file and convert them into OBJ and STL files. This API can also
 						convert the files directly into SVF files the same type of file that the model viewer API we will be using on this project uses. This API would 
@@ -235,34 +220,64 @@ Technologies}
 					\item  cloudconvert API: This API gives you the ability to convert from CAD source files to a SVG file but it also give you the ability to convert the 
 						other way was well. This API also has well documented instruction on how to integrate this API into an application. That would make it easier
 						to learn and take less time to complete the task. This API would cost money to use depending on how much time is spent doing the conversions.
-			
+						this one also requires that a key be used when doing the to be created which make this more secure to do file conversions on since it will be able 
+						to verify that it is an actual users trying to do conversions. 
+
 				\end{itemize}
-			\item{Goals}
 			\item{Criteria being evaluated}
 				\begin{enumerate}
-					\item How much time will it take compared to how important it is to the overall project.
-					\item How much effort will have to go into learning how to complete the task.
-					\item How secure is the file conversion.
+					\item How much time will it take to integrate into the project: All three of the projects will take about the same amount of time to integrate into the 
+					project. I think that the first option might take longer since the documentation looked like it might be hard to understand and didn't seem as accessible 
+					as the other two APIs. 
+					\item How much effort will have to go into learning how to complete the task: I think each of these could take a good amount of effort to understand how
+					to use and set up. Options two and three seem to have easier to understand documentation and have more example of how to use the API. 
+					\item How secure is the file conversion: The first API didn't say whether or not that it had a way of making sure that the file conversions were secure.
+					Options two and three both had some sort of way of authenticating the conversion. Option two used a token system and option three used a key system.
 				\end{enumerate}
-			\item{Table?}
+
 			\item{Discussion:} These three options all offer similar conversions. They all convert the CAD source files into a usable file for the model viewer. The Forge API will however 
 				convert the file into an SVF file that can then be directly loaded into the viewer. This could save time and make it easier to complete the task. The Forge API is also 
 				free for us to use during the duration of the project so that would also make a big difference as well. Finally the Forge API offers the most secure option when it comes
 				to converting the users files since it  requires a token authentication to even do the conversion. This token is created as soon as the user visits the website and last for 
 				the duration that the user is on the website. Also with lots of documentation as well as tutorials on how to integrate the API into our application I feel like this option will
 				take the least amount of time to complete the task. 
+
 			\item{Select Option:}
 				I Think that we should use the Forge model derivative API since it seems the most straight forward on how to integrate it into our application. It won't cost us any money
 				to use and has a more secure way of converting the users files. 
 		\end{enumerate}
-	\item{Technology 3}
+	\item{Connecting the users device}
 		\begin{enumerate}
-			\item{Option}
-			\item{Goals}
+			\item{Options:}
+				\begin{itemize}
+					\item Use a QR code plug-in: jquery.qrcode.js is a jquery plug-in that generates a QR code which can be scanned by a user to using a QR scanning application on
+					their device to connect their device to the current web session. Using this would be relatively easy since we would just need to add the library to our project. That
+					means that there wouldn't be a lot of learning time involved in using this option.
+
+					\item QRickit API: This API can dynamically generate QR codes to be used in a web/mobile application. The API is free to use for personal and small business 
+					applications so there would be no cost for us to use it with our project. There is also documentation on how to setup and use the API so this would cut down 
+					on the time that it take to learn how to integrate it into our project. 
+
+					\item QR Code Generator: This is another API that will that will generate a QR code for the us. It can easily be embedded into the web page by putting the 
+					source into an image tag. This API also allow for you to specify how big you want it and allows for different backgrounds to be used. The API also Has all
+					the documentation that is needed to set up and use so the time to integrate this API into the project would be much.  
+			\end{itemize}
 			\item{Criteria being evaluated}
+				\begin{enumerate}
+					\item How much time will it take to integrate into the project: I think that all of the options can pretty easily be integrated into the project. all have 
+					documentation that clearly describes how set-up and use them. Overall I would say that each of them are about the same when it comes to the 
+					amount of time that it will take to integrate them into our project.  
+					\item Will there be a lot of learning involved in using the option: I also feel like that since each of these options has documentation describing how to 
+					use each that the learning involved in each is pretty minimal. 
+					\item Will it connect the users device quickly: each of the should have about the same time to connect the device. The only reason that there would be a 
+					slow down in connecting the users device is if they had a slow Internet connection or if there was a lot of traffic on the website itself. 
+				\end{enumerate}
 			\item{Table?}
-			\item{Discussion}
-			\item{Select Option}
+			\item{Discussion:} Overall I think that all the options are pretty close to one another. All three of the options are pretty straight forward in terms of integrating them
+			into the project.  All three should also connect the users device quickly. The two API options add the ability to customize the QR code, but that really isn't needed for 
+			our project since we just need the QR code to be there so the user can connect their device. 
+			\item{Select Option:} I would say that the plug-in is the best way to go since we can integrate the library directly into our project and not have to worry about making 
+			any calls to an outside API. 
 		\end{enumerate}
 	\item{Technology 4}
 		\begin{enumerate}
