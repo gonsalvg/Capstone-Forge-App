@@ -347,7 +347,7 @@ TABLE OF CONTENTS
 					\item{Web Viewing Experience}
 					\item{VR Viewing Experience}
 					\item{Device and VR system support}
-					\item{
+					\item
 			\end{itemize}
 			
 		\item{Table?}
@@ -356,14 +356,26 @@ TABLE OF CONTENTS
 			\item{Select Option:}
 	\end{enumerate}
 		
-	\item{Technology 7}
+	\item{Forge Authentication}
 		\begin{enumerate}
 			\item{Option}
-			\item{Goals}
+				\begin{itemize}
+					\item OAuth2 is the open standard used in the Forge platform for token-based authentication and authorization. The basic flow for using OAuth commonly begins with an application making an HTTP call to a OAuth REST endpoint and providing its credentials. A token is returned to the application and then subsequent HTTP calls to various APIs on the platform include the token in the request header.
+					\begin{itemize}
+						\item Two-legged authentication: The default and simplest type of authentication. Should be used when an application makes a call to an API that utilizes resources that do not require the user's permission. The only interaction is between the application and the Forge platform. The user does not need to know about the authentication or provide authorization to the application for resource access.
+						\item Three-legged authentication: Used for when an application requires access to resources belonging to an end user, and so that user must provide explicit authorization. For a web application, this will automatically redirect to an Autodesk login page and ask for the user's consent. Then the user is redirected to the application, which is now capable to accessing those resources
+					\end{itemize}
+				\end{itemize}
+			\item{Goals} provides security to data interactions and also to resources that belong to users being exchanged.
 			\item{Criteria being evaluated}
+				\begin{itemize}
+					\item{Whether users will need access to Forge resources}
+					\item{Usability, users have to login and have an Autodesk account}
+				\end{itemize}
 			\item{Table?}
-			\item{Discussion}
-			\item{Select Option}
+			\item{Discussion} There is a slight possibility to be using both. Two-legged for simple users and then three-legged for users with Autodesk accounts. Regardless of whether we accommodate simple users, we definitely will have to use three-legged. This is due to the use of the Forge Data Management API, users who store their files will be using the Forge platform. Thus will have to have users verify our application the permissions to access their files. As for the use of two-legged that will vary depending on what other pieces are added.
+
+			\item{Select Option} : The functionality of the Forge Data Management API revolves around users files so we will definitely have to utilize three-legged.
 		\end{enumerate}
 	\item{Technology 8}
 		\begin{enumerate}
