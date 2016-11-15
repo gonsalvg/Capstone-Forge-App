@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {2.5}Data Management API}{8}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Model Viewer}{9}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}Forge Authentication}{10}{subsection.2.7}
-\contentsline {subsection}{\numberline {2.8}Technology 8}{11}{subsection.2.8}
-\contentsline {subsection}{\numberline {2.9}Technology 9}{11}{subsection.2.9}
-\contentsline {section}{\numberline {3}Conclusion}{11}{section.3}
-\contentsline {section}{\numberline {4}Bibliography}{11}{section.4}
+\contentsline {subsection}{\numberline {2.8}Viewing in VR}{11}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}Technology 9}{12}{subsection.2.9}
+\contentsline {section}{\numberline {3}Conclusion}{12}{section.3}
+\contentsline {section}{\numberline {4}Bibliography}{12}{section.4}
