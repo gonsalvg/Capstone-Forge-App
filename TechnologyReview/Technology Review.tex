@@ -146,11 +146,14 @@ TABLE OF CONTENTS
 
 
 \section{Introduction}
-
+	The Forge VR team (group 20) will be working building on the Vrok-It project. We will be trying to make the site more accessible for users
+	as well as trying to increase the performance of the  of the viewer and the VR experience too. Shawn Cross will be tasked with the file
+	uploading feature, file conversion, and connecting the users device. Griffin Gonsalves will be working on the Website UI Redesig, Data Management API
+	and Model Viewer. Paul Kwak is going to be working on Forge Authentication.
+	
 \section{Technologies}
 
-\begin{enumerate}
-	\item{File Uploading}
+	\subsection{File Uploading}
 		\begin{enumerate}
 			\item{Options}
 				\begin{itemize}
@@ -195,9 +198,9 @@ TABLE OF CONTENTS
 					that it will take to do this. I also think that the use of the file API is better since it is well documented, easy to find examples
 					for, and has many of the features that we wanted built into it.
 		\end{enumerate}
-	\item{File conversion}
+	\subsection{File conversion}
 		\begin{enumerate}
-			\item{Option}
+			\item{Options}
 				\begin{itemize}
 
 					\item accusoft API: This is an API that allows users to convert their CAD files in to raster files such as SVG (scalable vector graphic) files that could 
@@ -241,7 +244,7 @@ TABLE OF CONTENTS
 				I Think that we should use the Forge model derivative API since it seems the most straight forward on how to integrate it into our application. It won't cost us any money
 				to use and has a more secure way of converting the users files. 
 		\end{enumerate}
-	\item{Connecting the users device}
+	\subsection{Connecting the users device}
 		\begin{enumerate}
 			\item{Options:}
 				\begin{itemize}
@@ -267,14 +270,13 @@ TABLE OF CONTENTS
 					\item Will it connect the users device quickly: each of the should have about the same time to connect the device. The only reason that there would be a 
 					slow down in connecting the users device is if they had a slow Internet connection or if there was a lot of traffic on the website itself. 
 				\end{enumerate}
-			\item{Table?}
 			\item{Discussion:} Overall I think that all the options are pretty close to one another. All three of the options are pretty straight forward in terms of integrating them
 			into the project.  All three should also connect the users device quickly. The two API options add the ability to customize the QR code, but that really isn't needed for 
 			our project since we just need the QR code to be there so the user can connect their device. 
 			\item{Select Option:} I would say that the plug-in is the best way to go since we can integrate the library directly into our project and not have to worry about making 
 			any calls to an outside API. 
 		\end{enumerate}
-	\item{Website UI Redesign}
+	\subsection{Website UI Redesign}
 		\begin{enumerate}
 			\item{Options}
 				\begin{itemize}
@@ -293,13 +295,12 @@ TABLE OF CONTENTS
 					\item{Presentation: This would be the look and style of the option. Specifically, whether it looks nice or not.}
 					\item{Learning curve: Having to learn a new framework for web development could take weeks of time. This also factors into the development time.}
 				\end{itemize}
-			\item{Table?}
 			\item{Discussion}
 			
 			Each option provides the advantage of creating a fresh clean interface, but each does so at a significant cost. In weighing the options, using AngularJS would be the best option for the project. Because the site already has a working page, we think it would benefit the project more to spend less time developing the updated UI and more time on the focus of our project. After learning the basics, AngularJS should provide a great interface for our website that improves our development process.
 			\item{Select Option}
 		\end{enumerate}
-	\item{Data Management API}
+	\subsection{Data Management API}
 		\begin{enumerate}
 			\item{Option}
 				\begin{itemize}
@@ -321,14 +322,13 @@ TABLE OF CONTENTS
 					\item{Project asset/Website compatibility: Does the new API work with the rest of the website?}
 					\item{File picking user interface: Does the API's user-interface function for our project?}
 				\end{itemize}
-			\item{Table?}
 			\item{Discussion:}
 			This sounds like a cut and dry choice for the Forge API, as we are already using Autodesk APIs and libraries on the site in addition to other Forge components. Using this API could save development time as the app need only be registered with the Forge service once, and appears relatively trivial to implement in the site. The Microsoft API seems useful, but the OneDrive cloud service is not oriented to provide large files on demand, and configuration seems much more complex. On the other hand, the Google Drive API seems like it could be a suitable backup. The functionality seems slightly more complex, however this would provide cloud access for users on the most used cloud platform.
 			\item{Select Option:}
 			Due to the inertia of using the Forge Collection, I think the best option for the project is to include the Forge Data Management API. It meets each of the criteria for the project and should function as a useful feature when completed. 
 		\end{enumerate}
 		
-	\item{Model Viewer}
+	\subsection{Model Viewer}
 		\begin{enumerate}
 			\item{Option}
 				\begin{itemize}
@@ -350,13 +350,12 @@ TABLE OF CONTENTS
 					\item
 			\end{itemize}
 			
-		\item{Table?}
 			\item{Discussion:}
 			There is a large project codebase that was built on top of this viewer specifically for the project.
 			\item{Select Option:}
 	\end{enumerate}
 		
-	\item{Forge Authentication}
+	\subsection{Forge Authentication}
 		\begin{enumerate}
 			\item{Option}
 				\begin{itemize}
@@ -372,31 +371,26 @@ TABLE OF CONTENTS
 					\item{Whether users will need access to Forge resources}
 					\item{Usability, users have to login and have an Autodesk account}
 				\end{itemize}
-			\item{Table?}
 			\item{Discussion} There is a slight possibility to be using both. Two-legged for simple users and then three-legged for users with Autodesk accounts. Regardless of whether we accommodate simple users, we definitely will have to use three-legged. This is due to the use of the Forge Data Management API, users who store their files will be using the Forge platform. Thus will have to have users verify our application the permissions to access their files. As for the use of two-legged that will vary depending on what other pieces are added.
 
 			\item{Select Option} : The functionality of the Forge Data Management API revolves around users files so we will definitely have to utilize three-legged.
 		\end{enumerate}
-	\item{Technology 8}
+	\subsection{Technology 8}
 		\begin{enumerate}
 			\item{Option}
 			\item{Goals}
 			\item{Criteria being evaluated}
-			\item{Table?}
 			\item{Discussion}
 			\item{Select Option}
 		\end{enumerate}
-	\item{Technology 9}
+	\subsection{Technology 9}
 		\begin{enumerate}
 			\item{Option}
 			\item{Goals}
 			\item{Criteria being evaluated}
-			\item{Table?}
 			\item{Discussion}
 			\item{Select Option}
 		\end{enumerate}
-\end{enumerate}
-
 \section{Conclusion}
 
 \section{Bibliography}
