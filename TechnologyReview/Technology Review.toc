@@ -9,17 +9,16 @@
 \select@language {english}
 \select@language {english}
 \select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\select@language {english}
-\select@language {english}
 \contentsline {section}{\numberline {2}Technologies}{3}{section.2}
-\select@language {english}
-\select@language {english}
-\contentsline {section}{\numberline {3}Conclusion}{10}{section.3}
-\select@language {english}
-\select@language {english}
-\contentsline {section}{\numberline {4}Bibliography}{10}{section.4}
+\contentsline {subsection}{\numberline {2.1}File Uploading}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}File conversion}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Connecting the users device}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Website UI Redesign}{7}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Data Management API}{8}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Model Viewer}{9}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Forge Authentication}{10}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}Technology 8}{11}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}Technology 9}{11}{subsection.2.9}
+\contentsline {section}{\numberline {3}Conclusion}{11}{section.3}
+\contentsline {section}{\numberline {4}Bibliography}{11}{section.4}

@@ -280,15 +280,15 @@ TABLE OF CONTENTS
 		\begin{enumerate}
 			\item{Options}
 				\begin{itemize}
-					\item{Bootstrap}
-					Making the page into a bootstrap styled website would mean porting the existing project to a new source of web files from our existing. Making this change would enable the team to make a simple and clean interface for the website that should still support the existing project content. Bootstrap is completely free and there are even templates available to assist in creation of a project that we may find useful.
-					\item{AngularJS+jQuery}
-					Redesigning the entire site does not require starting from the ground up. We can implement a javascript framework that would help us organize and manage the site. Angular JS would assist us in creating a better interface for the website without that much learning required. Our project is already using javascript to handle much of the project operations, but implementing a framework for the layout and UI should not conflict with the rest of the project.
 					\item{WordPress}
-					WordPress is another high-level framework that can generate a layout for a project. Wordpress has the advantage of using many pre-created templates in order to display a page. Wordpress is highly supported by many browsers, and could simplify the process of creating updates to the site. There is also the added benefit of a very pristine looking webpage without spending too much time developing it.
+					WordPress is a high-level framework that can generate a simple view for a website. Wordpress has the advantage of using many pre-created templates in order to display a page. Wordpress is highly supported by many browsers, and could simplify the process of creating updates to the site. There is also the added benefit of a very pristine looking webpage without spending too much time developing it.
+					\item{AngularJS}
+					Redesigning the entire site does not require starting from the ground up. We can implement a javascript framework that would help us organize and manage the site. Angular JS would assist us in creating a better interface for the website without that much learning required. Our project is already using javascript to handle much of the project operations, but implementing a framework for the interface should not conflict with the rest of the project. Angular is completely free and has plenty of documentation available. There is also the newer edition named Angular 2, but due to the complexity, it may not be advisable to use.
+					\item{ReactJS}
+					React JS is another javascript framework that can generate different views for the page from a special source file. It simplifies javascript programming, in addition to generating simplified code for the project. React is also completely free, and has plenty of documentation and tutorials available online. Mobile browsers also are supported by React.
 				\end{itemize}
 			\item{Goals}
-			Improve organization and visual appeal
+			Improve site layout and visual appeal
 			\item{Criteria being evaluated}
 				\begin{itemize}
 					\item{Development time:  Each different option would potentially take different amounts of time to complete-potentially much longer than we have time for. Evaluating how long it will take to implement is a necessity.}
@@ -296,9 +296,10 @@ TABLE OF CONTENTS
 					\item{Learning curve: Having to learn a new framework for web development could take weeks of time. This also factors into the development time.}
 				\end{itemize}
 			\item{Discussion}
+			Each option provides the advantage of creating a nice interface, but each does so at a cost. Angular could take the longest to learn, and could also be difficult to implement. React has the advantage of creating nicer interfaces at little overhead. It certainly is the most different and could be a challenge to learn, but the resulting pages could bet a great choice for the project. Wordpress, though convenient, will not be able to keep up with our project, and would be challenging to continually update the layout with each change to the project during the development phase.
 			
-			Each option provides the advantage of creating a fresh clean interface, but each does so at a significant cost. In weighing the options, using AngularJS would be the best option for the project. Because the site already has a working page, we think it would benefit the project more to spend less time developing the updated UI and more time on the focus of our project. After learning the basics, AngularJS should provide a great interface for our website that improves our development process.
 			\item{Select Option}
+			In weighing the options, using ReactJS would be the best option for the project. Because the site already has a working page, we think it would benefit the project more to spend less time developing the updated UI and more time on the focus of our project. After learning the basics, ReactJS should provide a great interface for our website that improves our development process.
 		\end{enumerate}
 	\subsection{Data Management API}
 		\begin{enumerate}
@@ -317,7 +318,6 @@ TABLE OF CONTENTS
 			
 			\item{Criteria being evaluated}
 			\begin{itemize}
-					\item{Amount of time to implement}
 					\item{Level of browser/device support: How many modern browsers does the technology support?}
 					\item{Project asset/Website compatibility: Does the new API work with the rest of the website?}
 					\item{File picking user interface: Does the API's user-interface function for our project?}
@@ -325,7 +325,7 @@ TABLE OF CONTENTS
 			\item{Discussion:}
 			This sounds like a cut and dry choice for the Forge API, as we are already using Autodesk APIs and libraries on the site in addition to other Forge components. Using this API could save development time as the app need only be registered with the Forge service once, and appears relatively trivial to implement in the site. The Microsoft API seems useful, but the OneDrive cloud service is not oriented to provide large files on demand, and configuration seems much more complex. On the other hand, the Google Drive API seems like it could be a suitable backup. The functionality seems slightly more complex, however this would provide cloud access for users on the most used cloud platform.
 			\item{Select Option:}
-			Due to the inertia of using the Forge Collection, I think the best option for the project is to include the Forge Data Management API. It meets each of the criteria for the project and should function as a useful feature when completed. 
+			Due to the inertia behind our project using the Forge Collection, I think the best option for the project is to include the Forge Data Management API. It meets each of the criteria for the project and should function as a useful feature when completed. 
 		\end{enumerate}
 		
 	\subsection{Model Viewer}
@@ -333,12 +333,12 @@ TABLE OF CONTENTS
 			\item{Option}
 				\begin{itemize}
 					\item{Forge Large Model Viewer: This is the current system in place for the project. Created by Autodesk, the LMV allows for larger project files to be viewed and manipulated in-browser, and on mobile for most modern smartphones. The viewer is placed in the web document as a window.}
-					\item{WebVR Rendering: A very new initiative from Mozilla that provides high performance graphics on the web aimed at new VR devices. The system supports different mobile devices and is also supported on mobile web browsers. The software is implemented within the project as a library.}
-					\item{Unity 3D: Unity provides another method of }
+					\item{WebVR Rendering: A very new initiative from Mozilla that provides high performance graphics on the web aimed at supporting many new VR devices, including Google Cardboard. The system supports different mobile devices and is also supported on mobile web browsers. The software is implemented within the project as a library. }
+					\item{Unity 3D: Unity provides another method of 3D model viewing for browsers. The Unity Web Player is capable of detailed 3D projects in a web browser, including full 3D games, models, and more. Unity has also recently provided support for the Oculus Rift. However, the software is built upon the same OpenGL renderer as both WebVR and the LMV. }
 		
 				\end{itemize}
 			\item{Goals}
-			Provide a viewing interface in which to view a 3D model.
+			Provide a viewing interface in which to view a 3D model in-browser.
 			
 			\item{Criteria being evaluated:}
 			
@@ -347,12 +347,12 @@ TABLE OF CONTENTS
 					\item{Web Viewing Experience}
 					\item{VR Viewing Experience}
 					\item{Device and VR system support}
-					\item
 			\end{itemize}
 			
 			\item{Discussion:}
-			There is a large project codebase that was built on top of this viewer specifically for the project.
+			There is a large project codebase that was built on top of the Large Model Viewer specifically for the project. Moving to a different 3D/VR framework would take considerable work and commitment for the project as a whole, but could potentially bring more support and features to the project that we could use. WebVR by far seems the most advanced, high-quality and broad ranging in terms of device and browser support, but with the disadvantage of having nearly no documentation or tutorials. Unity provides a very easy to use web model viewer, but only has support for a single VR headset, which would fail to meet the Device and VR system support criteria. 
 			\item{Select Option:}
+			Currently the best option for our project at the moment would be the Large Model Viewer. Granted that both webVR and Unity support high quality models that can be inpsected closely, the amount of the project that currently relies on the LMV would be too large of a task to make the jump to a newer framework at this point given the alternatives. Through communication with our sponsor, we may be able to use a different framework later down the line, as there could be a new API to use. Currently, it does not seem sufficiently justified 
 	\end{enumerate}
 		
 	\subsection{Forge Authentication}
