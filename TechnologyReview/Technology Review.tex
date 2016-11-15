@@ -372,45 +372,25 @@ TABLE OF CONTENTS
 					\item{Usability, users have to login and have an Autodesk account}
 				\end{itemize}
 			\item{Discussion} There is a slight possibility to be using both. Two-legged for simple users and then three-legged for users with Autodesk accounts. Regardless of whether we accommodate simple users, we definitely will have to use three-legged. This is due to the use of the Forge Data Management API, users who store their files will be using the Forge platform. Thus will have to have users verify our application the permissions to access their files. As for the use of two-legged that will vary depending on what other pieces are added.
+
 			\item{Select Option} : The functionality of the Forge Data Management API revolves around users files so we will definitely have to utilize three-legged.
 		\end{enumerate}
-
-	\subsection{Viewing in VR}
+	\subsection{Technology 8}
 		\begin{enumerate}
 			\item{Option}
-				\begin{itemize}
-					\item
-					Google Cardboard: Costs \$15. Turns any mobile device into a 3 dimensional viewing environment. Putting the phone into the contraption and using compatible apps allows a VR viewing experience. When porting in model files via QR code the issue is getting the files into format that makes them VR. There are a number of applications available for free that do this so the process might be very simple and definitely already exists.
-					\item
-					Costs \$599. A mobile VR viewer already exists that has CAD file viewing. However, costs money to use and is still a work in progress. Porting Solidworks CAD files directly into Unity is possible and works but does not utilize the flow we are using. Another avenue with might be to use an application under the sketchfab VR umbrella.
-					\item	
-					Costs \$1,500. Requires a PC to either view on, but also requires the user's phone to have bluetooth if the user wishes to use the phone. With this option also changes the flow for the project. CAD files can be exported from Solidworks into a .3DS format. The .3DS format can be directly imported into Unity which then has Vive support and allows for viewing via that. 
-				\end{itemize}
-			\item{Goals} display our adjusted model in VR while maintaining the smoothest possible viewing experience.
+			\item{Goals}
 			\item{Criteria being evaluated}
-				\begin{itemize}
-					\item
-					Cost/Accessibility
-					\item	
-					Documentation for each
-					\item	
-					How well does it fit within our established system.					
-				\end{itemize}
-			\item{Table?}
-			\item{Discussion}: Google Cardboard has several advantages. First off it's incredibly cheap price, will allow for greater accessibility. Especially for developers, each us will be able to use our own and testing models should be easy. Second is the high number of application that display models and their easy access (free). This gives us an easy way to compare our work, framerate wise. Finally since our current setup utilizes Vrot.it and already had a QR scanner to port the models to our phones. It becomes a matter of adjusting the model and then using the VR format Cardboard uses to get our desired VR model. Oculus and Vive come with the advantage of having higher hardware to work with. Our need to detect hardware becomes less of an issue since both work with PC's and then display to the phone via other methods. This comes at their high cost and additionally the applications out for those options don't utilize our current setup. In fact would change our setup completely since they alleviate the need to even upload files and just change our problem to converting CAD files to work with Unity. 
-			\item{Select Option}: Google Cardboard is significantly cheaper and perfectly fits within the way we have setup in order to utilize what we have. 
+			\item{Discussion}
+			\item{Select Option}
 		\end{enumerate}
 	\subsection{Technology 9}
 		\begin{enumerate}
 			\item{Option}
 			\item{Goals}
 			\item{Criteria being evaluated}
-			\item{Table?}
 			\item{Discussion}
 			\item{Select Option}
 		\end{enumerate}
-
-
 \section{Conclusion}
 After our technology review, we have made some important evaluations on our project and its different components. For many components, we decided it was best if we continued using some of the technologies from the original project, in addition to focusing on utilizing new API's and frameworks that fit the goals of our project. We are planning on potentially adding an updated version of the Forge Large Model Viewer that is currently being developed.
 
