@@ -216,10 +216,8 @@ Section\ \ Page}
 	access to software that supports CAD files.  
 
 \subsection{Scope}
-	The scope of this project includes developing new software solutions over the course of roughly 3 months. This software
- 	should allow for the upload of a 3D model file to be viewed in browser and then also into a VR environment. Having a 
-	platform that allows for simple 3D viewing on screen into a transition to VR would allow many to have access to such 
-	functionality. 
+	The scope of this project includes developing a new website hosting a web application.
+ 	This software should allow for the upload of a explorable 3D model file to be viewed in browser and then also into a VR environment. This project also aims to reduce barriers from uploading and viewing files by implementing the Forge API in order to improve the user experience.
 
 \subsection{DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
 	\begin{description}
@@ -228,16 +226,21 @@ Section\ \ Page}
 	\item{CAD file} The type of files that can be uploaded to the website for viewing in the Forge viewer.
 	We will  narrow down what types of files can be used as we progress through the development process.
 
-	\item{FORGE} A collection of CAD API services provided by Autodesk.
+	\item{FORGE} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
 
-	\item{Forge Viewer} This is one of the Forge APIs. It displays 3D models from CAD files and also allows
+	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and also allows
 	for user interaction.
-
+	
+	\item{Model Derivative API} This is another API in Forge. It can generate different filetypes that we can utilize in the application.
+	
 	\item{VR} Acronym for virtual reality, typically a peripheral device or smartphone
+	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
 	\end{description} 
 	
 \subsection{REFERENCES}
 %Sources}
+
+%TODO
 % maybe use a bibtex file for this when closer to completion
 	\begin{flushleft}
 	\url{https://developer.autodesk.com/}\newline
@@ -253,41 +256,50 @@ Section\ \ Page}
 
 \subsection{PRODUCT PERSPECTIVE}
 	The product would be jump-started from the Vrok-It platform that has already been created. 
-	We would adding features to the product that will enhance the overall usability of the current system. 
+	We are to create a new site with some of these assets in order to provide a new experience focused on exploring a model in 3D. 
 
 \subsection{PRODUCT FUNCTIONS}
 	\begin{enumerate}
-	 	\item The user is able to pick from a list of 3D models or upload one of their own CAD files.
-		\item Once a model is chosen or a file is uploaded the 3D models will be seen in the Forge viewer at the 
-		center of the website.
-		\item "Viewable" 3D models can be interacted with by the user in the Forge viewer in multiple ways.
+	 	\item The user is able to choose a model file locally or upload one from another cloud service.
+	 	
+		\item Once a model is chosen or a file is uploaded the 3D models will be seen in the Forge viewer at the center of the website.
+		
+		\item The user will have the ability to connect a smartphone to the website through the use of a QR scanner.
 
-		\item The user will have the ability to connect a smartphone to the website through the use of a QR scanner
-		and web servers.
-
-		\item Once connected to a smartphone, the current model should be able to be viewed in VR with a the use
-		of a VR headset such as Google Cardboard. 
+		\item Once connected to a smartphone the model should be able to be viewed in VR with a the use of a VR headset such as Google Cardboard, if supported. 
+		
+		\item "Viewable" 3D models can be interacted with by the user in the Forge viewer.		
 	\end{enumerate}
 
 \subsection{USER CHARACTERISTICS}
-	When finished this product should be usable by anyone that has access to a CAD file. If the user is want to use the VR 
+	%perhaps easier if itemized
+	When finished this product should be usable by anyone that has access to a model file. If the user is wanting to use the VR 
 	portion of the website then they will need access to some VR headset. If the user does have access to a VR headset they 
-	should not need any extra Knowledge other than how to use the headset.  
+	should not need any extra knowledge other than how to use the headset.  
 
 \subsection{SYSTEM LEVEL (NON-FUNCTIONAL) REQUIREMENTS}
 
 \subsubsection{Software Interfaces}
-	Interface between the computer and the website, for the uploading of CAD models from a user's hard drive into the 
-	website for viewing. Input will be CAD models while the output will be the website window in which the users model 
-	is displayed. Interface between the website and the device the user wishes to view the model on. Currently vrok.it uses a 
-	QR code to accomplish this-Input is the QR code scanned by the phone, output is the manipulatable model in a environment 
-	for viewing. The User interface for viewing model on smartphone is another interface. A user's touchscreen that gathers 
-	input and the output is the manipulation they make to the model.
+	\begin{itemize}
+		\item Interface between the computer and the website, for the uploading of models from a user's local machine into the 
+	website for viewing. 
+	
+		\item Input will be any 3D model which is sent to the model derivative api to be converted to SVF, then to the Forge Viewer where it is displayed.
+
+	
+		\item Interface between the website and the device the user wishes to view the model on. Currently vrok.it uses a QR code to accomplish this-Input is the QR code scanned by the phone, output is the manipulatable model in an environment 
+	for viewing. 
+	\end{itemize}
+	
 
 \subsubsection{User Interfaces}
-	The main user interface will be the website(TBD) in which the user will be able to upload a CAD model and then view it in 
-	the Forge viewer at the center of the webpage. The user will be able interact with the model through use of their 
-	mouse. They will have options to rotate the model look at an exploded view of the model, along with other options. 
+
+	\begin{itemize}
+		\item The main user interface will be the web application in which the user will be able to upload a  model and then view it in the Forge viewer on the  webpage. 
+		\item The user will be able interact and manipulate the model inside the viewer using an interface. This interface can rotate, move, or explode a model.
+		\item On a smartphone, the webpage loads a compact version of the main site. 
+		\item The viewer on the smartphone is fullscreen when connected, and has similar manipulation methods like the webpage.
+	\end{itemize}
 
 \section{SPECIFIC REQUIREMENTS}
 \bigskip
@@ -298,7 +310,7 @@ Section\ \ Page}
 \subsubsection{File Uploading}
 
 \begin{enumerate}
-	\item This will allow the user to be able to upload any CAD files in which they have access to the website.
+	\item This will allow the user to be able to upload any models if they have access to the website.
 
 	\item
 	\begin{description} 
@@ -306,10 +318,10 @@ Section\ \ Page}
 		\item[Output] Finishing the upload process the model that was in the file should now be viewable on the website. 
 	\end{description}
 	
-	\item The file must be a CAD specific file and the user must have access to it on their machine. 
+	%\item The file must be a model specific file and the user must have access to it on their machine. 
 
-	\item	The file must be able to be uploaded in a reasonable amount of time depending on the size 
-	of the file. This should take at most 1 minute. 
+	%\item	The file must be able to be uploaded in a reasonable amount of time depending on the size 
+	%of the file. This should take at most 1 minute. 
 
 	\item
 	\begin{enumerate}
