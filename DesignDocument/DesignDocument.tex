@@ -24,10 +24,11 @@
 \hypersetup{pdftex, colorlinks=true, linkcolor=black, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=SYSTEMS AND SOFTWARE REQUIREMENTS SPECIFICATION (SSRS) TEMPLATE, pdfauthor=Clinton Jeffery, pdfsubject=, pdfkeywords=}
 \usepackage[pdftex]{graphicx}
 % Outline numbering
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{4}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
 \renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand\theparagraph{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
 
 \parindent0pt
 \parskip 1.5ex plus 0.2ex minus 0.1ex
@@ -139,7 +140,7 @@ TABLE OF CONTENTS
 
 \bigskip
 
-\setcounter{tocdepth}{9}
+\setcounter{tocdepth}{2}
 \renewcommand\contentsname{}
 \tableofcontents
 
@@ -147,11 +148,181 @@ TABLE OF CONTENTS
 \clearpage
 
 
-\section{Section 1}
-	
-\section{Section 2}
+\section{Overview}
 
-\section{Section 3}
+\subsection{Scope}
+
+\subsection{Purpose}
+
+\subsection{Intended audience}
+
+\subsection{conformance}
+
+\section{Definitions}
+	%\begin{description}
+	%\end{description}
+	
+\section{Conceptual model for software design descriptions}
+
+\subsection{Software design in context}
+
+\subsection{Software design description within the life cycle}
+
+\subsubsection{Influences on SDD preparation}
+
+\subsubsection{influences on software life cycle products}
+
+\subsubsection{Design verification and design role validation}
+
+\section{Design description information content}
+
+\subsection{Introduction}
+
+\subsection{SDD identification}
+
+\subsection{Design stakeholders and their concerns}
+
+\subsection{Design views}
+
+\subsection{Design viewpoints}
+
+\subsection{Design elements}
+
+\subsubsection{Design entities}
+
+\subsubsection{Design attributes}
+
+\paragraph{Name attribute}
+
+\paragraph{Type attribute}
+
+\paragraph{Purpose attribute}
+
+\paragraph{Author attribute}
+
+\subsubsection{Design relationships}
+
+\subsubsection{Design constraints}
+
+\subsection{Design overlays}
+
+\subsection{Design rationale}
+
+\subsection{Design languages}
+
+\section{Design viewpoints}
+
+\subsection{Introduction}
+
+\subsection{Context viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Example languages}
+
+\subsection{composition viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\paragraph{Function attributes}
+
+\paragraph{Subordinates attributes}
+
+\subsubsection{Example languages}
+
+\subsection{Logical viewpoints}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Example languages}
+
+\subsection{Dependency viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\paragraph{Dependencies attribute}
+
+\subsubsection{Example languages}
+
+\subsection{Information viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\paragraph{Data attribute}
+
+\subsubsection{Example languages}
+
+\subsection{Patterns use viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Example languages}
+
+\subsection{Interface viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\paragraph{Interface attribute}
+
+\subsubsection{Example languages}
+
+\subsection{Structure viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Example languages}
+
+\subsection{Interaction viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Examples}
+
+\subsection{State dynamics viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Example languages}
+
+\subsection{Algorithm viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\subsubsection{Processing attribute}
+
+\subsubsection{Examples}
+
+\subsection{Resource viewpoint}
+
+\subsubsection{Design concerns}
+
+\subsubsection{Design elements}
+
+\paragraph{Resources attributes}
+
+\subsubsection{Examples}
 
 %\bibliography{bibfile}
 %\bibliographystyle{IEEETran}
