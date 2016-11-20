@@ -210,14 +210,17 @@ Section\ \ Page}
 
 \section{Introduction}
 	The system being developed is intended to be a place in which users with CAD files can go and easily view those files 
-	in both a 3D viewer and optionally in VR. This provides a solution to those who don't have access to expensive CAD 
-	programs or fancy VR headsets as it will be a free to use web services that is usable with entry level VR equipment. 
-	The intended user for this project is a person that would likely not experienced with CAD software and would not have 
+	in both a 3D viewer and optionally in VR. The user will also be able to move through the models depending on the model 
+	that they are currently viewing. This provides a solution to those who don't have access to an expensive CAD 
+	programs or fancy VR headsets as it will be a free to use web services that is usable with entry level VR equipment such as
+	Google cardboard. The intended user for this project is a person that would likely not experienced with CAD software and would not have 
 	access to software that supports CAD files.  
 
 \subsection{Scope}
 	The scope of this project includes developing a new website hosting a web application.
- 	This software should allow for the upload of a explorable 3D model file to be viewed in browser and then also into a VR environment. This project also aims to reduce barriers from uploading and viewing files by implementing the Forge API in order to improve the user experience.
+ 	This software should allow for the upload of a explorable 3D model file to be viewed in browser as well as in a VR environment. 
+	This project also aims to reduce barriers from uploading and viewing files by implementing different Forge APIs in order to improve the user 
+	overall experience while using the website.
 
 \subsection{DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
 	\begin{description}
@@ -260,21 +263,21 @@ Section\ \ Page}
 
 \subsection{PRODUCT FUNCTIONS}
 	\begin{enumerate}
-	 	\item The user is able to choose a model file locally or upload one from another cloud service.
+	 	\item The user is able to choose a CAD model file locally or upload one from another cloud service.
 	 	
 		\item Once a model is chosen or a file is uploaded the 3D models will be seen in the Forge viewer at the center of the website.
 		
-		\item The user will have the ability to connect a smartphone to the website through the use of a QR scanner.
+		\item The user will have the ability to connect a smartphone device to the website through the use of a QR scanner.
 
-		\item Once connected to a smartphone the model should be able to be viewed in VR with a the use of a VR headset such as Google Cardboard, if supported. 
+		\item Once the user has connected their a smartphone the model should be able to be viewed in VR with a the use of a VR headset such as Google Cardboard, if supported. 
 		
-		\item "Viewable" 3D models can be interacted with by the user in the Forge viewer.		
+		\item "Viewable" 3D models can be interacted with by the user in the Forge viewer in several different ways.		
 	\end{enumerate}
 
 \subsection{USER CHARACTERISTICS}
 	%perhaps easier if itemized
-	When finished this product should be usable by anyone that has access to a model file. If the user is wanting to use the VR 
-	portion of the website then they will need access to some VR headset. If the user does have access to a VR headset they 
+	When finished this product should be usable by anyone that has access to a CAD model file. If the user is wanting to use the VR 
+	portion of the website then they will need access to some sort of VR headset. If the user does have access to a VR headset they 
 	should not need any extra knowledge other than how to use the headset.  
 
 \subsection{SYSTEM LEVEL (NON-FUNCTIONAL) REQUIREMENTS}
@@ -296,9 +299,10 @@ Section\ \ Page}
 
 	\begin{itemize}
 		\item The main user interface will be the web application in which the user will be able to upload a  model and then view it in the Forge viewer on the  webpage. 
-		\item The user will be able interact and manipulate the model inside the viewer using an interface. This interface can rotate, move, or explode a model.
+		\item The user will be able interact and manipulate the model inside the viewer using an interface. This interface can rotate, move, show an exploded view of the model, and more.
 		\item On a smartphone, the webpage loads a compact version of the main site. 
-		\item The viewer on the smartphone is fullscreen when connected, and has similar manipulation methods like the webpage.
+		\item The viewer on the smartphone is fullscreen when connected, and will be manipulated the same way the webpage is currently manipulating the model.
+		\item The user will be able to navigate through the model in VR using a VR headset.
 	\end{itemize}
 
 \section{SPECIFIC REQUIREMENTS}
@@ -310,7 +314,7 @@ Section\ \ Page}
 \subsubsection{File Uploading}
 
 \begin{enumerate}
-	\item This will allow the user to be able to upload any models if they have access to the website.
+	\item This will allow the user to be able to upload any models that they have access to the website.
 
 	\item
 	\begin{description} 
@@ -362,18 +366,19 @@ Section\ \ Page}
 
 \begin{enumerate}
 
-	\item Connecting a users phone to the Vrok-It website is needed so that the user will be able to view their model in a VR environment. 
+	\item This will enable the users to connect their phone to the Vrok-It website. This is needed so that the user will be able to view their model in a VR environment through the use of their phone and a compatible VR headset. 
 
 	\item
 	\begin{description}
-		\item[Input] The user scans the QR code on the website with a QR application on their phone. 
-		\item[Output] The model that is currently in the Forge viewer on the website will now be displayed on the phone. 
+		\item[Input] The user will scan a QR code located on the main page of website with a QR scanning application on their phone. 
+		\item[Output] The model that is currently loaded into the Forge viewer on the website will now be displayed on the phone and ready to
+		be viewed in VR. 
 	\end{description}
 
-	\item The user must have a smartphone that is capable of using a QR scanning application. The phone also has access to an Internet 
-	connection. 
+	\item The user must have a device that is capable of using a QR scanning application. The phone also has access to an Internet 
+	connection to be able to connect to the websites current session. 
 	
-	If the user opts to view the model in VR, then a VR solution is required for the user's device.
+	If the user opts to view the model in VR, then a VR headset is also required for the user's device.
 
 	\item The phone should be connected to the website within a few seconds. This might vary depending on how good of an Internet 
 	connection the user currently has. 
@@ -427,7 +432,8 @@ Section\ \ Page}
 	\item
 	\begin{itemize}
 		\item The files should load in a viewable format.
-		\item The files should only be visible if they are viewable.
+		\item The files should only be visible if they are viewable if not the user should be notified that the file
+			they were trying to upload was unable to be used.
 	\end{itemize}
 	
 	\item 
@@ -443,27 +449,29 @@ Section\ \ Page}
 \subsubsection{Model Derivative}
 
 \begin{enumerate}
-	\item With the use of the Forge Model Derivative API users should be able to convert any source files that they have into SVF format
-	so that they can be displayed in the Forge viewer.
+	\item With the use of the Forge Model Derivative API users should be able to convert any CAD files that they have access to into the SVF format
+	that is used by the viewer so that they can be displayed in the Forge viewer.
 	
 	\item
 	\begin{description}
-		\item[Input] The user will upload a source file that they want to convert. 
-		\item[Output] The model derivative API will take the source file and return the converted file.
+		\item[Input] The user will upload a CAD drawing file that they want to convert to an SVF file. 
+		\item[Output] This should then return the correctly converted SVF file and it should now appear in the list of 
+		viewable models on the website. If the conversion fails the user should be notified of the failure.
 	\end{description}
 
 	\item
 	\begin{itemize}
-		\item The authentication API must have created a Token for the API to use.
-		\item Must use appropriate CAD source files. 
+		\item The authentication API must have created a Token for the model derivative API to use.
+		\item The user must have used the proper CAD files to be converted. 
 	\end{itemize}
 
-	\item The program should clearly display viewable files.
+	\item The program should clearly display the model in the list of viewable models.
 
 	\item
 	\begin{enumerate}
 		\item The website must allow users to take their CAD source files and convert them to a file that will be usable in the
 	Forge viewer. 
+		\item The website should notify if the file conversion has failed.
 	\end{enumerate}   
 \end{enumerate}
 %End of feature 6
