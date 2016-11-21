@@ -216,7 +216,7 @@ Section\ \ Page}
 \subsection{Scope}
 	The scope of this project includes developing a new website hosting a web application.
  	This software should allow for the upload of a 3D model file to be viewed in browser as well as in a VR environment. 
-	This project also aims to reduce barriers from uploading and viewing files by implementing different Forge APIs in order to improve the user 
+	This project also aims to reduce barriers from uploading and viewing files by implementing different Forge APIs in order to improve the users 
 	overall experience while using the website.
 
 \subsection{DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}
@@ -280,7 +280,6 @@ Section\ \ Page}
 	website for viewing. 
 	
 		\item Input will be any 3D model which is sent to the model derivative api to be converted to SVF, then to the Forge Viewer where it is displayed.
-
 	
 		\item Interface between the website and the device the user wishes to view the model on. Currently vrok.it uses a QR code to accomplish this-Input is the QR code scanned by the phone, output is the manipulatable model in an environment 
 	for viewing. 
@@ -313,17 +312,14 @@ Section\ \ Page}
 		\item[Input] The user will select a file from their computer that they would like to upload to the website. 
 		\item[Output] Finishing the upload process the model that was in the file should now be viewable on the website. 
 	\end{description}
-	
-	%\item The file must be a model specific file and the user must have access to it on their machine. 
-
-	%\item	The file must be able to be uploaded in a reasonable amount of time depending on the size 
-	%of the file. This should take at most 1 minute. 
 
 	\item
 	\begin{enumerate}
 		\item The user should be able to upload his/her file to the website using a standard pop-up window.
 		\item The software must determine if the file is a reasonable size(<50MB), and is an accepted format. 
 		\item After the file is uploaded, it is then made available to the other components of the software to be used.
+		\item Users should be notified if their file was unable to be uploaded.
+		\item The uploaded file should be displayed in the list of usable models on the webpage.
 	\end{enumerate}
 \end{enumerate}
 %end of upload feature
@@ -345,8 +341,9 @@ Section\ \ Page}
 	\item The model should be displayed in full in the Forge viewer and should not be hard to interact with. 
 
 	\begin{enumerate}
-		\item The Forge viewer will present the user's model in a window set into the webpage. 
-		\item This window must be interactive, and display the user's model correctly. 
+		\item The viewer will be displayed at the center of the wepage.
+		\item Once the user has selected a model for viewing or uploaded their own model, it will be displayed in the viewer. 
+		\item This window must be interactive, and display the user's model correctly.
 		\item The viewer should be able to display a reasonably sized(<50MB) model. 
 	\end{enumerate}
 \end{enumerate}
@@ -427,6 +424,7 @@ Section\ \ Page}
 	
 	\item 
 	\begin{enumerate}
+		\item A place where users can enter information to gain access to their outside files. %%%%
 		\item The website give users the option to access their A360 and Fusion 360 accounts. 
 		\item This should be done through the use of the Forge Data Management API. 
 		\item Once the user has access to these accounts they should then be able to obtain the 
@@ -438,8 +436,8 @@ Section\ \ Page}
 \subsubsection{Model Derivative}
 
 \begin{enumerate}
-	\item With the use of the Forge Model Derivative API users should be able to convert any CAD files that they have access to into the SVF format
-	that is used by the viewer so that they can be displayed in the Forge viewer.
+	\item With the use of the Forge Model Derivative API any of the files that the user uploads will be converted into SVF files
+	that are used by the model viewer
 	
 	\item
 	\begin{description}
@@ -458,9 +456,9 @@ Section\ \ Page}
 
 	\item
 	\begin{enumerate}
-		\item The website must allow users to take their CAD source files and convert them to a file that will be usable in the
-	Forge viewer. 
-		\item The website should notify if the file conversion has failed.
+		\item The website will take the files that have been uploaded by the user and convert them to the appropriate file
+		format.
+		\item The website should notify the user if the file conversion has failed.
 	\end{enumerate}   
 \end{enumerate}
 %End of feature 6
@@ -517,12 +515,13 @@ Section\ \ Page}
 	\begin{enumerate}
 		\item The VR model viewer displayed on the Android device must be supported on Google Cardboard's lenses. 
 		\item The model must be tracked properly in the model viewer. 
-		\item The model viewer on the mobile device can be controlled by the webpage. 
-		\item The user should be able to move through the model. 
+		\item The model displayed on the users devices should mimic any interaction that happens to the model on the webpage.
+		\item The user should have the ability to navigate through the model. 
 	\end{enumerate} 
 \end{enumerate}
 %end of feature 8
 
+\begin{comment}
 \subsubsection{Website Redesign}
 
 \begin{enumerate}
@@ -536,6 +535,7 @@ Section\ \ Page}
 		
 \end{enumerate}
 %end of feature 9
+\end{comment}
 
 \clearpage
 \section[GANTT CHART/SIGNATURES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
