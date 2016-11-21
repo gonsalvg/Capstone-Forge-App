@@ -74,7 +74,8 @@
 \date{2016-11-3}
 
 
-
+%\usepackage{etoolbox}
+%\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 \begin{document}
 
 \clearpage\setcounter{page}{1}\pagestyle{Standard}
@@ -229,7 +230,7 @@ Section\ \ Page}
 	\item{CAD file} The type of files that can be uploaded to the website for viewing in the Forge viewer.
 	We will  narrow down what types of files can be used as we progress through the development process.
 
-	\item{FORGE} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
+	\item{FORGE}~\cite{forge2016} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
 
 	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and also allows
 	for user interaction.
@@ -239,26 +240,19 @@ Section\ \ Page}
 	\item{VR} Acronym for virtual reality, typically a peripheral device or smartphone
 	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
 	\end{description} 
+
+\clearpage
 	
-\subsection{REFERENCES}
-%Sources}
-
-%TODO
-% maybe use a bibtex file for this when closer to completion
-	\begin{flushleft}
-	\url{https://developer.autodesk.com/}\newline
-
-	\url{https://github.com/KeanW/vr-party}\newline
-
-	\url{Vrok.it}\newline
-	\end{flushleft}
+%\subsection{REFERENCES}
+\bibliography{bibfile}
+\bibliographystyle{IEEETran}
 
 \clearpage
 
 \section{OVERALL DESCRIPTION}
 
 \subsection{PRODUCT PERSPECTIVE}
-	The product would be jump-started from the Vrok-It platform that has already been created. 
+	The product would be jump-started from the Vrok-It~\cite{Vrok-It2016} platform that has already been created. 
 	We are to create a new site with some of these assets in order to provide a new experience focused on exploring a model in 3D. 
 
 \subsection{PRODUCT FUNCTIONS}
@@ -350,10 +344,8 @@ Section\ \ Page}
 
 	\item The model must not be so large or detailed that the website can not render it.
 
-
 	\item The model should be displayed in full in the Forge viewer and should not be hard to interact with. 
 
-	\item 
 	\begin{enumerate}
 		\item The Forge viewer will present the user's model in a window set into the webpage. 
 		\item This window must be interactive, and display the user's model correctly. 
@@ -476,6 +468,7 @@ Section\ \ Page}
 \end{enumerate}
 %End of feature 6
 
+\begin{comment}
 \subsubsection{Hardware Detection}
 
 \begin{enumerate}
@@ -504,16 +497,18 @@ Section\ \ Page}
 	\end{enumerate}
 \end{enumerate}
 %end of feature 7
+\end{comment}
 
-\subsubsection{Google Cardboard}
+\subsubsection{VR device support}
 
 \begin{enumerate}
-	\item View the model on the user's device in VR using peripherals such as Google Cardboard.   
+	\item View the model currently in the viewer in a VR environment using a VR headset such as Google cardboard. The user should also
+	be able move through the model in VR. This could be extended to higher end VR devices latter if time permits.
 
 	\item
 	\begin{description}
-		\item[input] A functioning model uploaded to the project site.
-		\item[Output] A model displayed on the user's device.
+		\item[input] A functioning model uploaded to the project site and displayed in the viewer.
+		\item[Output] A model displayed on the user's device that is ready to be viewed with a VR headset.
 	\end{description}
 
 	\item Depends heavily on hardware on the device that the user is using. Devices with low-end hardware will likely not be able to 
@@ -526,6 +521,7 @@ Section\ \ Page}
 		\item The VR model viewer displayed on the Android device must be supported on Google Cardboard's lenses. 
 		\item The model must be tracked properly in the model viewer. 
 		\item The model viewer on the mobile device can be controlled by the webpage. 
+		\item The user should be able to move through the model. 
 	\end{enumerate} 
 \end{enumerate}
 %end of feature 8
@@ -559,10 +555,6 @@ Section\ \ Page}
 \section[GANTT CHART/SIGNATURES]{\selectlanguage{english}\rmfamily\bfseries\color{black}
 GANTT CHART \& SIGNATURES}
 
-
-	
-
-%\begin{comment}
 \newpage
 \null
 \vfill
@@ -571,7 +563,6 @@ GANTT CHART \& SIGNATURES}
 
 
 	\begin{Form}
-		%\digsigfield{14cm}{3cm}{Sign Here} 	
 		\rule{5in}{.4mm}\\
 			Patti Vrobel\hspace{60ex}Date
 	\end{Form}
@@ -592,36 +583,5 @@ GANTT CHART \& SIGNATURES}
 	Paul Kwak\hspace{61ex}Date
 
 \end{flushleft}
-%\end{comment}
-
-\begin{comment}
-\paragraph[Introduction/Purpose of this
-feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
-Introduction/Purpose }
-	The user should be able to see the model that they have chosen or uploaded to the site in the Forge viewer. They 
-	should also be able to interact with that model in the Forge viewer. 
-
-\paragraph[Input/Output sequence for this
-feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
-Input/Output sequence }
-	The user will chose from the list of predefined models or upload their own model. The model will now be view able in the large 
-	model viewer and the user should be able to interact with that model.
-
-\paragraph[Design constraints of this
-feature]{\selectlanguage{english}\rmfamily\bfseries\color{black} Design constraints }
-	The model must not be so large or detailed that the website can not render it.
-
-
-\paragraph[Performance requirements of this
-feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
-Performance requirements }
-	The model should be displayed in full in the Forge viewer and should not be hard to interact with. 
-
-\paragraph[Detailed functional requirements of this
-feature]{\selectlanguage{english}\rmfamily\bfseries\color{black}
-Detailed functional requirements }
-	The Forge viewer will present the user's model in a window set into the webpage. This window must be interactive, and display the 
-	user's model correctly. The viewer should be able to display a reasonably sized(<50MB) model. 
-\end{comment}
 
 \end{document}
