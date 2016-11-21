@@ -210,16 +210,12 @@ Section\ \ Page}
 \clearpage
 
 \section{Introduction}
-	The system being developed is intended to be a place in which users with CAD files can go and easily view those files 
-	in both a 3D viewer and optionally in VR. The user will also be able to move through the models depending on the model 
-	that they are currently viewing. This provides a solution to those who don't have access to an expensive CAD 
-	programs or fancy VR headsets as it will be a free to use web services that is usable with entry level VR equipment such as
-	Google cardboard. The intended user for this project is a person that would likely not experienced with CAD software and would not have 
-	access to software that supports CAD files.  
+	The system being developed is intended to be a place in which users with CAD files can go and easily view and explore those files in both a 3D viewer and optionally in VR. The user will also be able to move through the models depending on the model that they are currently viewing. This provides a solution to those who don't have access to an expensive CAD program or VR headset as it will be a free to use web application that is usable with inexpensive VR equipment such as Google cardboard. This app is aimed at people that would want to explore a 3D model without any experience with VR or a CAD program.
+ 
 
 \subsection{Scope}
 	The scope of this project includes developing a new website hosting a web application.
- 	This software should allow for the upload of a explorable 3D model file to be viewed in browser as well as in a VR environment. 
+ 	This software should allow for the upload of a 3D model file to be viewed in browser as well as in a VR environment. 
 	This project also aims to reduce barriers from uploading and viewing files by implementing different Forge APIs in order to improve the user 
 	overall experience while using the website.
 
@@ -227,7 +223,7 @@ Section\ \ Page}
 	\begin{description}
 	\item{CAD} Computer Aided design is software used to design and view 3D models.
 
-	\item{CAD file} The type of files that can be uploaded to the website for viewing in the Forge viewer.
+	\item{CAD file} The type of files that can be uploaded to the website for viewing in the Forge viewer. 
 	We will  narrow down what types of files can be used as we progress through the development process.
 
 	\item{FORGE}~\cite{forge2016} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
@@ -235,7 +231,7 @@ Section\ \ Page}
 	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and also allows
 	for user interaction.
 	
-	\item{Model Derivative API} This is another API in Forge. It can generate different filetypes that we can utilize in the application.
+	\item{Model Derivative API} This is another API in Forge. It can generate SVF files that we can utilize in the application from other model filetypes.
 	
 	\item{VR} Acronym for virtual reality, typically a peripheral device or smartphone
 	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
@@ -266,6 +262,8 @@ Section\ \ Page}
 		\item Once the user has connected their a smartphone the model should be able to be viewed in VR with a the use of a VR headset such as Google Cardboard, if supported. 
 		
 		\item "Viewable" 3D models can be interacted with by the user in the Forge viewer in several different ways.		
+		
+		\item The user will be able to manipulate the model and observe in VR.
 	\end{enumerate}
 
 \subsection{USER CHARACTERISTICS}
@@ -409,9 +407,8 @@ Section\ \ Page}
 
 	\item
 	\begin{description} 
-		\item[Input] The user should be able to somehow identify that they want to gain access to their files on either A360
-	or Fusion 360. 
-		\item[Output] Using the Forge Data Management API the user should then have access to both of these Cloud storage sites.
+		\item[Input] The user should be able to identify that they want to gain access to their files on either A360/Fusion360 or local. 
+		\item[Output] Using the Forge Data Management API the user should then have access to both of these Cloud storage sites to then upload a file.
 	\end{description}
 
 	\item
