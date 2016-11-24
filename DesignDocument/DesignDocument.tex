@@ -159,8 +159,22 @@ The intended audience of this software design document are the developers planni
 \subsection{Conformance}
 
 \section{Definitions}
-	%\begin{description}
-	%\end{description}
+	\begin{description}
+	\item{CAD} Computer Aided design is software used to design and view 3D models.
+
+	\item{CAD file} The type of files that can be uploaded to the website for viewing in the Forge viewer. 
+	We will  narrow down what types of files can be used as we progress through the development process.
+
+	\item{FORGE}~\cite{forge2016} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
+
+	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and also allows
+	for user interaction.
+	
+	\item{Model Derivative API} This is another API in Forge. It can generate SVF files that we can utilize in the application from other model filetypes.
+	
+	\item{VR} Acronym for virtual reality, typically a peripheral device or smartphone
+	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
+	\end{description} 
 	
 \section{Conceptual model for software design descriptions}
 
@@ -181,6 +195,7 @@ The intended audience of this software design document are the developers planni
 \subsection{SDD identification}
 
 \subsection{Design stakeholders and their concerns}
+	The primary stakeholder for this project is Patti Vrobel who works for autodesk. User experience is a primary focus of both Patti and Autodesk. The project addresses this by adding and altering features to make the website more accessible for users.
 
 \subsection{Design views}
 
