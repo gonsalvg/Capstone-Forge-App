@@ -212,6 +212,16 @@ In order to verify that our software meets requirements, test cases will be used
 	\item{design elements, definited by that viewpoint, entities, attributes, etc}
 	\item{analytical methods or other operations}
 	\item{viewpoint source}
+
+	\item{Forge Authentication API}
+	\item{Viewable Mode(Viewer API)}
+	\item{File uploading}
+	\item{Data management API}
+	\item{Model derivative API}
+	\item{Mobile device connection}
+	\item{VR device support}
+
+
 	\end{description}
 \subsection{Design elements}
 	\hl{it can be any of the following: design entity, relaionship, attribute or constraint. We'll have a giant list here I believe. It'll be all of the pieces of the system}
@@ -237,119 +247,61 @@ In order to verify that our software meets requirements, test cases will be used
 	\hl{arguments and justifications about design decisions. Not to be confused hopefully with my scope section where I say we won't be going over implemention justifications}
 \subsection{Design languages}
 
-\section{Design viewpoints}
+\section{Design Views}
 
-\subsection{Introduction}
-	\hl{the table in the document basically tells us what the concern with each section is as well as which UML diagram we'll need for each section, I'll go ahead and list the diagrams we'll probably use in here for us though}
-\subsection{Context viewpoint}
-	\hl{is meant to be a black box perspective, UML use case diagram will probably suffice here}
-\subsubsection{Design concerns}
+\subsection{Local File Upload}
+	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer api. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
 
-\subsubsection{Design elements}
+\subsection{Interface Viewpoint}
+\begin{itemize}
+	\item[]\textbf{Local Upload Button} There will be a button on the website for uploading files from local storage on the users machine. This button should be easy for the user to identify. Once the user has pressed the button then the user should have access to the local files on their machine.
+	\item[]\textbf{File selection} The user should be able to then navigate through their local files to find the CAD file that they are wanting to view.
+	\item[]\textbf{File type verification} Once a file has been selected by the user the website should verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the website 			should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
+	\item[]\textbf{File size verification} Large file may not work well in the viewer in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be notified that the selected file is to large and be prompted to select a different file.
+	This can be done at the same time as verifying the file size.
+	\item[]\textbf{File conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
+	 be notified that their file could not be converted. 
+\end{itemize}
 
-\subsubsection{Example languages}
+the design constraints require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\subsection{composition viewpoint}
-	\hl{UML package diagram, UML component diagram, UML deployment diagram}
-\subsubsection{Design concerns}
+\begin{flushleft}
+	\includegraphics[scale=0.6]{localUpload.png}
+\end{flushleft}
 
-\subsubsection{Design elements}
+\subsection{Non-local File Upload}
+	The user should be able to  access their files that are on an outside storage device and then upload these files to the website. There should be a button that the user can use to login to there outside storage. once logged in the user should be able to navigate to the file that they would like to use and then select that file to be uploaded. The website should verify that the selected file is of the correct file type and size. The website should also convert the file to an SVF file that the viewer can use. If for any reason there is a failure in the file upload then the user should be notified of that failure and informed of what to do.
 
-\paragraph{Function attributes}
+\subsection{Interface Viewpoint}
+\begin{itemize}
+	\item[]\textbf{Non-Local Upload Button} This button should be easy for the user to identify in the main area of the web page. Once the user has pressed the button they should be prompted to login to the Autodesk account that they are trying to access.
+	\item[]\textbf{User login} Using the data management api the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any of there Autodesk storage systems. 
+	\item[]\textbf{File type verification} Once a file has been sent to the website from the outside storage should, it verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the 	
+	website should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
+	\item[]\textbf{File selection} After the user has access they should then be able to navigate to the correct storage system their file is in and gain access to their files. Once a file is selected it should then be returned to the website. If returning the file is unsuccessful then the user should be notified and prompted to try 
+	again.
+	\item[]\textbf{File size verification} Large file may not work well in the viewer, in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be 		
+	notified that the selected file is to large and be prompted to select a different file.
+	\item[]\textbf{File conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
+	 be notified that their file could not be converted. 
+\end{itemize}
+  
+the design constraints require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\paragraph{Subordinates attributes}
+\begin{flushleft}
+	\includegraphics[scale=0.5]{nonLocalUpload.png}
+\end{flushleft}
 
-\subsubsection{Example languages}
-
-\subsection{Logical viewpoints}
-	\hl{UML class diagram, UML object diagram}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\subsubsection{Example languages}
-
-\subsection{Dependency viewpoint}
-	\hl{UML package diagram and component diagram}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\paragraph{Dependencies attribute}
-
-\subsubsection{Example languages}
-
-\subsection{Information viewpoint}
-	\hl{entity-relation diagram, UML class diagram}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\paragraph{Data attribute}
-
-\subsubsection{Example languages}
-
-\subsection{Patterns use viewpoint}
-	\hl{UML composite structure diagram}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\subsubsection{Example languages}
+\subsection{Mobile Device Connection}
+	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. 
 
 \subsection{Interface viewpoint}
-	\hl{UML component diagram}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\paragraph{Interface attribute}
-
-\subsubsection{Example languages}
-
-\subsection{Structure viewpoint}
-	\hl{UML structure diagram, class diagram}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\subsubsection{Example languages}
-
-\subsection{Interaction viewpoint}
-	\hl{UML sequence diagram, UML communcation diagram. This will be a HUGE section for us}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\subsubsection{Examples}
-
-\subsection{State dynamics viewpoint}
-	\hl{UML stat machine diagram. This may also be a large section}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\subsubsection{Example languages}
-
-\subsection{Algorithm viewpoint}
-	\hl{Don't think we will need this section at all}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\subsubsection{Processing attribute}
-
-\subsubsection{Examples}
-
-\subsection{Resource viewpoint}
-	\hl{UML real-time profile, UML class diagram, UML object constraint language}
-\subsubsection{Design concerns}
-
-\subsubsection{Design elements}
-
-\paragraph{Resources attributes}
-
-\subsubsection{Examples}
+\begin{description}
+	\item\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in that generates QR codes. This plug-in can be found at \href{https://github.com/jeromeetienne/jquery-qrcode}{https://github.com/jeromeetienne/jquery-qrcode}. The QR code should be somewhere on the web page that is easy for the user to find. 
+	\item\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code.
+	\item\textbf{Device connection} Once the user has successfully scanned the QR code their device should notify them that they are being connected to the current session. If there is any reason that the device could not connect to the session then the user should be notified that the connection has failed and advise them to try to connect again.
+	\item\textbf{Device View} After the device has successfully connected to the current session then the user should see the exact same thing that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
+\end{description}
 
 %\bibliography{bibfile}
 %\bibliographystyle{IEEETran}
