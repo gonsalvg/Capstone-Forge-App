@@ -32,7 +32,7 @@
 \contentsline {subsubsection}{\numberline {4.6.2}Design attributes}{6}{subsubsection.4.6.2}
 \contentsline {paragraph}{\numberline {4.6.2.1}Name attribute}{6}{paragraph.4.6.2.1}
 \contentsline {paragraph}{\numberline {4.6.2.2}Type attribute}{6}{paragraph.4.6.2.2}
-\contentsline {paragraph}{\numberline {4.6.2.3}Purpose attribute}{6}{paragraph.4.6.2.3}
+\contentsline {paragraph}{\numberline {4.6.2.3}Purpose attribute}{7}{paragraph.4.6.2.3}
 \contentsline {paragraph}{\numberline {4.6.2.4}Author attribute}{7}{paragraph.4.6.2.4}
 \contentsline {subsubsection}{\numberline {4.6.3}Design relationships}{7}{subsubsection.4.6.3}
 \contentsline {subsubsection}{\numberline {4.6.4}Design constraints}{7}{subsubsection.4.6.4}
@@ -96,3 +96,4 @@
 \contentsline {subsubsection}{\numberline {5.13.2}Design elements}{11}{subsubsection.5.13.2}
 \contentsline {paragraph}{\numberline {5.13.2.1}Resources attributes}{11}{paragraph.5.13.2.1}
 \contentsline {subsubsection}{\numberline {5.13.3}Examples}{11}{subsubsection.5.13.3}
+\contentsline {section}{References}{11}{section*.2}
