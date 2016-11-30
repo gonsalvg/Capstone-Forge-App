@@ -235,7 +235,7 @@ In order to verify that our software meets requirements, test cases will be used
 
 
 	\end{description}
-
+%Overarching viewpoint? agreeable?
 	\begin{enumerate}
 		\item{The VR Explorer is a simple and useful demoing tool for 3D development and design.}
 			\begin{enumerate}
@@ -271,7 +271,37 @@ In order to verify that our software meets requirements, test cases will be used
 \subsection{Design languages}
 
 \section{Design Views}
+\subsection{Viewable Model}
+The user must be able to see the model they uploaded from the cad file. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, special attention must be made within the viewer to increase  project usability.
+\subsection{Interface Viewpoint}
+\begin{itemize}
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.
+	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. 
+	\item[]\textbf{Parallel Viewing}  The viewer must control a separate model viewer that runs solely for the smartphone, and matches the view of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer.
+	\item[]\textbf{}
+	\item[]\textbf{} 
+\end{itemize}
+\subsection{Smartphone Connection}
 
+\subsection{Interface Viewpoint}
+\begin{itemize}
+	\item[]\textbf{} 
+	\item[]\textbf{} 
+	\item[]\textbf{}  
+	\item[]\textbf{}
+	\item[]\textbf{} 
+\end{itemize}
+
+\subsection{Website Structure}
+Because the website is the focus of the project, we are hosting a new version of the website utilizing github project pages. (if supported). The requirements for the website are to properly host and display all of the components of the website. The website must be simple to use, and appear intuitive for many users.
+\subsection{Interface Viewpoint}
+\begin{itemize}
+	\item[]\textbf{} 
+	\item[]\textbf{} 
+	\item[]\textbf{}  
+	\item[]\textbf{}
+	\item[]\textbf{} 
+\end{itemize}
 \subsection{Local File Upload}
 	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer api. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
 
@@ -286,7 +316,7 @@ In order to verify that our software meets requirements, test cases will be used
 	 be notified that their file could not be converted. 
 \end{itemize}
 
-the design constraints require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
+The design constraints require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
 \begin{flushleft}
 	\includegraphics[scale=0.6]{localUpload.png}
