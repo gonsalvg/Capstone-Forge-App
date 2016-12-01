@@ -190,14 +190,14 @@ In order to verify that our software meets requirements, test cases will be used
 \subsection{Viewable Model}
 The user must be able to see the model they uploaded from the cad file. This is accomplished by using the Forge Large Model Viewer, or Forge Viewer. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, ensuring the viewer is configured to run as smoothly as possible is essential.
 
+
 \subsection{Interface Viewpoint}
 \begin{itemize}
-	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload. This includes the Viewer Controls component.
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload. This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API.
 	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
 	\item[]\textbf{Secondary Viewer}  The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
-	\hl{sessions?}
+
 	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.
-	\item[]\textbf{} 
 \end{itemize}
 \subsection{Rationale}
 
@@ -218,6 +218,8 @@ The user must be able to see the model they uploaded from the cad file. This is 
 
 \subsection{Website Structure}
 Because the website is the focus of the project, we are hosting a new version of the website utilizing a github project page for hosting. The requirements for the website are to properly host, arrange and display all of the components of the project. This includes the file uploading, authentication, the forge viewer, and mobile device connection software. The website must be simple to use, and appears intuitive for all users.
+
+This addition is necessary in order to have control over the project hosting, and to test and deploy updates. Additional constraints to this view include limiting technical details of each component for the purpose of creating a prototype for the project user experience. 
 
 \subsection{Interface Viewpoint}
 \begin{itemize}
