@@ -149,11 +149,11 @@ TABLE OF CONTENTS
 \section{Introduction}
 The software implemented is a web application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the various Forge APIs, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models using Google Cardboard or similar VR headsets. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
 \subsection{Scope}
-The scope of this document covers the information regarding user experience data flows, the software design description and the design structure of the software. This document does not cover specific implementation decisions or quality requirements.
+The scope of this document covers the information regarding user experience data flows, the software design description and the design structure of the software. This design document includes information critical to the development of the project as a whole. This document does not cover specific implementation decisions or quality requirements.
 \subsection{Purpose}
-The purpose of this software design document is to describe the user experience flows and provide the software design description to its intended audience. Additionally, this document provides a design framework that the developers will be using in order to assess the progression of the software through its development lifespan.
+The purpose of this software design document is to describe the user experience flows and provide the software design description to its intended audience. Additionally, this document provides a framework for the project that the developers will be using in order to assess the progression of the software through its development lifespan. This includes the detailed description of critical design entities, components, and systems working together in the project.
 \subsection{Intended audience}
-The intended audience of this software design document are the developers planning and building the software, and the stakeholders who include: Autodesk's Forge team, the clients and the advisors to the developers.
+This document is targeted at developers building and implementing the software, and the stakeholders who include: Patti Vrobel, the Autodesk Forge API team,  and developers of the original "Vrok-it" project that this is based off of. Core stakeholders also are working with the project group in order to maximize the projects potential.
 
 \section{Definitions}
 \begin{description}
@@ -191,7 +191,7 @@ In order to verify that our software meets requirements, test cases will be used
 The user must be able to see the model they uploaded from the cad file. This is accomplished by using the Forge Large Model Viewer, or Forge Viewer. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, ensuring the viewer is configured to run as smoothly as possible is essential.
 
 
-\subsection{Interface Viewpoint}
+\subsection{Interface Viewpoint: Interaction}
 \begin{itemize}
 	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload. This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API.
 	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
@@ -221,7 +221,7 @@ Because the website is the focus of the project, we are hosting a new version of
 
 This addition is necessary in order to have control over the project hosting, and to test and deploy updates. Additional constraints to this view include limiting technical details of each component for the purpose of creating a prototype for the project user experience. 
 
-\subsection{Interface Viewpoint}
+\subsection{Interface Viewpoint: Structure}
 \begin{itemize}
 	\item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API within a script on the main page. The individual required files for the viewer are held in the site source files.
 	\item[]\textbf{File Upload} The file upload functionality will be available on the main page in a specific area.
