@@ -246,9 +246,10 @@ This addition is necessary in order to have control over the project hosting, an
 
 \subsubsection{design constraints} require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\begin{flushleft}
+\begin{figure}
 	\includegraphics[scale=0.6]{localUpload.png}
-\end{flushleft}
+	\caption{local file upload UML}
+\end{figure}
 
 \subsubsection{Design rationale}
 	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
@@ -273,9 +274,10 @@ This addition is necessary in order to have control over the project hosting, an
 \subsubsection{design constraints} 
 	require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\begin{flushleft}
-	\includegraphics[scale=0.5]{nonLocalUpload.png}
-\end{flushleft}
+\begin{figure}
+	\includegraphics[scale=0.48]{nonLocalUpload.png}
+	\caption{non-local file upload UML}
+\end{figure}
 
 \subsubsection{Design rationale}
 	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
@@ -302,9 +304,10 @@ This addition is necessary in order to have control over the project hosting, an
 	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the api it will return a failed request. If a failed request is received then the user should be notified that their file fail to be convert. There is also the posibility that the translation has timed out. If this happens the user should be notified of the failure and then be prompted to try uploading the file again.
 \end{description}
 
-\begin{flushleft}
+\begin{figure}
 	\includegraphics[scale=0.7]{conversionUML.png}
-\end{flushleft}
+	\caption{File conversion interaction UML}
+\end{figure}
 
 
 \bibliography{bibfile}
