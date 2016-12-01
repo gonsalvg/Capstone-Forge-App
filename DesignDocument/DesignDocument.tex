@@ -147,7 +147,7 @@ TABLE OF CONTENTS
 \clearpage
 
 \section{Introduction}
-The software implemented is a web application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the Forge API, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models in 3D with Google Cardboard, and potentially dedicated VR devices. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
+The software implemented is a web application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the various Forge APIs, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models using Google Cardboard or similar VR headsets. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
 \subsection{Scope}
 The scope of this document covers the information regarding user experience data flows, the software design description and the design structure of the software. This document does not cover specific implementation decisions or quality requirements.
 \subsection{Purpose}
@@ -293,7 +293,7 @@ This addition is necessary in order to have control over the project hosting, an
 	\item[]\textbf{device View} After the device has successfully connected to the current session then the user should see the exact same thing that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
 \end{description}
 
-\subsection{File converstion}
+\subsection{File conversion}
 	The file conversion will be done using the forge model derivative api. This api will be sent a file anytime that one is uploaded to the website whether it be uploaded locally or uploaded from an outside storage device. The api should accept and CAD drawing files however, if a file is unable to be converted then the user should be notified. Once the api is done with the conversion then the it should send back the converted SVF file. 
 
 \subsubsection{Interaction viewpoint for file conversion}
