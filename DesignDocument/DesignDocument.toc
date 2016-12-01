@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {4.3}Design stakeholders and their concerns}{6}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Design views}{6}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}Design viewpoints}{6}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Design elements}{7}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.6}Design elements}{6}{subsection.4.6}
 \contentsline {subsubsection}{\numberline {4.6.1}Design entities}{7}{subsubsection.4.6.1}
 \contentsline {subsubsection}{\numberline {4.6.2}Design attributes}{7}{subsubsection.4.6.2}
 \contentsline {paragraph}{\numberline {4.6.2.1}Name attribute}{7}{paragraph.4.6.2.1}
@@ -37,19 +37,18 @@
 \contentsline {subsubsection}{\numberline {4.6.3}Design relationships}{7}{subsubsection.4.6.3}
 \contentsline {subsubsection}{\numberline {4.6.4}Design constraints}{7}{subsubsection.4.6.4}
 \contentsline {subsection}{\numberline {4.7}Design overlays}{7}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}Design rationale}{8}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.8}Design rationale}{7}{subsection.4.8}
 \contentsline {subsection}{\numberline {4.9}Design languages}{8}{subsection.4.9}
 \contentsline {section}{\numberline {5}Design Views}{8}{section.5}
 \contentsline {subsection}{\numberline {5.1}Viewable Model}{8}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Interface Viewpoint}{8}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Smartphone Connection}{8}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Interface Viewpoint}{8}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Website Structure}{9}{subsection.5.5}
-\contentsline {subsection}{\numberline {5.6}Interface Viewpoint}{9}{subsection.5.6}
-\contentsline {subsection}{\numberline {5.7}Local File Upload}{9}{subsection.5.7}
-\contentsline {subsection}{\numberline {5.8}Interface Viewpoint}{9}{subsection.5.8}
-\contentsline {subsection}{\numberline {5.9}Non-local File Upload}{11}{subsection.5.9}
-\contentsline {subsection}{\numberline {5.10}Interface Viewpoint}{11}{subsection.5.10}
-\contentsline {subsection}{\numberline {5.11}Mobile Device Connection}{12}{subsection.5.11}
-\contentsline {subsection}{\numberline {5.12}Interface viewpoint}{12}{subsection.5.12}
+\contentsline {subsection}{\numberline {5.3}Rationale}{8}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Website Structure}{8}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Interface Viewpoint}{9}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Local File Upload}{9}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Interface Viewpoint}{9}{subsection.5.7}
+\contentsline {subsection}{\numberline {5.8}Non-local File Upload}{11}{subsection.5.8}
+\contentsline {subsection}{\numberline {5.9}Interface Viewpoint}{11}{subsection.5.9}
+\contentsline {subsection}{\numberline {5.10}Mobile Device Connection}{12}{subsection.5.10}
+\contentsline {subsection}{\numberline {5.11}Interface viewpoint}{12}{subsection.5.11}
 \contentsline {section}{References}{13}{section*.2}

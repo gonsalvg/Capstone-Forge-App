@@ -152,9 +152,9 @@ TABLE OF CONTENTS
 
 
 \section{Overview}
-	\hl{Tenative, unsure if this is needed:} The software implemented is a cross-platform application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the Forge API, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models in 3D with Google Cardboard. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
+The software implemented is a web application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the Forge API, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models in 3D with Google Cardboard, and potentially dedicated VR devices. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
 \subsection{Scope}
-The scope of this document only covers the information regarding user experience data flows, the software design description and the design structure of the software. This document does not cover implementation decisions or specific quality requirements.
+The scope of this document covers the information regarding user experience data flows, the software design description and the design structure of the software. This document does not cover specific implementation decisions or quality requirements.
 \subsection{Purpose}
 The purpose of this software design document is to describe the user experience flows and provide the software design description to its intended audience. Additionally, this document provides a design framework that the developers will be using in order to assess the progression of the software through its development lifespan.
 \subsection{Intended audience}
@@ -235,16 +235,7 @@ In order to verify that our software meets requirements, test cases will be used
 
 
 	\end{description}
-%Overarching viewpoint? agreeable?
-	\begin{enumerate}
-		\item{The VR Explorer is a simple and useful demoing tool for 3D development and design.}
-			\begin{enumerate}
-				\item{feasibly usable by other engineers, or designers. }
-				\item{design elements based on viewpoint}
-				\item{analytical methods?}
-				\item{viewpoint source}
-			\end{enumerate}
-	\end{enumerate}
+
 
 \subsection{Design elements}
 	\hl{it can be any of the following: design entity, relaionship, attribute or constraint. We'll have a giant list here I believe. It'll be all of the pieces of the system}
@@ -272,16 +263,22 @@ In order to verify that our software meets requirements, test cases will be used
 
 \section{Design Views}
 \subsection{Viewable Model}
-The user must be able to see the model they uploaded from the cad file. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, special attention must be made within the viewer to increase  project usability.
+The user must be able to see the model they uploaded from the cad file. This is accomplished by using the Forge Large Model Viewer, or Forge Viewer. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, ensuring the viewer is configured to run as smoothly as possible is essential.
 \subsection{Interface Viewpoint}
 \begin{itemize}
-	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.
-	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. 
-	\item[]\textbf{Parallel Viewing}  The viewer must control a separate model viewer that runs solely for the smartphone, and matches the view of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer.
-	\item[]\textbf{}
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload. This includes the Viewer Controls component.
+	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
+	\item[]\textbf{Secondary Viewer}  The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
+	\hl{sessions?}
+	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.
 	\item[]\textbf{} 
 \end{itemize}
-\subsection{Smartphone Connection}
+\subsection{Rationale}
+
+
+%placeholder
+\begin{comment}
+
 
 \subsection{Interface Viewpoint}
 \begin{itemize}
@@ -291,14 +288,14 @@ The user must be able to see the model they uploaded from the cad file. The mode
 	\item[]\textbf{}
 	\item[]\textbf{} 
 \end{itemize}
-
+\end{comment}
 \subsection{Website Structure}
-Because the website is the focus of the project, we are hosting a new version of the website utilizing github project pages. (if supported). The requirements for the website are to properly host and display all of the components of the website. The website must be simple to use, and appear intuitive for many users.
+Because the website is the focus of the project, we are hosting a new version of the website utilizing a github project page for hosting. The requirements for the website are to properly host, arrange and display all of the components of the project. This includes the file uploading, authentication, the forge viewer, and mobile device connection software. The website must be simple to use, and appears intuitive for all users.
 \subsection{Interface Viewpoint}
 \begin{itemize}
-	\item[]\textbf{} 
-	\item[]\textbf{} 
-	\item[]\textbf{}  
+	\item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API within a script on the main page. The individual required files for the viewer are held in the site source files.
+	\item[]\textbf{File Upload} The file upload functionality will be available on the main page in a specific area.
+	\item[]\textbf{Smartphone QR Code}  The smartphone QR code will also have its own page section and will be viewable on the main page of the site.
 	\item[]\textbf{}
 	\item[]\textbf{} 
 \end{itemize}
