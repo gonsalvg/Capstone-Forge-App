@@ -155,7 +155,7 @@ The purpose of this software design document is to describe the user experience 
 \subsection{Intended audience}
 This document is targeted at developers building and implementing the software, and the stakeholders who include: Patti Vrobel, the Autodesk Forge API team,  and developers of the original "Vrok-it" project that this is based off of. Core stakeholders also are working with the project group in order to maximize the projects potential.
 
-\section{Definitions}
+\subsection{Definitions}
 \begin{description}
 	\item{CAD} Computer Aided design is software used to design and view 3D models.
 
@@ -176,6 +176,9 @@ This document is targeted at developers building and implementing the software, 
 	\item\textbf{SVF file} The file format used by the forge viewer
 \end{description} 
 
+\bibliography{bibfile}
+\bibliographystyle{IEEETran}
+
 \subsubsection{Influences on SDD preparation}
 The SRS is the main influence on the SDD as it holds the requirements and features determined necessary by all the stakeholders. This drives the design to meet those requirements to properly satisfy all stakeholders. However, this also means that it sets the design constraints.
 
@@ -188,6 +191,7 @@ In order to verify that our software meets requirements, test cases will be used
 \section{Design Views}
 
 \subsection{Viewable Model}
+\label{modelView}
 The user must be able to see the model they uploaded from the cad file. This is accomplished by using the Forge Large Model Viewer, or Forge Viewer. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, ensuring the viewer is configured to run as smoothly as possible is essential.
 
 
@@ -233,21 +237,25 @@ This addition is necessary in order to have control over the project hosting, an
 \subsection{Local file upload}
 	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer api. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
 
-\subsubsection{Interface viewpoint for local file upload}
+\subsection{Interface viewpoint for local file upload}
 \begin{itemize}
 	\item[]\textbf{local upload button} There will be a button on the website for uploading files from local storage on the users machine. This button should be easy for the user to identify. Once the user has pressed the button then the user should have access to the local files on their machine.
 	\item[]\textbf{file selection} The user should be able to then navigate through their local files to find the CAD file that they are wanting to view.
 	\item[]\textbf{file type verification} Once a file has been selected by the user the website should verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the website 			should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
 	\item[]\textbf{file size verification} Large file may not work well in the viewer in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be notified that the selected file is to large and be prompted to select a different file.
 	This can be done at the same time as verifying the file size.
-	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
-	 be notified that their file could not be converted. 
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api described in. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should be notified that their file could not be converted. 
 \end{itemize}
+
+\subsubsection{Design relationships}
+	The uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
+	
+	The converted file will be sent to the viewer described in section \ref{modelView}. 
 
 \subsubsection{design constraints} require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\begin{figure}
-	\includegraphics[scale=0.6]{localUpload.png}
+\begin{figure}[ht]
+	\includegraphics[scale=0.5]{localUpload.png}
 	\caption{local file upload UML}
 \end{figure}
 
@@ -257,7 +265,7 @@ This addition is necessary in order to have control over the project hosting, an
 \subsection{Non-local file upload}
 	The user should be able to  access their files that are on an outside storage device and then upload these files to the website. There should be a button that the user can use to login to there outside storage. once logged in the user should be able to navigate to the file that they would like to use and then select that file to be uploaded. The website should verify that the selected file is of the correct file type and size. The website should also convert the file to an SVF file that the viewer can use. If for any reason there is a failure in the file upload then the user should be notified of that failure and informed of what to do.
 
-\subsubsection{Interface viewpoint for non-local file upload}
+\subsection{Interface viewpoint for non-local file upload}
 \begin{itemize}
 	\item[]\textbf{non-local upload button} This button should be easy for the user to identify in the main area of the web page. Once the user has pressed the button they should be prompted to login to the Autodesk account that they are trying to access.
 	\item[]\textbf{user login} Using the data management api the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any of there Autodesk storage systems. 
@@ -267,17 +275,26 @@ This addition is necessary in order to have control over the project hosting, an
 	again.
 	\item[]\textbf{file size verification} Large file may not work well in the viewer, in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be 		
 	notified that the selected file is to large and be prompted to select a different file.
-	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer described in section \ref{modelView}. If the conversion request is unsuccessful then the user should
 	 be notified that their file could not be converted. 
 \end{itemize}
+
+\subsubsection{Design relationships}
+	The user will gain access to there files through the use of the data management api described in section %add ref
+
+	The uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
+	
+	The converted file will be sent to the viewer described in section \ref{modelView}. 
   
 \subsubsection{design constraints} 
 	require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\begin{figure}
-	\includegraphics[scale=0.48]{nonLocalUpload.png}
+\begin{figure}[ht]
+	\includegraphics[scale=0.40]{nonLocalUpload.png}
 	\caption{non-local file upload UML}
 \end{figure}
+
+
 
 \subsubsection{Design rationale}
 	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
@@ -285,7 +302,7 @@ This addition is necessary in order to have control over the project hosting, an
 \subsection{Mobile device connection}
 	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. 
 
-\subsubsection{Interface viewpoint}
+\subsection{Mobile device connection Interface viewpoint}
 \begin{description}
 	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in that generates QR codes. This plug-in can be found at \href{https://github.com/jeromeetienne/jquery-qrcode}{https://github.com/jeromeetienne/jquery-qrcode}. The QR code should be somewhere on the web page that is easy for the user to find. 
 	\item[]\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code. Any application that the user gets to scan the code should all work with the QR code on the website so there is no need to suggest a specific QR scanner to the user. 
@@ -294,9 +311,10 @@ This addition is necessary in order to have control over the project hosting, an
 \end{description}
 
 \subsection{File conversion}
+\label{model derivative} 
 	The file conversion will be done using the forge model derivative api. This api will be sent a file anytime that one is uploaded to the website whether it be uploaded locally or uploaded from an outside storage device. The api should accept and CAD drawing files however, if a file is unable to be converted then the user should be notified. Once the api is done with the conversion then the it should send back the converted SVF file. 
 
-\subsubsection{Interaction viewpoint for file conversion}
+\subsection{Interaction viewpoint for file conversion}
 \begin{description}
 	\item[]\textbf{conversion api} We will be using the forge model derivative api to convert the files uploaded to the website. We will be using this api because it is free and allows us to convert the files into the exact type of file used by the forge viewer api that we are also using. 
 	\item[]\textbf{file conversions} Once a user has selected and uploaded the CAD drawing file that they would like to use it is then sent to the model derivative api. The api will take the file and then convert it from the current file format to an SVF file. After the file is converted it should be sent back to the website.
@@ -304,14 +322,13 @@ This addition is necessary in order to have control over the project hosting, an
 	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the api it will return a failed request. If a failed request is received then the user should be notified that their file fail to be convert. There is also the posibility that the translation has timed out. If this happens the user should be notified of the failure and then be prompted to try uploading the file again.
 \end{description}
 
-\begin{figure}
+\begin{figure}[ht]
 	\includegraphics[scale=0.7]{conversionUML.png}
 	\caption{File conversion interaction UML}
 \end{figure}
 
 
-\bibliography{bibfile}
-\bibliographystyle{IEEETran}
+
 \end{document}
 
 %@misc{a javascript library for building user interfaces - react,
