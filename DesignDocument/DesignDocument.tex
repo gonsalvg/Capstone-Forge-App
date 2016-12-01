@@ -16,8 +16,6 @@
 \usepackage{color,soul}
 %\usepackage{biblatex}
 \usepackage{cite}
-
-
 \usepackage{hyperref}
 %\usepackage{digsig} %not a default package... just for signature field on final page.
 \usepackage{url}
@@ -100,7 +98,6 @@
 Forge VR Explorer Design Document
 \par}
 
-
 \bigskip
 
 {\centering\selectlanguage{english}\bfseries\color{black}
@@ -121,7 +118,6 @@ December 2 2016
 %\begin{center}
 %	\includegraphics[scale=0.8]{forge_logo.png}
 %\end{center}
-
 
 \vfill
 {\centering\selectlanguage{english}\bfseries\color{black}
@@ -150,7 +146,6 @@ TABLE OF CONTENTS
 \bigskip
 \clearpage
 
-
 \section{Introduction}
 The software implemented is a web application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the Forge API, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models in 3D with Google Cardboard, and potentially dedicated VR devices. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
 \subsection{Scope}
@@ -175,7 +170,10 @@ The intended audience of this software design document are the developers planni
 	\item{Model Derivative API} This is another API in Forge. It can generate SVF files that we can utilize in the application from other model filetypes.
 	
 	\item{VR} Acronym for virtual reality, typically a peripheral device or smartphone
+
 	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
+
+	\item\textbf{SVF file} The file format used by the forge viewer
 \end{description} 
 
 \subsubsection{Influences on SDD preparation}
@@ -220,6 +218,7 @@ The user must be able to see the model they uploaded from the cad file. This is 
 
 \subsection{Website Structure}
 Because the website is the focus of the project, we are hosting a new version of the website utilizing a github project page for hosting. The requirements for the website are to properly host, arrange and display all of the components of the project. This includes the file uploading, authentication, the forge viewer, and mobile device connection software. The website must be simple to use, and appears intuitive for all users.
+
 \subsection{Interface Viewpoint}
 \begin{itemize}
 	\item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API within a script on the main page. The individual required files for the viewer are held in the site source files.
@@ -229,65 +228,86 @@ Because the website is the focus of the project, we are hosting a new version of
 	\item[]\textbf{} 
 \end{itemize}
 
-
-\subsection{Local File Upload}
+\subsection{Local file upload}
 	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer api. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
 
-\subsection{Interface Viewpoint}
+\subsubsection{Interface viewpoint for local file upload}
 \begin{itemize}
-	\item[]\textbf{Local Upload Button} There will be a button on the website for uploading files from local storage on the users machine. This button should be easy for the user to identify. Once the user has pressed the button then the user should have access to the local files on their machine.
-	\item[]\textbf{File selection} The user should be able to then navigate through their local files to find the CAD file that they are wanting to view.
-	\item[]\textbf{File type verification} Once a file has been selected by the user the website should verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the website 			should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
-	\item[]\textbf{File size verification} Large file may not work well in the viewer in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be notified that the selected file is to large and be prompted to select a different file.
+	\item[]\textbf{local upload button} There will be a button on the website for uploading files from local storage on the users machine. This button should be easy for the user to identify. Once the user has pressed the button then the user should have access to the local files on their machine.
+	\item[]\textbf{file selection} The user should be able to then navigate through their local files to find the CAD file that they are wanting to view.
+	\item[]\textbf{file type verification} Once a file has been selected by the user the website should verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the website 			should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
+	\item[]\textbf{file size verification} Large file may not work well in the viewer in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be notified that the selected file is to large and be prompted to select a different file.
 	This can be done at the same time as verifying the file size.
-	\item[]\textbf{File conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
 	 be notified that their file could not be converted. 
 \end{itemize}
 
-The design constraints require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
+\subsubsection{design constraints} require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
 \begin{flushleft}
 	\includegraphics[scale=0.6]{localUpload.png}
 \end{flushleft}
 
-\subsection{Non-local File Upload}
+\subsubsection{Design rationale}
+	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
+
+\subsection{Non-local file upload}
 	The user should be able to  access their files that are on an outside storage device and then upload these files to the website. There should be a button that the user can use to login to there outside storage. once logged in the user should be able to navigate to the file that they would like to use and then select that file to be uploaded. The website should verify that the selected file is of the correct file type and size. The website should also convert the file to an SVF file that the viewer can use. If for any reason there is a failure in the file upload then the user should be notified of that failure and informed of what to do.
 
-\subsection{Interface Viewpoint}
+\subsubsection{Interface viewpoint for non-local file upload}
 \begin{itemize}
-	\item[]\textbf{Non-Local Upload Button} This button should be easy for the user to identify in the main area of the web page. Once the user has pressed the button they should be prompted to login to the Autodesk account that they are trying to access.
-	\item[]\textbf{User login} Using the data management api the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any of there Autodesk storage systems. 
-	\item[]\textbf{File type verification} Once a file has been sent to the website from the outside storage should, it verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the 	
+	\item[]\textbf{non-local upload button} This button should be easy for the user to identify in the main area of the web page. Once the user has pressed the button they should be prompted to login to the Autodesk account that they are trying to access.
+	\item[]\textbf{user login} Using the data management api the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any of there Autodesk storage systems. 
+	\item[]\textbf{file type verification} Once a file has been sent to the website from the outside storage should, it verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the 	
 	website should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
-	\item[]\textbf{File selection} After the user has access they should then be able to navigate to the correct storage system their file is in and gain access to their files. Once a file is selected it should then be returned to the website. If returning the file is unsuccessful then the user should be notified and prompted to try 
+	\item[]\textbf{file selection} After the user has access they should then be able to navigate to the correct storage system their file is in and gain access to their files. Once a file is selected it should then be returned to the website. If returning the file is unsuccessful then the user should be notified and prompted to try 
 	again.
-	\item[]\textbf{File size verification} Large file may not work well in the viewer, in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be 		
+	\item[]\textbf{file size verification} Large file may not work well in the viewer, in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be 		
 	notified that the selected file is to large and be prompted to select a different file.
-	\item[]\textbf{File conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should
 	 be notified that their file could not be converted. 
 \end{itemize}
   
-the design constraints require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
+\subsubsection{design constraints} 
+	require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
 
 \begin{flushleft}
 	\includegraphics[scale=0.5]{nonLocalUpload.png}
 \end{flushleft}
 
-\subsection{Mobile Device Connection}
+\subsubsection{Design rationale}
+	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
+
+\subsection{Mobile device connection}
 	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. 
 
-\subsection{Interface viewpoint}
+\subsubsection{Interface viewpoint}
 \begin{description}
-	\item\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in that generates QR codes. This plug-in can be found at \href{https://github.com/jeromeetienne/jquery-qrcode}{https://github.com/jeromeetienne/jquery-qrcode}. The QR code should be somewhere on the web page that is easy for the user to find. 
-	\item\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code.
-	\item\textbf{Device connection} Once the user has successfully scanned the QR code their device should notify them that they are being connected to the current session. If there is any reason that the device could not connect to the session then the user should be notified that the connection has failed and advise them to try to connect again.
-	\item\textbf{Device View} After the device has successfully connected to the current session then the user should see the exact same thing that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
+	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in that generates QR codes. This plug-in can be found at \href{https://github.com/jeromeetienne/jquery-qrcode}{https://github.com/jeromeetienne/jquery-qrcode}. The QR code should be somewhere on the web page that is easy for the user to find. 
+	\item[]\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code. Any application that the user gets to scan the code should all work with the QR code on the website so there is no need to suggest a specific QR scanner to the user. 
+	\item[]\textbf{device connection} Once the user has successfully scanned the QR code their device should notify them that they are being connected to the current session. If there is any reason that the device could not connect to the session then the user should be notified that the connection has failed and advise them to try to connect again.
+	\item[]\textbf{device View} After the device has successfully connected to the current session then the user should see the exact same thing that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
 \end{description}
+
+\subsection{File converstion}
+	The file conversion will be done using the forge model derivative api. This api will be sent a file anytime that one is uploaded to the website whether it be uploaded locally or uploaded from an outside storage device. The api should accept and CAD drawing files however, if a file is unable to be converted then the user should be notified. Once the api is done with the conversion then the it should send back the converted SVF file. 
+
+\subsubsection{Interaction viewpoint for file conversion}
+\begin{description}
+	\item[]\textbf{conversion api} We will be using the forge model derivative api to convert the files uploaded to the website. We will be using this api because it is free and allows us to convert the files into the exact type of file used by the forge viewer api that we are also using. 
+	\item[]\textbf{file conversions} Once a user has selected and uploaded the CAD drawing file that they would like to use it is then sent to the model derivative api. The api will take the file and then convert it from the current file format to an SVF file. After the file is converted it should be sent back to the website.
+	\item[]\textbf{converted file} The converted file will be placed in the list of viewable models that can be selected as well as loaded into the viewer and should be seen by the user in the viewer.
+	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the api it will return a failed request. If a failed request is received then the user should be notified that their file fail to be convert. There is also the posibility that the translation has timed out. If this happens the user should be notified of the failure and then be prompted to try uploading the file again.
+\end{description}
+
+\begin{flushleft}
+	\includegraphics[scale=0.7]{conversionUML.png}
+\end{flushleft}
+
 
 \bibliography{bibfile}
 \bibliographystyle{IEEETran}
 \end{document}
-
 
 %@misc{a javascript library for building user interfaces - react,
  %title={A JavaScript library for building user interfaces - React},
