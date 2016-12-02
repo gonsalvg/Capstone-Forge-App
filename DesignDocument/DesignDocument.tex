@@ -418,6 +418,41 @@ This addition is necessary in order to have control over the project hosting, an
 	\includegraphics[scale=0.6]{DataManageUseCase.png}
 	\caption{Data Management UML use case diagram}
 \end{figure}
+\newpage
+\subsection{View models in VR}
+\label{Mobile web based VR - Google Cardboard}
+	The Google Cardboard application allows for web pages to be loaded into Android WebView. This uses WebGL for websites to be able to be viewed in the Google Cardboard's VR.
+\subsection{Context viewpoint for WebView}
+	
+\subsection{Design Concerns}
+	This design instance assumes that the user owns Google Cardboard and its accompanied application. Since the viewing experience currently uses Android WebView, the only mobile devices supported are Android devices. As WebView utilizes WebGL support, Android versions below Lollipop are not supported.
+\subsection{Elements}
+\subsubsection{Entities}
+\begin{description}
+	\item[]\textbf{Users}
+	\item[]\textbf{The Website} displays 3D models.
+	\item[]\textbf{The user's mobile device} The hardware on which everything happens.
+	\item[]\textbf{Google Cardboard Application} has the WebView function that allows for the view of websites.
+\end{description}
+\subsubsection{Relationships}
+\begin{description}
+	\item[]\textbf{User and Website Relationship}: The user will scan the Websites QR code. The website will now display in the users device.
+	\item[]\textbf{User and Google Cardboard Application Relationship}: The user will open the application and the application will begin to run.
+	\item[]\textbf{Website and Google Cardboard Application Relationship}: The Google Cardboard application will take the website and put it through the WebView function, resulting in the Website becoming viewable in VR.
+the application.
+\end{description}
+\subsubsection{Constraints}
+\begin{description}
+	\item[]\textbf{The user's mobile device} must be Android and Android version Lollipop or higher. 
+\end{description}
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{ViewingUseCase.png}
+	\caption{Data Management UML use case diagram}
+\end{figure}
+
+
+
+
 
 \end{document}
 
