@@ -159,10 +159,10 @@ This document is targeted at developers building and implementing the software, 
 The SRS is the main influence on the SDD as it holds the requirements and features determined necessary by all the stakeholders. This drives the design to meet those requirements to properly satisfy all stakeholders. However, this also means that it sets the design constraints.
 
 \subsection{Design verification and design role validation}
-In order to verify that our software meets requirements, test cases will be used in order to walkthrough the system and demonstrate the actual funtionality of the software system. In terms of user experience the verification and validation will be mainly done through some primary tests with Autodesk with final okay coming from the clients.
+In order to verify that our software meets requirements, test cases will be used in order to walkthrough the system and demonstrate the actual functionality of the software system. In terms of user experience the verification and validation will be mainly done through some primary tests with Autodesk with final okay coming from the clients.
 
 \subsection{Design stakeholders and their concerns}
-	The primary stakeholder for this project is Patti Vrobel who works for autodesk. User experience is a primary focus of both Patti and Autodesk, and serves as an overarching goal for the project. The project addresses this by adding and altering features to make the website more accessible for users.
+	The primary stakeholder for this project is Patti Vrobel who works for Autodesk. User experience is a primary focus of both Patti and Autodesk, and serves as an overarching goal for the project. The project addresses this by adding and altering features to make the website more accessible for users.
 
 \bibliography{bibfile}
 \bibliographystyle{IEEETran}
@@ -191,40 +191,6 @@ In order to verify that our software meets requirements, test cases will be used
 \end{description} 
 
 \section{Design Views}
-
-\subsection{Model Viewer}
-\label{modelView}
-The Forge Viewer is what powers the Explorer's 3D model viewer. By our requirements, the user must be able to see and interact the model they uploaded from the CAD file. This is accomplished by using the Forge Large Model Viewer, which uses WebGL rendering to display a SVF model in a specified area of a webpage. The model must be able to be manipulated and explored with both simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer that is exclusively displayed on the smartphone. The user interacts with the model using the controls displayed on top of the viewer, which then modifies the camera in the actual viewer and in turn modifies the camera for the mobile device if connected. If a keyboard is connected, the inputs will be sent to the viewer for movement control.
-
-\subsection{Interface Viewpoint: Interaction}
-\begin{itemize}
-	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
-
-	\item[]\textbf{Listed Models} When a user first visits the website there will be a default list of various models that they will be able to select and view in the model. Once selected the model will be loaded into the viewer and become available for the user interact with. The user will also be given an option to upload their own models to view and interact with as well. 
-	
-	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
-	
-	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enable the model viewer to explore the 3D space around the model, and will be enabled within the API.
-
-	\item[]\textbf{Mobile Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
-	
-
-\end{itemize}
-\subsubsection{Design relationships}
-	The uploaded file will be sent to the Viewer from the model derivative API described in section \ref{model derivative} after the file type is verified.
-	
-	The viewer is present on the smartphone and the web page. 
-
-\subsubsection{design constraints} the Viewer requires the proper SVF Format in order to display a model. 
-\begin{figure}[ht]
-	\includegraphics[scale=0.5]{viewerfromlist_360.png}
-	\caption{Forge Viewer List View Interface}
-\end{figure}
-
-\begin{figure}[ht]
-	\includegraphics[scale=0.65]{viewerwithupload_480.png}
-	\caption{Model Viewer Upload Option}
-\end{figure}
 \subsection{Website Interface}
 Because the website is the focus of the project, we are hosting a new version of the website on a new project domain. The primary requirements for the website are to properly host, arrange and display all of the individual components of the project cohesively. This includes the components of file uploading, authentication, the forge viewer, and mobile device connection software. The main webpage serves as the central interface for the project, which is critical to the user experience. This planning is necessary in order to have control over the project hosting, and to test and deploy updates that will help make the application easier to use and faster to deploy.
 
@@ -245,10 +211,49 @@ The interface will assist in the development phase by shortening the amount of t
 	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.	
 \end{itemize}
 
+\subsubsection{Design relationships}
+The main webpage represents the core of the project, bringing in each component referenced in the document. Each component is loaded in either  by their respective API calls or plugins embedded in the page.
 \begin{figure}[ht]
 	\includegraphics[scale=0.30]{WebInterface.png}
 	\caption{Interface UML 2 component diagram}
 \end{figure}
+
+\subsection{Model Viewer}
+\label{modelView}
+The Forge Viewer is what powers the Explorer's 3D model viewer. By our requirements, the user must be able to see and interact the model they uploaded from the CAD file. This is accomplished by using the Forge Large Model Viewer, which uses WebGL rendering to display a SVF model in a specified area of a webpage. The model must be able to be manipulated and explored with both simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer that is exclusively displayed on the smartphone. The user interacts with the model using the controls displayed on top of the viewer, which then modifies the camera in the actual viewer and in turn modifies the camera for the mobile device if connected. If a keyboard is connected, the inputs will be sent to the viewer for movement control.
+
+\subsection{Interface Viewpoint: Interaction}
+\begin{itemize}
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
+
+	\item[]\textbf{Listed Models} When a user first visits the website there will be a default list of various models that they will be able to select and view in the model. Once selected the model will be loaded into the viewer and become available for the user interact with. The user will also be given an option to upload their own models to view and interact with as well. 
+	
+	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
+	
+	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enable the model viewer to explore the 3D space around the model, and will be enabled within the API.
+
+	\item[]\textbf{Mobile Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
+	
+
+\end{itemize}
+\subsubsection{Design Relationships}
+	The uploaded file will be sent to the Viewer from the model derivative API described in section \ref{model derivative} after the file type is verified.
+	
+	The viewer is present on the smartphone and the web page. 
+
+\subsubsection{Design Constraints} the Viewer requires the proper SVF Format in order to display a model. 
+\begin{figure}[ht]
+	\includegraphics[scale=0.65]{viewerfromlist_360.png}
+	\caption{Forge Viewer List View Interface}
+\end{figure}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.80]{viewerwithupload_480.png}
+	\caption{Model Viewer Upload Option}
+\end{figure}
+
+
+
 
 
 \subsection{Local file upload}
@@ -473,14 +478,6 @@ the application.
 \end{figure}
 
 
-
-
-
 \end{document}
 
-%@misc{a javascript library for building user interfaces - react,
- %title={A JavaScript library for building user interfaces - React},
- %url={https://facebook.github.io/react/},
- %journal={A JavaScript library for building user interfaces - React}, 
- %publisher={Facebook.com}}
 
