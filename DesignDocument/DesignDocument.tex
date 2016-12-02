@@ -214,10 +214,7 @@ This section of software includes an update to allow keyboard and mouse input as
 	\item[]\textbf{}  
 	\item[]\textbf{}
 	\item[]\textbf{} 
-\end{itemize
-
-
-}
+\end{itemize}
 %placeholder
 \begin{comment}
 
@@ -346,7 +343,49 @@ This addition is necessary in order to have control over the project hosting, an
 	\caption{File conversion interaction UML}
 \end{figure}
 
+\subsection{Data Authentication}
+\label{Two legged} 
+	If there are resources a user can access without needing to provide permissions the 2 legged authentication system will address this. This takes use of the Forge's Data Authentication API and their OAuth rest points. The application will have a 32 character string that serves as the "client ID" and there will also be a client secret (which act as the password) both will given as a query parameter. 
+\subsection{Interaction viewpoint for two legged authentication}
+	Application requires resources from the Autodesk API and/or servers that do not need a users permissions. Application uses the POST authenticate endpoint to send client ID and secret along with any necessary scopes. Upon successful validation of credentials, access token is returned. When the token expires the process must be repeated.
+\subsection{Design Concerns}
+	The data must be secure and the exchange must be quick. A drawback of using Autodesk API and/or servers is the heavy reliance on it. The performance of the application is dependent on Autodesk, if the servers are slow or down, so is the application.
+\subsection{Elements}
+\begin{description}
+	\item[]\textbf{Application} has a Client ID and Client Secret associated with it.
+	\item[]\textbf{Client ID} acts as application username, 32 character string and passed as the client id query
+	\item[]\textbf{Client secret} is the application password, 16 character string and passed as the client secret query
+	\item[]\textbf{Access token} is returned at the end of a successful authentication flow, 28 character string used for subsequent API calls to the Forge platform. 
+\end{description}
 
+\begin{figure}[ht]
+	\includegraphics[scale=0.7]{Authentication2legged.png}
+	\caption{Two legged OAuth UML sequence diagram}
+\end{figure}
+
+\subsection{Data Authentication}
+\label{Three legged} 
+	If there are resources the application requires that also require the permissions of the user. Then the 3 legged authentication will be used. This takes use of the Forge's Data Authentication API and their OAuth rest points. 
+\subsection{Interaction viewpoint for two legged authentication}
+	Application requires resources from the Autodesk API and/or servers that need a users permissions. Forge platform requires use of the "Authorization Code" grant type. User will be redirected to the Autodesk login (GET authorize endpoint). The user will have to register a new account if they do not have one. Then the user must explicitly accept the permissions the application requests. Using the callback URL the user is redirected to the application with a authorization code. With the code, client id and client secret, the application calls the POST gettoken endpoint. When successful the access token and refresh token are returned. The application is now able to obtain the resources needed. If the token expires the refresh token can use the POST refreshtoken endpoint to get a new access token. 
+\subsection{Design Concerns}
+	The data must be secure and the exchange must be quick. A drawback of using Autodesk API and/or servers is the heavy reliance on it. The performance of the application is dependent on Autodesk, if the servers are slow or down, so is the application. Three legged authentication also requires the login and permission of a user. If the user does not want or cannot provide permission then they are unable to use the application. Another concern is that the user must already own an account, if they do not they will have to create one. 
+\subsection{Elements}
+\begin{description}
+	\item[]\textbf{Application} has a Client ID and Client Secret associated with it.
+	\item[]\textbf{Client ID} acts as application username, 32 character string and passed as the client id query
+	\item[]\textbf{Client secret} is the application password, 16 character string and passed as the client secret query
+	\item[]\textbf{Access token} is returned at the end of a successful authentication flow, 28 character string used for subsequent API calls to the Forge platform. 
+	\item[]\textbf{Callback URL} is the URL the user started from before they were redirected to the Autodesk login. It is necessary in order to bring the user back to the website.
+	\item[]\textbf{Authorization code} is passed through the code query parameter when the user is returned to the application via the callback URL. Using POST gettoken endpoints as well as the client ID, client secret and this code, the application is able to receive an access token. The authorization code is 40 character string.
+	\item[]\textbf{Refresh token} can use the POST refreshtoken endpoint to get new three-legged access tokens with having to have the user repeat logging in. Refresh tokens are 42 characters strings.
+
+\end{description}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.55]{Authentication3legged.png}
+	\caption{Three legged OAuth UML sequence diagram}
+\end{figure}
 
 \end{document}
 
