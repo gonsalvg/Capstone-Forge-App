@@ -197,13 +197,13 @@ The user must be able to see the model they uploaded from the cad file. This is 
 
 \subsection{Interface Viewpoint: Interaction}
 \begin{itemize}
-	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload. This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API.
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
 	
 	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
 	
 	\item[]\textbf{Secondary Viewer}  The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
+	
 
-	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.
 \end{itemize}
 \subsection{Model Viewer Navigation}
 This section of software includes an update to allow keyboard and mouse input as a new option for controlling the Forge Viewer. This is essentially what enables the model viewer to explore the model, and is a separate layer of control from the Viewer Controls. 
@@ -237,7 +237,7 @@ This addition is necessary in order to have control over the project hosting, an
 
 \subsection{Interface Viewpoint: Structure}
 \begin{itemize}
-	\item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API within a script on the main page. The individual required files for the viewer are held in the site source files.
+	 \item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API from a script embedded in the page. The individual required files for the viewer are held in the site source files.
 	
 	\item[]\textbf{Forge Viewer Navigation} This component of the project encompasses the control modifications and adjustments made to the viewer to allow model exploring.
 	 
@@ -247,7 +247,7 @@ This addition is necessary in order to have control over the project hosting, an
 	
 	\item[]\textbf{Model Derivative} This component is essential in preparing the model to be used in the viewer. It is used as a method of transforming a given model of one of many supported formats to SVG. This is accomplished by using an API call to the Model Derivative API.
 	
-	\item[]\textbf{} 
+	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.
 \end{itemize}
 
 \subsection{Local file upload}
