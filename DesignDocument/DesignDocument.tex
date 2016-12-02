@@ -234,14 +234,14 @@ The interface will assist in the development phase by shortening the amount of t
 \end{itemize}
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.35]{WebInterface.png}
+	\includegraphics[scale=0.30]{WebInterface.png}
 	\caption{Interface UML 2 component diagram}
 \end{figure}
 
 
 \subsection{Local file upload}
 \label{local}
-	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer api. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
+	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer API. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
 
 \subsection{Interface viewpoint for local file upload}
 \begin{itemize}
@@ -250,7 +250,7 @@ The interface will assist in the development phase by shortening the amount of t
 	\item[]\textbf{file type verification} Once a file has been selected by the user the website should verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the website 			should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
 	\item[]\textbf{file size verification} Large file may not work well in the viewer in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be notified that the selected file is to large and be prompted to select a different file.
 	This can be done at the same time as verifying the file size.
-	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api described in. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should be notified that their file could not be converted. 
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative API described in. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should be notified that their file could not be converted. 
 \end{itemize}
 
 \subsubsection{Design relationships}
@@ -260,13 +260,14 @@ The interface will assist in the development phase by shortening the amount of t
 
 \subsubsection{design constraints} require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
-\begin{figure}[ht]
-	\includegraphics[scale=0.35]{localUpload.png}
-	\caption{local file upload UML}
-\end{figure}
 
 \subsubsection{Design rationale}
-	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
+	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative API, and this API can only convert files that are CAD drawing files. 
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.45]{localUpload.png}
+	\caption{local file upload UML}
+\end{figure}
 
 \subsection{Non-local file upload}
 \label{nonLocal}
@@ -275,21 +276,21 @@ The interface will assist in the development phase by shortening the amount of t
 \subsection{Interface viewpoint for non-local file upload}
 \begin{itemize}
 	\item[]\textbf{non-local upload button} This button should be easy for the user to identify in the main area of the web page. Once the user has pressed the button they should be prompted to login to the Autodesk account that they are trying to access.
-	\item[]\textbf{user login} Using the data management api the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any of there Autodesk storage systems. 
+	\item[]\textbf{user login} Using the data management API the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any of there Autodesk storage systems. 
 	\item[]\textbf{file type verification} Once a file has been sent to the website from the outside storage should, it verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the 	
 	website should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
 	\item[]\textbf{file selection} After the user has access they should then be able to navigate to the correct storage system their file is in and gain access to their files. Once a file is selected it should then be returned to the website. If returning the file is unsuccessful then the user should be notified and prompted to try 
 	again.
 	\item[]\textbf{file size verification} Large file may not work well in the viewer, in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be 		
 	notified that the selected file is to large and be prompted to select a different file.
-	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative api. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer described in section \ref{modelView}. If the conversion request is unsuccessful then the user should
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative API. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer described in section \ref{modelView}. If the conversion request is unsuccessful then the user should
 	 be notified that their file could not be converted. 
 \end{itemize}
 
 \subsubsection{Design relationships}
 \begin{itemize}
 	\item[]\textbf{Authentication and file upload} the user will receive a token from the authentication token that will allow them to access the other apis \ref{Three legged}
-	\item[]\textbf{Data management api and file upload} the user will gain access to there files through the use of the data management api described in section \ref{A360}
+	\item[]\textbf{Data management API and file upload} the user will gain access to there files through the use of the data management api described in section \ref{A360}
 	\item\textbf{Model derivative and file upload} the uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
 	\item[]\textbf{Viewer and file upload} the converted file will be sent to the viewer described in section \ref{modelView}. 
   \end{itemize}
@@ -297,20 +298,21 @@ The interface will assist in the development phase by shortening the amount of t
 \subsubsection{design constraints} 
 	require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
 
+\subsubsection{Design rationale}
+	The reasoning letting users only use the CAD drawing file types is that the files will need to be converted into an SVF file that is usable by the forge viewer. The conversion to SVF files is done using the model derivative API, and this API can only convert files that are CAD drawing files. This will also keep the list of models that a user can select from being populated with files that don't do anything because they don't work in the viewer.  
+
 \begin{figure}[ht]
 	\includegraphics[scale=0.35]{nonLocalUpload.png}
 	\caption{non-local file upload UML}
 \end{figure}
 
-\subsubsection{Design rationale}
-	The reasoning letting users only use the CAD drawing file types is that the files will need to be converted into an SVF file that is usable by the forge viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. This will also keep the list of models that a user can select from being populated with files that don't do anything because they don't work in the viewer.  
-
 \subsection{Mobile device connection}
+\label{mobileDevice}
 	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. Once connected to the device the user should be able to see what is in the viewer on their device.
 
 \subsection{Mobile device connection Interface viewpoint}
 \begin{description}
-	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in~\cite{QR2016} that generates QR codes. The QR code should be somewhere on the web page that is easy for the user to find. 
+	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a JQuery plug-in~\cite{QR2016} that generates QR codes. The QR code should be somewhere on the web page that is easy for the user to find. 
 	\item[]\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code. Any application that the user gets to scan the code should all work with the QR code on the website so there is no need to suggest a specific QR scanner to the user. 
 	\item[]\textbf{device connection} Once the user has successfully scanned the QR code their device should notify them that they are being connected to the current session. If there is any reason that the device could not connect to the session then the user should be notified that the connection has failed and advise them to try to connect again.
 	\item[]\textbf{device View} After the device has successfully connected to the current session then the user should be able to see the exact same thing on the device that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
@@ -328,22 +330,22 @@ The interface will assist in the development phase by shortening the amount of t
 \end{itemize}
 \subsection{File conversion}
 \label{model derivative} 
-	The file conversion will be done using the forge model derivative api. This api will be sent a file anytime that one is uploaded to the website whether it be uploaded locally or uploaded from an outside storage device. The api should accept and CAD drawing files however, if a file is unable to be converted then the user should be notified. Once the api is done with the conversion then the it should send back the converted SVF file. 
+	The file conversion will be done using the forge model derivative API. This API will be sent a file anytime that one is uploaded to the website whether it be uploaded locally or uploaded from an outside storage device. The API should accept and CAD drawing files however, if a file is unable to be converted then the user should be notified. Once the API is done with the conversion then the it should send back the converted SVF file. 
 
 \subsection{Interaction viewpoint for file conversion}
 \begin{description}
-	\item[]\textbf{conversion api} We will be using the forge model derivative api to convert the files uploaded to the website. We will be using this api because it is free and allows us to convert the files into the exact type of file used by the forge viewer api that we are also using. 
-	\item[]\textbf{file conversions} Once a user has selected and uploaded the CAD drawing file that they would like to use it is then sent to the model derivative api. The api will take the file and then convert it from the current file format to an SVF file. After the file is converted it should be sent back to the website.
+	\item[]\textbf{conversion API} We will be using the forge model derivative api to convert the files uploaded to the website. We will be using this API because it is free and allows us to convert the files into the exact type of file used by the forge viewer API that we are also using. 
+	\item[]\textbf{file conversions} Once a user has selected and uploaded the CAD drawing file that they would like to use it is then sent to the model derivative API. The API will take the file and then convert it from the current file format to an SVF file. After the file is converted it should be sent back to the website.
 	\item[]\textbf{converted file} The converted file will be placed in the list of viewable models that can be selected as well as loaded into the viewer and should be seen by the user in the viewer.
-	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the api it will return a failed request. If a failed request is received then the user should be notified that their file fail to be convert. There is also the posibility that the translation has timed out. If this happens the user should be notified of the failure and then be prompted to try uploading the file again.
+	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the API it will return a failed request. If a failed request is received then the user should be notified that their file fail to be convert. There is also the possibility that the translation has timed out. If this happens the user should be notified of the failure and then be prompted to try uploading the file again.
 \end{description}
 
 \subsubsection{Design constraints}
-	The files that are uploaded must be the correct type of files so that when they are sent to the model derivative api they can be converted correctly.
+	The files that are uploaded must be the correct type of files so that when they are sent to the model derivative API they can be converted correctly.
 
 \subsubsection{Design relationships}
 \begin{itemize}
-	\item[]\textbf{model derivative and veiwer relationship} converted files will be sent to the viewer api to be displayed on the website \ref{modelView}
+	\item[]\textbf{model derivative and viewer relationship} converted files will be sent to the viewer API to be displayed on the website \ref{modelView}
 \end{itemize}
 
 \begin{figure}[ht]
@@ -400,7 +402,7 @@ The interface will assist in the development phase by shortening the amount of t
 \label{A360} 
 	A360 Personal requires 3-legged authorization for the application to access data. Then allows users to choose personal files for the application to use.
 \subsection{Context viewpoint for Data Management API}
-	In the flow the user wishs to access files from their A360 account. So to first do this they must login via the data authentication API. Once this is done the application is capable of using the resources from their A360 account. Next the users uses the data management API in order to choose the file they wish to use. 
+	In the flow the user wishes to access files from their A360 account. So to first do this they must login via the data authentication API. Once this is done the application is capable of using the resources from their A360 account. Next the users uses the data management API in order to choose the file they wish to use. 
 \subsection{Design Concerns}
 	Since all data that comes from A360 belongs to an account, it is assumed that a user first off, is registered and has an account. Furthermore, that the user logins in and through the Data Authentication API provides the permissions to the application to allow the use of A360's resources. Second is that files actually exist in the accounts storage, if there are no files the user has nothing to choose to use. If the user does not choose a CAD file this issue is not caught at this stage in the application, it is done later.
 \subsection{Elements}
@@ -412,9 +414,9 @@ The interface will assist in the development phase by shortening the amount of t
 \end{description}
 \subsubsection{Relationships}
 \begin{description}
-	\item[]\textbf{User and Data Authentication's Relationship}: The user must login their Autodesk account and then provide explicit permissions for resources. This will give the authentication the okay to begin sending tokens.
-	\item[]\textbf{User and Data Managements's Relationship}: The user will select the files they want from the data management and the data management API will provide those files to the user.
-	\item[]\textbf{Data Authentication and Data Managements's Relationship}: The data authentication API will keep the token that allows the data management API to send resources to the application.
+	\item[]\textbf{User and Data Authentication's Relationship}: The user must login their Autodesk account and then provide explicit permissions for resources. This will give the authentication the okay to begin sending tokens. \ref{Two legged} and \ref{Three legged}
+	\item[]\textbf{User and Data Management's Relationship}: The user will select the files they want from the data management and the data management API will provide those files to the user. \ref{A360}
+	\item[]\textbf{Data Authentication and Data Management's Relationship}: The data authentication API will keep the token that allows the data management API to send resources to the application.
 \end{description}
 \subsubsection{Constraints}
 \begin{description}
@@ -431,7 +433,7 @@ The interface will assist in the development phase by shortening the amount of t
 \label{Mobile web based VR - Google Cardboard}
 	The Google Cardboard application allows for web pages to be loaded into Android WebView. This uses WebGL for websites to be able to be viewed in the Google Cardboard's VR.
 \subsection{Context viewpoint for WebView}
-	In the flow the user wishs to view the model on the website on their mobile device and then use Google Cardboard in order to view the model in VR. In order to do this they utilize the QR scanner to get the website. Then to view in VR they open their Google Cardboard application. From there they use the WebView to view the site in VR which accomplishes their goal.
+	In the flow the user wishes to view the model on the website on their mobile device and then use Google Cardboard in order to view the model in VR. In order to do this they utilize the QR scanner to get the website. Then to view in VR they open their Google Cardboard application. From there they use the WebView to view the site in VR which accomplishes their goal.
 \subsection{Design Concerns}
 	This design instance assumes that the user owns Google Cardboard and its accompanied application. Since the viewing experience currently uses Android WebView, the only mobile devices supported are Android devices. As WebView utilizes WebGL support, Android versions below Lollipop are not supported.
 \subsection{Elements}
