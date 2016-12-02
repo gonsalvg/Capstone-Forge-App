@@ -230,24 +230,25 @@ This section of software includes an update to allow keyboard and mouse input as
 \end{comment}
 
 
-\subsection{Website Structure}
-Because the website is the focus of the project, we are hosting a new version of the website utilizing a github project page for hosting. The requirements for the website are to properly host, arrange and display all of the components of the project. This includes the file uploading, authentication, the forge viewer, and mobile device connection software. The website must be simple to use, and appears intuitive for all users.
+\subsection{Website Interface}
+Because the website is the focus of the project, we are hosting a new version of the website on a new project domain. The primary requirements for the website are to properly host, arrange and display all of the individual components of the project cohesively. This includes the components of file uploading, authentication, the forge viewer, and mobile device connection software. The main webpage serves as the central interface for the project, which is critical to the user experience. This planning is necessary in order to have control over the project hosting, and to test and deploy updates that will help make the application easier to use and faster to deploy.
 
-This addition is necessary in order to have control over the project hosting, and to test and deploy updates. Additional constraints to this view include limiting technical details of each component for the purpose of creating a prototype for the project's core user experience. 
+The interface will assist in the development phase by shortening the amount of time needed to implement initial setup to the website, which also increases the ability to spend time on other features of the project. This interface does not focus on the technical aspects of the components, and serves to ensure that the project heads toward a positive user experience though its simplicity and useful features. Technical details have been omitted as necessary to the diagram to emphasize some of the larger structure of the project as a whole. 
 
-\subsection{Interface Viewpoint: Structure}
+\subsection{Interface Viewpoint: Interface}
 \begin{itemize}
 	 \item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API from a script embedded in the page. The individual required files for the viewer are held in the site source files.
 	
 	\item[]\textbf{Forge Viewer Navigation} This component of the project encompasses the control modifications and adjustments made to the viewer to allow model exploring.
 	 
-	\item[]\textbf{File Upload} The file upload functionality will be available on the main page in a specific area.
+	\item[]\textbf{File Upload} The file upload functionality will be available on the main page in a specific area. This would include 
 	
 	\item[]\textbf{Smartphone QR Code}  The smartphone QR code will also have its own page section and will be viewable on the main page of the site.
 	
 	\item[]\textbf{Model Derivative} This component is essential in preparing the model to be used in the viewer. It is used as a method of transforming a given model of one of many supported formats to SVG. This is accomplished by using an API call to the Model Derivative API.
 	
 	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.
+	
 \end{itemize}
 
 \subsection{Local file upload}
