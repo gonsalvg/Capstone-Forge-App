@@ -147,7 +147,7 @@ TABLE OF CONTENTS
 \clearpage
 
 \section{Introduction}
-The software implemented is a web application capable of accomplishing several tasks. The software allows for the upload of CAD files, renders them on the website using the various Forge APIs, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models using Google Cardboard or similar VR headsets. This document aims to delve into the design of each piece of functionality and seeks to expand its design and structure.
+The Forge Explorer is a web application capable of accomplishing several tasks. The web app allows for the upload of CAD files, renders them on the website utilizing the Forge APIs, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models using Google Cardboard or similar VR headsets- all in one place. This document aims to delve into the design of several key pieces of functionality and seeks to expand their design and structure. This spans from the overarching web layout, to individual components the Forge API the team will be implementing into the project.
 \subsection{Scope}
 The scope of this document covers the information regarding user experience data flows, the software design description and the design structure of the software. This design document includes information critical to the development of the project as a whole. This document does not cover specific implementation decisions or quality requirements.
 \subsection{Purpose}
@@ -176,8 +176,7 @@ In order to verify that our software meets requirements, test cases will be used
 
 	\item{FORGE}~\cite{forge2016} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
 
-	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and also allows
-	for user interaction.
+	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and allows for interaction with the model through clickable controls.
 	
 	\item{Model Derivative API} This is another API in Forge. It can generate SVF files that we can utilize in the application from other model filetypes.
 	
@@ -185,15 +184,17 @@ In order to verify that our software meets requirements, test cases will be used
 
 	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
 
-	\item\textbf{SVF file} The file format used by the forge viewer
+	\item{SVF file} The file format used by the forge viewer
+	
+	\item{SDD} Software Design Description, the document detailing the design of the systems for the project.
+	
 \end{description} 
 
 \section{Design Views}
 
 \subsection{Model Viewer}
 \label{modelView}
-The user must be able to see the model they uploaded from the cad file. This is accomplished by using the Forge Large Model Viewer, or Forge Viewer. The model must be able to be manipulated and explored with simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer exclusively for the smartphone. Because this viewer is responsible for a large aspect of the project, ensuring the viewer is configured to run as smoothly as possible is essential.
-
+The Forge Viewer is what powers the Explorer's 3D model viewer. By our requirements, the user must be able to see and interact the model they uploaded from the CAD file. This is accomplished by using the Forge Large Model Viewer, which uses WebGL rendering to display a SVF model in a specified area of a webpage. The model must be able to be manipulated and explored with both simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer that is exclusively displayed on the smartphone. The user interacts with the model using the controls displayed on top of the viewer, which then modifies the camera in the actual viewer and in turn modifies the camera for the mobile device if connected. If a keyboard is connected, the inputs will be sent to the viewer for movement control.
 
 \subsection{Interface Viewpoint: Interaction}
 \begin{itemize}
@@ -203,15 +204,18 @@ The user must be able to see the model they uploaded from the cad file. This is 
 	
 	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
 	
-	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enables the model viewer to explore the model, and is a separate layer of control from the Viewer Controls. 
+	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enable the model viewer to explore the 3D space around the model, and will be enabled within the API.
 
-	\item[]\textbf{Secondary Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
+	\item[]\textbf{Mobile Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
 	
 
 \end{itemize}
+\subsubsection{Design relationships}
+	The uploaded file will be sent to the Viewer from the model derivative API described in section \ref{model derivative} after the file type is verified.
+	
+	The viewer is present on the smartphone and the web page. 
 
-\subsubsection{Design constraints}
-	The files used by the model viewer are a specific SVF file type.
+\subsubsection{design constraints} the Viewer requires the proper SVF Format in order to display a model. 
 
 \subsection{Website Interface}
 Because the website is the focus of the project, we are hosting a new version of the website on a new project domain. The primary requirements for the website are to properly host, arrange and display all of the individual components of the project cohesively. This includes the components of file uploading, authentication, the forge viewer, and mobile device connection software. The main webpage serves as the central interface for the project, which is critical to the user experience. This planning is necessary in order to have control over the project hosting, and to test and deploy updates that will help make the application easier to use and faster to deploy.
