@@ -217,14 +217,15 @@ The Forge Viewer is what powers the Explorer's 3D model viewer. By our requireme
 
 \subsubsection{design constraints} the Viewer requires the proper SVF Format in order to display a model. 
 \begin{figure}[ht]
-	\includegraphics[scale=0.5]{viewerfromlist_360.png}
+	\includegraphics[scale=0.75]{viewerfromlist_360.png}
 	\caption{Forge Viewer List View Interface}
 \end{figure}
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.65]{viewerwithupload_480.png}
+	\includegraphics[scale=0.70]{viewerwithupload_480.png}
 	\caption{Model Viewer Upload Option}
 \end{figure}
+\newpage
 \subsection{Website Interface}
 Because the website is the focus of the project, we are hosting a new version of the website on a new project domain. The primary requirements for the website are to properly host, arrange and display all of the individual components of the project cohesively. This includes the components of file uploading, authentication, the forge viewer, and mobile device connection software. The main webpage serves as the central interface for the project, which is critical to the user experience. This planning is necessary in order to have control over the project hosting, and to test and deploy updates that will help make the application easier to use and faster to deploy.
 
@@ -246,7 +247,7 @@ The interface will assist in the development phase by shortening the amount of t
 \end{itemize}
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.30]{WebInterface.png}
+	\includegraphics[scale=0.55]{WebInterface.png}
 	\caption{Interface UML 2 component diagram}
 \end{figure}
 
@@ -277,7 +278,7 @@ The interface will assist in the development phase by shortening the amount of t
 	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative API, and this API can only convert files that are CAD drawing files. 
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.45]{localUpload.png}
+	\includegraphics[scale=0.55]{localUpload.png}
 	\caption{local file upload UML}
 \end{figure}
 
@@ -314,7 +315,7 @@ The interface will assist in the development phase by shortening the amount of t
 	The reasoning letting users only use the CAD drawing file types is that the files will need to be converted into an SVF file that is usable by the forge viewer. The conversion to SVF files is done using the model derivative API, and this API can only convert files that are CAD drawing files. This will also keep the list of models that a user can select from being populated with files that don't do anything because they don't work in the viewer.  
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.35]{nonLocalUpload.png}
+	\includegraphics[scale=0.45]{nonLocalUpload.png}
 	\caption{non-local file upload UML}
 \end{figure}
 
