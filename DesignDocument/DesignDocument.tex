@@ -155,7 +155,19 @@ The purpose of this software design document is to describe the user experience 
 \subsection{Intended audience}
 This document is targeted at developers building and implementing the software, and the stakeholders who include: Patti Vrobel, the Autodesk Forge API team,  and developers of the original "Vrok-it" project that this is based off of. Core stakeholders also are working with the project group in order to maximize the projects potential.
 
-\subsection{Definitions}
+\subsection{Influences on SDD preparation}
+The SRS is the main influence on the SDD as it holds the requirements and features determined necessary by all the stakeholders. This drives the design to meet those requirements to properly satisfy all stakeholders. However, this also means that it sets the design constraints.
+
+\subsection{Design verification and design role validation}
+In order to verify that our software meets requirements, test cases will be used in order to walkthrough the system and demonstrate the actual funtionality of the software system. In terms of user experience the verification and validation will be mainly done through some primary tests with Autodesk with final okay coming from the clients.
+
+\subsection{Design stakeholders and their concerns}
+	The primary stakeholder for this project is Patti Vrobel who works for autodesk. User experience is a primary focus of both Patti and Autodesk, and serves as an overarching goal for the project. The project addresses this by adding and altering features to make the website more accessible for users.
+
+\bibliography{bibfile}
+\bibliographystyle{IEEETran}
+
+\section{Definitions}
 \begin{description}
 	\item{CAD} Computer Aided design is software used to design and view 3D models.
 
@@ -176,18 +188,6 @@ This document is targeted at developers building and implementing the software, 
 	\item\textbf{SVF file} The file format used by the forge viewer
 \end{description} 
 
-\bibliography{bibfile}
-\bibliographystyle{IEEETran}
-
-\subsubsection{Influences on SDD preparation}
-The SRS is the main influence on the SDD as it holds the requirements and features determined necessary by all the stakeholders. This drives the design to meet those requirements to properly satisfy all stakeholders. However, this also means that it sets the design constraints.
-
-\subsubsection{Design verification and design role validation}
-In order to verify that our software meets requirements, test cases will be used in order to walkthrough the system and demonstrate the actual funtionality of the software system. In terms of user experience the verification and validation will be mainly done through some primary tests with Autodesk with final okay coming from the clients.
-
-\subsection{Design stakeholders and their concerns}
-	The primary stakeholder for this project is Patti Vrobel who works for autodesk. User experience is a primary focus of both Patti and Autodesk, and serves as an overarching goal for the project. The project addresses this by adding and altering features to make the website more accessible for users.
-
 \section{Design Views}
 
 \subsection{Model Viewer}
@@ -198,37 +198,20 @@ The user must be able to see the model they uploaded from the cad file. This is 
 \subsection{Interface Viewpoint: Interaction}
 \begin{itemize}
 	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
+
+	\item[]\textbf{Listed Models} When a user first visits the website there will be a default list of various models that they will be able to select and view in the model. Once selected the model will be loaded into the viewer and become available for the user interact with. The user will also be given an option to upload their own models to view and interact with as well. 
 	
 	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
 	
-	\item[]\textbf{Secondary Viewer}  The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
+	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enables the model viewer to explore the model, and is a separate layer of control from the Viewer Controls. 
+
+	\item[]\textbf{Secondary Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
 	
 
 \end{itemize}
-\subsection{Model Viewer Navigation}
-This section of software includes an update to allow keyboard and mouse input as a new option for controlling the Forge Viewer. This is essentially what enables the model viewer to explore the model, and is a separate layer of control from the Viewer Controls. 
-\subsection{Interface Viewpoint: Interaction}
-\begin{itemize}
-	\item[]\textbf{} 
-	\item[]\textbf{} 
-	\item[]\textbf{}  
-	\item[]\textbf{}
-	\item[]\textbf{} 
-\end{itemize}
-%placeholder
-\begin{comment}
 
-
-\subsection{Interface Viewpoint}
-\begin{itemize}
-	\item[]\textbf{} 
-	\item[]\textbf{} 
-	\item[]\textbf{}  
-	\item[]\textbf{}
-	\item[]\textbf{} 
-\end{itemize}
-\end{comment}
-
+\subsubsection{Design constraints}
+	The files used by the model viewer are a specific SVF file type.
 
 \subsection{Website Interface}
 Because the website is the focus of the project, we are hosting a new version of the website on a new project domain. The primary requirements for the website are to properly host, arrange and display all of the individual components of the project cohesively. This includes the components of file uploading, authentication, the forge viewer, and mobile device connection software. The main webpage serves as the central interface for the project, which is critical to the user experience. This planning is necessary in order to have control over the project hosting, and to test and deploy updates that will help make the application easier to use and faster to deploy.
@@ -245,18 +228,19 @@ The interface will assist in the development phase by shortening the amount of t
 	
 	\item[]\textbf{Smartphone QR Code}  The smartphone QR code will also have its own page section and will be viewable on the main page of the site.
 	
-	\item[]\textbf{Model Derivative} This component is essential in preparing the model to be used in the viewer. It is used as a method of transforming a given model of one of many supported formats to SVG. This is accomplished by using an API call to the Model Derivative API.
+	\item[]\textbf{Model Derivative} This component is essential in preparing the model to be used in the viewer. It is used as a method of transforming a given model of one of many supported formats to SVF. This is accomplished by using an API call to the Model Derivative API.
 	
 	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.	
 \end{itemize}
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.6]{WebInterface.png}
+	\includegraphics[scale=0.35]{WebInterface.png}
 	\caption{Interface UML 2 component diagram}
 \end{figure}
 
 
 \subsection{Local file upload}
+\label{local}
 	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer api. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
 
 \subsection{Interface viewpoint for local file upload}
@@ -277,7 +261,7 @@ The interface will assist in the development phase by shortening the amount of t
 \subsubsection{design constraints} require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.5]{localUpload.png}
+	\includegraphics[scale=0.35]{localUpload.png}
 	\caption{local file upload UML}
 \end{figure}
 
@@ -285,6 +269,7 @@ The interface will assist in the development phase by shortening the amount of t
 	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
 
 \subsection{Non-local file upload}
+\label{nonLocal}
 	The user should be able to  access their files that are on an outside storage device and then upload these files to the website. There should be a button that the user can use to login to there outside storage. once logged in the user should be able to navigate to the file that they would like to use and then select that file to be uploaded. The website should verify that the selected file is of the correct file type and size. The website should also convert the file to an SVF file that the viewer can use. If for any reason there is a failure in the file upload then the user should be notified of that failure and informed of what to do.
 
 \subsection{Interface viewpoint for non-local file upload}
@@ -302,36 +287,45 @@ The interface will assist in the development phase by shortening the amount of t
 \end{itemize}
 
 \subsubsection{Design relationships}
-	The user will gain access to there files through the use of the data management api described in section %add ref
+\begin{itemize}
+	\item[]\textbf{Authentication and file upload} the user will receive a token from the authentication token that will allow them to access the other apis \ref{Three legged}
+	\item[]\textbf{Data management api and file upload} the user will gain access to there files through the use of the data management api described in section \ref{A360}
+	\item\textbf{Model derivative and file upload} the uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
+	\item[]\textbf{Viewer and file upload} the converted file will be sent to the viewer described in section \ref{modelView}. 
+  \end{itemize}
 
-	The uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
-	
-	The converted file will be sent to the viewer described in section \ref{modelView}. 
-  
 \subsubsection{design constraints} 
 	require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
 
 \begin{figure}[ht]
-	\includegraphics[scale=0.40]{nonLocalUpload.png}
+	\includegraphics[scale=0.35]{nonLocalUpload.png}
 	\caption{non-local file upload UML}
 \end{figure}
 
-
-
 \subsubsection{Design rationale}
-	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. 
+	The reasoning letting users only use the CAD drawing file types is that the files will need to be converted into an SVF file that is usable by the forge viewer. The conversion to SVF files is done using the model derivative api, and this api can only convert files that are CAD drawing files. This will also keep the list of models that a user can select from being populated with files that don't do anything because they don't work in the viewer.  
 
 \subsection{Mobile device connection}
-	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. 
+	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. Once connected to the device the user should be able to see what is in the viewer on their device.
 
 \subsection{Mobile device connection Interface viewpoint}
 \begin{description}
-	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in that generates QR codes. This plug-in can be found at \href{https://github.com/jeromeetienne/jquery-qrcode}{https://github.com/jeromeetienne/jquery-qrcode}. The QR code should be somewhere on the web page that is easy for the user to find. 
+	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a jquery plug-in~\cite{QR2016} that generates QR codes. The QR code should be somewhere on the web page that is easy for the user to find. 
 	\item[]\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code. Any application that the user gets to scan the code should all work with the QR code on the website so there is no need to suggest a specific QR scanner to the user. 
 	\item[]\textbf{device connection} Once the user has successfully scanned the QR code their device should notify them that they are being connected to the current session. If there is any reason that the device could not connect to the session then the user should be notified that the connection has failed and advise them to try to connect again.
-	\item[]\textbf{device View} After the device has successfully connected to the current session then the user should see the exact same thing that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
+	\item[]\textbf{device View} After the device has successfully connected to the current session then the user should be able to see the exact same thing on the device that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
 \end{description}
 
+\subsubsection{Design constraints}
+	The device the user is using must be able to use an application that will allow them to scan the QR code displayed on the website. 
+
+\subsubsection{Design Rationale}
+	The purpose of having a user be able to connect their mobile device to the website is for the use of viewing their models in a VR environment through the use of their mobile device and a VR headset. 
+
+\subsubsection{Design relationships}
+\begin{itemize}
+	\item[]\textbf{mobile device and viewer relationship} this will directly interact with the viewer that is on the website \ref{modelView}
+\end{itemize}
 \subsection{File conversion}
 \label{model derivative} 
 	The file conversion will be done using the forge model derivative api. This api will be sent a file anytime that one is uploaded to the website whether it be uploaded locally or uploaded from an outside storage device. The api should accept and CAD drawing files however, if a file is unable to be converted then the user should be notified. Once the api is done with the conversion then the it should send back the converted SVF file. 
@@ -343,6 +337,14 @@ The interface will assist in the development phase by shortening the amount of t
 	\item[]\textbf{converted file} The converted file will be placed in the list of viewable models that can be selected as well as loaded into the viewer and should be seen by the user in the viewer.
 	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the api it will return a failed request. If a failed request is received then the user should be notified that their file fail to be convert. There is also the posibility that the translation has timed out. If this happens the user should be notified of the failure and then be prompted to try uploading the file again.
 \end{description}
+
+\subsubsection{Design constraints}
+	The files that are uploaded must be the correct type of files so that when they are sent to the model derivative api they can be converted correctly.
+
+\subsubsection{Design relationships}
+\begin{itemize}
+	\item[]\textbf{model derivative and veiwer relationship} converted files will be sent to the viewer api to be displayed on the website \ref{modelView}
+\end{itemize}
 
 \begin{figure}[ht]
 	\includegraphics[scale=0.7]{conversionUML.png}
