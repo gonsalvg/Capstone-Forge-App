@@ -343,6 +343,7 @@ This addition is necessary in order to have control over the project hosting, an
 	\caption{File conversion interaction UML}
 \end{figure}
 
+\newpage
 \subsection{Data Authentication}
 \label{Two legged} 
 	If there are resources a user can access without needing to provide permissions the 2 legged authentication system will address this. This takes use of the Forge's Data Authentication API and their OAuth rest points. The application will have a 32 character string that serves as the "client ID" and there will also be a client secret (which act as the password) both will given as a query parameter. 
@@ -385,6 +386,37 @@ This addition is necessary in order to have control over the project hosting, an
 \begin{figure}[ht]
 	\includegraphics[scale=0.55]{Authentication3legged.png}
 	\caption{Three legged OAuth UML sequence diagram}
+\end{figure}
+
+\subsection{Data Management API}
+\label{A360} 
+	A360 Personal requires 3-legged authorization for the application to access data. Then allows users to choose personal files for the application to use.
+\subsection{Context viewpoint for Data Management API}
+	
+\subsection{Design Concerns}
+	Since all data that comes from A360 belongs to an account, it is assumed that a user first off, is registered and has an account. Furthermore, that the user logins in and through the Data Authentication API provides the permissions to the application to allow the use of A360's resources. Second is that files actually exist in the accounts storage, if there are no files the user has nothing to choose to use. If the user does not choose a CAD file this issue is not caught at this stage in the application, it is done later.
+\subsection{Elements}
+\subsubsection{Entities}
+\begin{description}
+	\item[]\textbf{Users} 
+	\item[]\textbf{Data Management API}
+	\item[]\textbf{Data Authentication API}
+\end{description}
+\subsubsection{Relationships}
+\begin{description}
+	\item[]\textbf{User and Data Authentication's Relationship}: The user must login their Autodesk account and then provide explicit permissions for resources. This will give the authentication the okay to begin sending tokens.
+	\item[]\textbf{User and Data Managements's Relationship}: The user will select the files they want from the data management and the data management API will provide those files to the user.
+	\item[]\textbf{Data Authentication and Data Managements's Relationship}: The data authentication API will keep the token that allows the data management API to send resources to the application.
+\end{description}
+\subsubsection{Constraints}
+\begin{description}
+	\item[]\textbf{Users} must have a Autodesk account registered as well as files within the data management API.
+
+\end{description}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{DataManageUseCase.png}
+	\caption{Data Management UML use case diagram}
 \end{figure}
 
 \end{document}
