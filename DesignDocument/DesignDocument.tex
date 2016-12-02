@@ -392,15 +392,15 @@ This addition is necessary in order to have control over the project hosting, an
 \label{A360} 
 	A360 Personal requires 3-legged authorization for the application to access data. Then allows users to choose personal files for the application to use.
 \subsection{Context viewpoint for Data Management API}
-	
+	In the flow the user wishs to access files from their A360 account. So to first do this they must login via the data authentication API. Once this is done the application is capable of using the resources from their A360 account. Next the users uses the data management API in order to choose the file they wish to use. 
 \subsection{Design Concerns}
 	Since all data that comes from A360 belongs to an account, it is assumed that a user first off, is registered and has an account. Furthermore, that the user logins in and through the Data Authentication API provides the permissions to the application to allow the use of A360's resources. Second is that files actually exist in the accounts storage, if there are no files the user has nothing to choose to use. If the user does not choose a CAD file this issue is not caught at this stage in the application, it is done later.
 \subsection{Elements}
 \subsubsection{Entities}
 \begin{description}
 	\item[]\textbf{Users} 
-	\item[]\textbf{Data Management API}
-	\item[]\textbf{Data Authentication API}
+	\item[]\textbf{Data Management API} allows users to access files in their A360 for any sort of use.
+	\item[]\textbf{Data Authentication API} provides the security and access of resources to the application.
 \end{description}
 \subsubsection{Relationships}
 \begin{description}
@@ -423,7 +423,7 @@ This addition is necessary in order to have control over the project hosting, an
 \label{Mobile web based VR - Google Cardboard}
 	The Google Cardboard application allows for web pages to be loaded into Android WebView. This uses WebGL for websites to be able to be viewed in the Google Cardboard's VR.
 \subsection{Context viewpoint for WebView}
-	
+	In the flow the user wishs to view the model on the website on their mobile device and then use Google Cardboard in order to view the model in VR. In order to do this they utilize the QR scanner to get the website. Then to view in VR they open their Google Cardboard application. From there they use the WebView to view the site in VR which accomplishes their goal.
 \subsection{Design Concerns}
 	This design instance assumes that the user owns Google Cardboard and its accompanied application. Since the viewing experience currently uses Android WebView, the only mobile devices supported are Android devices. As WebView utilizes WebGL support, Android versions below Lollipop are not supported.
 \subsection{Elements}
