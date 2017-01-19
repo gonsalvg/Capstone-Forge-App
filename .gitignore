@@ -1,16 +1,2 @@
-Project Statement/projectStatement.aux
-*.log
-Project Statement/projectStatement.out
-Project Requirements/requirements.aux
-*.out
-Project Requirements/requirements.toc
-Project Requirements/SSRS_Template_A2.aux
-*.pdf
-Project Requirements/SSRS_Template_A2.tex
-Project Requirements/SSRS_Template_A2.toc
-Project Requirements/sig.aux
-Project Requirements/desktop.ini
-TechnologyReview/Technology Review.pdf
-TechnologyReview/Technology Review.aux
-TechnologyReview/Technology Reviewupdated.tex
-Progress Report/progressReport.blg
+credentials.js
+node_modules/*

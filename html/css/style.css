@@ -1,0 +1,77 @@
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  -webkit-text-size-adjust: none;
+  color: #333;
+  margin: 0 auto;
+  padding: 10px;
+  display: block;
+  position: relative;
+}
+
+p.info {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cmd-btn-small, .cmd-btn-small-x {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  border: 1px solid #555;
+  border-radius: 2px;
+  color: #555;
+  text-transform: uppercase;
+  text-align: center;
+  width: 120px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.cmd-btn-small {
+  background: transparent;
+}
+
+.cmd-btn-small-x {
+  width: 120px;
+  background: #ccc;
+}
+
+.cmd-btn-small:hover, .cmd-btn-small-x:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.cmd-btn-small:hover {
+  background-color: #555;
+}
+.cmd-btn-small-x:hover {
+  background-color: #222;
+}
+
+a {
+  color: blue;
+  color: hsl( 220, 90%, 40% );
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: blue;
+  background-color: hsl( 220, 90%, 50% );
+  color: white;
+}
+
+.aboutLayer {
+    text-indent: -2000px;
+}
+
+.full {
+    width: 100%;
+    height: 1800px;
+}
+
+.highlight {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
