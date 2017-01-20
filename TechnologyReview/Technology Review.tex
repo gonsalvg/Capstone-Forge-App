@@ -13,6 +13,9 @@
 \usepackage{array}
 \usepackage{supertabular}
 \usepackage{hhline}
+%\usepackage{biblatex}
+\usepackage{cite}
+
 
 \usepackage{hyperref}
 %\usepackage{digsig} %not a default package... just for signature field on final page.
@@ -80,7 +83,6 @@
 \title{Forge VR Explorer Requirements}
 \author{Shawn Cross, Griffin Gonsalves, Paul Kwak}
 \date{2016-11-3}
-
 
 
 \begin{document}
@@ -203,19 +205,19 @@ TABLE OF CONTENTS
 			\item{Options}
 				\begin{itemize}
 
-					\item accusoft API: This is an API that allows users to convert their CAD files in to raster files such as SVG (scalable vector graphic) files that could 
+					\item accusoft API:~\cite{accusoft2016} This is an API that allows users to convert their CAD files in to raster files such as SVG (scalable vector graphic) files that could 
 						to view in the model viewer. This API does cost money and depending on how many conversions the user is planning on doing this option
 						could turn out to be relatively expensive. There is a lot of documentation on how this API can be integrated into an application but it seems
 						as though the integration process could be harder if you are not using a certain types of applications.
 
-					\item  Forge Model derivative API: This API has the ability to take users CAD source file and convert them into OBJ and STL files. This API can also
+					\item  Forge Model derivative API:~\cite{forge2016} This API has the ability to take users CAD source file and convert them into OBJ and STL files. This API can also
 						convert the files directly into SVF files the same type of file that the model viewer API we will be using on this project uses. This API would 
 						also not cost us anything to use while we are working on the project since the company that created the API is the same company we will 
 						be making the project for. There might be a little bit of a learning curve when it comes to integrating it into the website but the API has a 
 						lot of tutorials and documentation on how to use the API in an application.  This API also uses a token based authentication system that
 						provides security when converting the users files. 
 
-					\item  cloudconvert API: This API gives you the ability to convert from CAD source files to a SVG file but it also give you the ability to convert the 
+					\item  cloudconvert API:~\cite{cloudconvert2016} This API gives you the ability to convert from CAD source files to a SVG file but it also give you the ability to convert the 
 						other way was well. This API also has well documented instruction on how to integrate this API into an application. That would make it easier
 						to learn and take less time to complete the task. This API would cost money to use depending on how much time is spent doing the conversions.
 						this one also requires that a key be used when doing the to be created which make this more secure to do file conversions on since it will be able 
@@ -412,6 +414,14 @@ TABLE OF CONTENTS
 \section{Conclusion}
 After our technology review, we have made some important evaluations on our project and its different components. For many components, we decided it was best if we continued using some of the technologies from the original project, in addition to focusing on utilizing new API's and frameworks that fit the goals of our project. We are planning on potentially adding an updated version of the Forge Large Model Viewer that is currently being developed.
 
+\bibliography{bibfile}
 \bibliographystyle{IEEETran}
-%\bibliography{bibfile}
 \end{document}
+
+
+%@misc{a javascript library for building user interfaces - react,
+ %title={A JavaScript library for building user interfaces - React},
+ %url={https://facebook.github.io/react/},
+ %journal={A JavaScript library for building user interfaces - React}, 
+ %publisher={Facebook.com}}
+
