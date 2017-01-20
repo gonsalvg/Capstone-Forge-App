@@ -41,8 +41,8 @@ function getScopedToken(res, params) {
 exports.getToken = function (req, res) {
 
   var params = {
-    client_id: c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr,
-    client_secret: Ag4uxZEzKfB5n7A2,
+    client_id: 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
+    client_secret: 'Ag4uxZEzKfB5n7A2',
     grant_type: 'client_credentials',
     scope: 'data:read'
   }
@@ -52,8 +52,8 @@ exports.getToken = function (req, res) {
 exports.getUploadToken = function (req, res) {
 
   var params = {
-    client_id: c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr,
-    client_secret: Ag4uxZEzKfB5n7A2,
+    client_id: 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
+    client_secret: 'Ag4uxZEzKfB5n7A2',
     grant_type: 'client_credentials',
     scope: 'data:read data:write bucket:read bucket:create'
   }
