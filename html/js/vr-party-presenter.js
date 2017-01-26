@@ -21,7 +21,8 @@ var _default_models = {
     //'trophy'        : 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dnJwYXJ0eS9Ucm9waHlfQW5nZWxIYWNrLmYzZA==',
     //'cake'          : 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dnJwYXJ0eS9IQkM0LmR3Zng='
     'movement'      : 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dnJwYXJ0eS9FVEFfNjQ5Ny0xX01vdmVtZW50X0NvcnJlY3RlZF8zLmR3Zg',
-	'sports car'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9TcG9ydHMlMjBDYXIuZHdmeA'
+	'sports car'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9TcG9ydHMlMjBDYXIuZHdmeA',
+	'Building'		: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9PZmZpY2UlMjBCdWlsZGluZy5ud2M='
 };
 var _hosts = [ 'murmuring-cove-16220.herokuapp.com'];
 
