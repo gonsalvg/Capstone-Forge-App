@@ -251,25 +251,7 @@ function onRenderOption(event) {
 function onFileSelect() {
     var el = document.getElementById('fileElem');
 	
-	//--testin the file restriction--
-	el.onchange = function(e){
-		var ext = this.value.match(/\.([^\.]+)$/)[1];
-		switch(ext)
-		{
-			case 'rvt':
-			case 'dwfx':
-			case 'iam':
-			case 'nwc':
-				//alert('allowed');
-				break;
-			default:
-				alert('not allowed');
-				this.value='';
-		}
-	};
-	
     if (el) {
-		console.log("here in el.click()");
         el.click();
     }
 }
@@ -402,6 +384,25 @@ function resetSelectedFiles() {
 
 
 function onFilesDialogCalled(files) {
+	
+	//--testin the file restriction--
+	files.onchange = function(e){
+		var ext = this.value.match(/\.([^\.]+)$/)[1];
+		switch(ext)
+		{
+			case 'rvt':
+			case 'dwfx':
+			case 'iam':
+			case 'nwc':
+				//alert('allowed');
+				console.log('File type allowed.');
+				break;
+			default:
+				alert('not allowed');
+				this.value='';
+		}
+	};
+	
     filesToUpload = [];
     var sizeLimit = 2097152; // 2MB
 
