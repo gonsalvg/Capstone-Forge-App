@@ -260,14 +260,16 @@ function onFileSelect() {
 			case 'dwfx':
 			case 'iam':
 			case 'nwc':
-				alert('allowed');
+				//alert('allowed');
 				break;
 			default:
 				alert('not allowed');
 				this.value='';
 		}
 	};
+	
     if (el) {
+		console.log("here in el.click()");
         el.click();
     }
 }
