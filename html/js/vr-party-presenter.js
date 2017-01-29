@@ -394,6 +394,7 @@ function onFilesDialogCalled(files) {
 			case 'dwfx':
 			case 'iam':
 			case 'nwc':
+			case 'dwg':
 				//alert('allowed');
 				console.log('File type allowed.');
 				break;
