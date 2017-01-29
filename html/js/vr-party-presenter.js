@@ -23,7 +23,8 @@ var _default_models = {
     //'movement'      : 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6dnJwYXJ0eS9FVEFfNjQ5Ny0xX01vdmVtZW50X0NvcnJlY3RlZF8zLmR3Zg',
 	'sports car'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9TcG9ydHMlMjBDYXIuZHdmeA',
 	'Building'		: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9PZmZpY2UlMjBCdWlsZGluZy5ud2M=',
-	'House'			: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9Ib3VzZSUyMERlc2lnbi5ydnQ='
+	'House'			: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9Ib3VzZSUyMERlc2lnbi5ydnQ=',
+	'Conference Room'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci92aXN1YWxpemF0aW9uXy1fY29uZmVyZW5jZV9yb29tLmR3Zw'
 };
 var _hosts = [ 'murmuring-cove-16220.herokuapp.com'];
 
