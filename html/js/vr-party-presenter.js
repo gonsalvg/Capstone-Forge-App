@@ -24,7 +24,9 @@ var _default_models = {
 	'sports car'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9TcG9ydHMlMjBDYXIuZHdmeA',
 	'Building'		: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9PZmZpY2UlMjBCdWlsZGluZy5ud2M=',
 	'House'			: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci9Ib3VzZSUyMERlc2lnbi5ydnQ=',
-	'Conference Room'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci92aXN1YWxpemF0aW9uXy1fY29uZmVyZW5jZV9yb29tLmR3Zw'
+	'Conference Room'	: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci92aXN1YWxpemF0aW9uXy1fY29uZmVyZW5jZV9yb29tLmR3Zw',
+	//X-Wing from grabcad.com lowradiation
+	'X-Wing'		: 'dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9yZ2V2ci83NTEwMl9QT0UnU19YLVdJTkdfRklHSFRFUi5zdHA'
 };
 var _hosts = [ 'murmuring-cove-16220.herokuapp.com'];
 
