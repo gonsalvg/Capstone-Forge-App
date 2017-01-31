@@ -1,9 +1,11 @@
+var URL = window.location.toString();
+
 // Splits this https://murmuring-cove-16220.herokuapp.com/?code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
 // ------------------------------------------------------
 // into https://murmuring-cove-16220.herokuapp.com/
 // and code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
 
-var checker = window.location.split( '?' );
+var checker = URL.split( '?' );
 
 // Splits this code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
 // ------------------------------------------------------
