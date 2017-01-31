@@ -15,7 +15,7 @@ var checker = window.location.pathname.split( '?' );
 // into code
 // and QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
 
-var Auth_Code = checker[1].pathname.split( '=' );
+var Auth_Code = checker[1].split( '=' );
 
 // Should return "code"
 console.log(Auth_Code[0]);
