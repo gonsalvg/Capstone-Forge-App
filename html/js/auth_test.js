@@ -8,7 +8,7 @@ console.log(URL);
 // into https://murmuring-cove-16220.herokuapp.com/
 // and code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
 
-var checker = window.location.pathname.split( '?' );
+var checker = URL.split( '?' );
 
 // Splits this code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
 // ------------------------------------------------------
