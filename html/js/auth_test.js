@@ -20,7 +20,7 @@ var Auth_Code = checker.pathname.split( '=' );
 // Should return "code"
 console.log(Auth_Code[0]);
 
-if Auth_Code[0] == 'code' {
+if (Auth_Code[0] == "code") {
 	
 	//The actual code we can now use.
 	Auth_code = Auth_Code[1]
