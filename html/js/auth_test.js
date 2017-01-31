@@ -1,15 +1,29 @@
-var URL_test = window.location;
-var Auth_Code = window.location.pathname.split( '=' );
+var URL = window.location;
 
 //should print full url 
-console.log(URL_test);
+console.log(URL);
 
-//should print murmur url then code by itself
+// Splits this https://murmuring-cove-16220.herokuapp.com/?code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
+// ------------------------------------------------------
+// into https://murmuring-cove-16220.herokuapp.com/
+// and code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
+
+var checker = window.location.pathname.split( '?' );
+
+// Splits this code=QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
+// ------------------------------------------------------
+// into code
+// and QF2BHBpC6ZMh2PszqRpvKoMIdnSjzPbvu1r-uQId
+
+var Auth_Code = checker.pathname.split( '=' );
+
+// Should return "code"
 console.log(Auth_Code[0]);
-console.log(Auth_Code[1]);
-//should be undefined
-console.log(Auth_Code[2]);
 
-//The actual code we can now use.
-Auth_code = Auth_Code[1]
-console.log(Auth_Code);
+if Auth_Code[0] = 'code' {
+	
+	//The actual code we can now use.
+	Auth_code = Auth_Code[1]
+	console.log(Auth_Code);
+	
+}
