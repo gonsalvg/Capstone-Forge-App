@@ -20,7 +20,7 @@ console.log(Auth_Code_Parts[0]);
 if (Auth_Code_Parts[0] == "code") {
 	
 	//The actual code we can now use.
-	var Auth_Code = Auth_Code_Parts[1]
+	var Auth_Code = Auth_Code_Parts[1];
 	console.log(Auth_Code);
 	
 }
