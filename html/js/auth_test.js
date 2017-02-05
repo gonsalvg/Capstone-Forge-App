@@ -25,7 +25,7 @@ if (Auth_Code_Parts[0] == "code") {
 	
 }
 
-curl -v 'https://developer.api.autodesk.com/authentication/v1/gettoken'
-  -X 'POST'
-  -H 'Content-Type: application/x-www-form-urlencoded'
-  -d 'client_id=DZPRPW3dMysLmkiVb0eeulKRaGjH8GpQ&client_secret=M14nblPOBp90vxOa&grant_type=authorization_code&code=Auth_Code&redirect_uri=https://murmuring-cove-16220.herokuapp.com/'
+//curl -v 'https://developer.api.autodesk.com/authentication/v1/gettoken'
+//  -X 'POST'
+//  -H 'Content-Type: application/x-www-form-urlencoded'
+//  -d 'client_id=DZPRPW3dMysLmkiVb0eeulKRaGjH8GpQ&client_secret=M14nblPOBp90vxOa&grant_type=authorization_code&code=Auth_Code&redirect_uri=https://murmuring-cove-16220.herokuapp.com/'
