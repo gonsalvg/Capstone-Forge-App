@@ -25,7 +25,35 @@ if (Auth_Code_Parts[0] == "code") {
 	
 }
 
-//curl -v 'https://developer.api.autodesk.com/authentication/v1/gettoken'
-//  -X 'POST'
-//  -H 'Content-Type: application/x-www-form-urlencoded'
-//  -d 'client_id=DZPRPW3dMysLmkiVb0eeulKRaGjH8GpQ&client_secret=M14nblPOBp90vxOa&grant_type=authorization_code&code=Auth_Code&redirect_uri=https://murmuring-cove-16220.herokuapp.com/'
+function authenticate() {
+    var env = $("#env").val();
+    $.ajax({
+        url: '/api/authenticate',
+        type: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify({
+            'env': env
+        })
+    }).done(function(url) {
+        // iframes are not allowed
+        PopupCenter(url, "Autodesk Login", 800, 400);
+    }).fail(function(err) {
+        console.log('authenticate error\n' + err.statusText);
+    });
+}
+// http://stackoverflow.com/questions/4068373/center-a-popup-window-on-screen
+function PopupCenter(url, title, w, h) {
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    // Puts focus on the newWindow
+    if (window.focus) {
+        newWindow.focus();
+    }
+}
