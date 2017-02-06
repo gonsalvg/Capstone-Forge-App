@@ -1,7 +1,7 @@
 var MyVars = {
     keepTrying: true
 };
-
+env = "prod"
 $(window).unload(function() {
     $.sessionStorage.set("env", $('#env').val());
 });
