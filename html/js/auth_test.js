@@ -19,24 +19,27 @@ console.log(Auth_Code_Parts[0]);
 
 if (Auth_Code_Parts[0] == "code") {
 	
-	The actual code we can now use.
+	//The actual code we can now use.
 	var Auth_Code = Auth_Code_Parts[1];
 	console.log(Auth_Code);
 	
 }
 var Auth_url = "https://developer.api.autodesk.com/authentication/v1/authorize?response_type=code&client_id=DZPRPW3dMysLmkiVb0eeulKRaGjH8GpQ&redirect_uri=https://murmuring-cove-16220.herokuapp.com/&scope=data:read"
-
-//function makeSyncRequest(url) {
+    var token = makeSyncRequest('/api/token');
+    if (token != '') console.log('Get current token: ' + token);
+    return token;
+	
+function makeSyncRequest(VarUrl) {
     var xmlHttp = null;
     xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", Auth_url, false);
+    xmlHttp.open("GET", VarUrl, false);
     xmlHttp.send(null);
     var response = xmlHttp.responseText;
 	console.log(response);
-//}
+}
 
 
-
+/*
     var urlSuffix = urlSuffixes[env];
 //    $('head').append('<script src="https://developer' + urlSuffix + '.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>');
 //    $('head').append('<link rel="stylesheet" type="text/css" href="https://developer' + urlSuffix + '.api.autodesk.com/viewingservice/v1/viewers/style.min.css">');
@@ -139,3 +142,4 @@ function PopupCenter(url, title, w, h) {
         newWindow.focus();
     }
 }
+*/
