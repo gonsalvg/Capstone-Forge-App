@@ -5,7 +5,7 @@ var MyVars = {
 $(window).unload(function() {
     $.sessionStorage.set("env", $('#env').val());
 });
-console.log('#env')
+console.log($'#env'.val())
 $(document).ready(function () {
     //debugger;
 
