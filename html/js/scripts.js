@@ -3,15 +3,15 @@ var MyVars = {
 };
 
 $(window).unload(function() {
-    $.sessionStorage.setItem("env", $('#env').val());
+    $.sessionStorage.set("env", $('#env').val());
 });
-console.log("env")
+console.log('#env')
 $(document).ready(function () {
     //debugger;
 
     //////////////////////////////////////
     // Environment variable
-    var env = $.sessionStorage.getItem("env");
+    var env = $.sessionStorage.get("env");
     if (env) {
         console.log("Using value from sessionStorage = " + env);
         $('#env').val(env);
