@@ -27,7 +27,7 @@ if (Auth_Code_Parts[0] == "code") {
 var Auth_url = "https://developer.api.autodesk.com/authentication/v1/authorize?response_type=code&client_id=DZPRPW3dMysLmkiVb0eeulKRaGjH8GpQ&redirect_uri=https://murmuring-cove-16220.herokuapp.com/&scope=data:read"
     var token = makeSyncRequest('/api/token');
     if (token != '') console.log('Get current token: ' + token);
-    return token;
+    //return token;
 	
 function makeSyncRequest(VarUrl) {
     var xmlHttp = null;
