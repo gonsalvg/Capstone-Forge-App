@@ -14,6 +14,8 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
     next();
 });
+
+//loading index2.html 
 app.use('/', express.static(__dirname + '/html'));
 app.use('/v2', express.static(__dirname + '/html/index2.html'));
 
