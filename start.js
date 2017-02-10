@@ -18,7 +18,7 @@
 
 'use strict';
 
-var app = require('./server/server.js');
+var app = require('./server/server');
 
 // start server
 var server = app.listen(app.get('port'), function () {
