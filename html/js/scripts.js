@@ -122,6 +122,7 @@ function get3LegToken(callback) {
 
     if (callback) {
         $.ajax({
+            dataType: "JSON",
             url: '/user/token',
             success: function (data) {
                 MyVars.token3Leg = data.token;
