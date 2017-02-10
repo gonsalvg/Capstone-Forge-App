@@ -15,6 +15,7 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
+ /*
 'use strict';
 
 var express = require('express');
@@ -51,11 +52,11 @@ app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css'
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
 //app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
-
+*/
 ////////////////////////////////
 var port = process.env.PORT || 5000;
 ////////////////////////////////
-
+/*
 // prepare our API endpoint routing
 var oauth = require('./oauth');
 var dm = require('./data.management');
@@ -67,7 +68,7 @@ app.use('/md', md); // redirect our Data Management API calls
 module.exports = app;
 //###############################################################
 //###############################################################
-
+*/
 // WEB SERVER
 var app = express();
 
