@@ -70,12 +70,13 @@ module.exports = app;
 //###############################################################
 */
 // WEB SERVER
-var app = express();
+var express = require('express');
 var api = require('./api');
 var http = require('http');
 var crypto = require('crypto');
 
 var port = process.env.PORT || 5000;
+var app = express();
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
