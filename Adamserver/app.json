@@ -19,7 +19,7 @@
     },
     "FORGE_CALLBACK_URL": {
       "description": "Callback URL of your app, required for 3-legged OAuth",
-      "value": "https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth"
+      "value": "https://murmuring-cove-16220.herokuapp.com/"
     }
   },
   "website": "https://developer.autodesk.com/",
