@@ -25,8 +25,8 @@ module.exports = {
 
     // set enviroment variables or hard-code here
     credentials: {
-        client_id: 'DZPRPW3dMysLmkiVb0eeulKRaGjH8GpQ',
-        client_secret: 'M14nblPOBp90vxOa'
+        client_id: 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
+        client_secret: 'Ag4uxZEzKfB5n7A2'
     },
 
     // Required scopes for your application on server-side
