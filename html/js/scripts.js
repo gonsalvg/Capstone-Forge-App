@@ -45,6 +45,8 @@ $(document).ready(function () {
     });
 
     // Get the tokens
+    console.log ("everything til here works");
+
     get3LegToken(function(token) {
         var auth = $("#authenticate");
 
@@ -98,13 +100,12 @@ function base64encode(str) {
 
 function signIn() {
     $.ajax({
-        dataType: "JSON",
         url: '/user/authenticate',
         success: function (rootUrl) {
             location.href = rootUrl;
         },
         error: function() {
-            console.log("Failure")
+            console.log("Failure at sign in");
         }
     });
 }
@@ -122,12 +123,14 @@ function get3LegToken(callback) {
 
     if (callback) {
         $.ajax({
-            dataType: "JSON",
             url: '/user/token',
             success: function (data) {
                 MyVars.token3Leg = data.token;
                 console.log('Returning new 3 legged token (User Authorization): ' + MyVars.token3Leg);
                 callback(data.token, data.expires_in);
+            },
+            error: function() {
+                console.log("Err in get3legtoken callback ajax");
             }
         });
     } else {
