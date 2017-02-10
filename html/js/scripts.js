@@ -98,9 +98,13 @@ function base64encode(str) {
 
 function signIn() {
     $.ajax({
+        dataType: "JSON",
         url: '/user/authenticate',
         success: function (rootUrl) {
             location.href = rootUrl;
+        },
+        error: function() {
+            console.log("Failure")
         }
     });
 }
