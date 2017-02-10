@@ -21,7 +21,7 @@
 module.exports = {
 
     // this this callback URL when creating your client ID and secret
-    callbackURL: 'http://localhost:3000/api/forge/callback/oauth',
+    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/',
 
     // set enviroment variables or hard-code here
     credentials: {
