@@ -21,12 +21,12 @@
 module.exports = {
 
     // this this callback URL when creating your client ID and secret
-    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/indexAdams.html/api/forge/callback/oauth',
+    callbackURL: 'http://localhost:3000/api/forge/callback/oauth',
 
     // set enviroment variables or hard-code here
     credentials: {
-        client_id: 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
-        client_secret: 'Ag4uxZEzKfB5n7A2'
+        client_id: process.env.FORGE_CLIENT_ID || 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
+        client_secret: process.env.FORGE_CLIENT_SECRET || 'Ag4uxZEzKfB5n7A2'
     },
 
     // Required scopes for your application on server-side
