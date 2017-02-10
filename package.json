@@ -12,18 +12,12 @@
   "scripts": {
     "predeploy": "echo Deploying VRPartyServer",
     "postdepoly": "echo VRPartyServer Deployed",
-    //"start": "node server.js"
-    // Adams stuff
     "start" : "NODE_ENV=production node start.js",
     "dev": "node start.js",
     "nodemon": "nodemon start.js --ignore www/"
   },
   "dependencies": {
     "socket.io": "*",
-    //"express": "4.x",
-    //"morgan": "1.x",
-    //"request": "*",
-    //adams
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.4.1",
@@ -43,7 +37,6 @@
     "node": "0.10.x"
   },
 
-  //"main": "api.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gonsalvg/Capstone-Forge-App.git"
