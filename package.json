@@ -9,13 +9,6 @@
     "Lars Schneider",
     "Oleg Dedkow"
   ],
-  "scripts": {
-    "predeploy": "echo Deploying VRPartyServer",
-    "postdepoly": "echo VRPartyServer Deployed",
-    "start" : "NODE_ENV=production node start.js",
-    "dev": "node start.js",
-    "nodemon": "nodemon start.js --ignore www/"
-  },
   "dependencies": {
     "socket.io": "*",
     "body-parser": "^1.15.1",
@@ -32,6 +25,12 @@
     "forge-model-derivative": "*",
     "forge-oauth2": "*",
     "forge-oss": "*"
+  },
+
+  "scripts": {
+    "start" : "NODE_ENV=production node start.js",
+    "dev": "node start.js",
+    "nodemon": "nodemon start.js --ignore www/"
   },
   "engines": {
     "node": "0.10.x"
