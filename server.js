@@ -54,7 +54,7 @@ app.set('port', process.env.PORT || 3000); // main port// Already using port 500
 // CONFIG
 //*/
 ////////////////////////////////
-//var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
