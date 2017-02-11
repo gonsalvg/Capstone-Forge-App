@@ -79,7 +79,7 @@ app2.use(function (req, res, next) {
 var port = process.env.PORT || 5000;
 //loading index2.html 
 app2.use('/', express.static(__dirname + '/html'));
-ap2.use('/v2', express.static(__dirname + '/html/index2.html'));
+app2.use('/v2', express.static(__dirname + '/html/index2.html'));
 
 app2.get('/api/token', api.getToken);
 app2.get('/api/uploadtoken', api.getUploadToken);
