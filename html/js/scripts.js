@@ -100,7 +100,7 @@ function base64encode(str) {
 
 function signIn() {
     $.ajax({
-        url: '/user/authenticate',
+        url: '/api/authenticate',
         success: function (rootUrl) {
             location.href = rootUrl;
         },
@@ -112,7 +112,7 @@ function signIn() {
 
 function logoff() {
     $.ajax({
-        url: '/user/logoff',
+        url: '/api/logoff',
         success: function (oauthUrl) {
             location.href = oauthUrl;
         }
