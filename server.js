@@ -50,11 +50,11 @@ app.use('/js', express.static(__dirname + '/../node_modules/bootstrap/dist/js'))
 app.use('/js', express.static(__dirname + '/../node_modules/jquery/dist')); // redirect static calls
 app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css')); // redirect static calls
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
-//app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
+app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
 //*/
 ////////////////////////////////
-var port = process.env.PORT || 3000;
+
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
@@ -76,7 +76,7 @@ app2.use(function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
     next();
 });
-
+var port = process.env.PORT || 5000;
 //loading index2.html 
 app2.use('/', express.static(__dirname + '/html'));
 ap2.use('/v2', express.static(__dirname + '/html/index2.html'));
