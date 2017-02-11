@@ -102,7 +102,7 @@ function signIn() {
     $.ajax({
         url: '/user/authenticate',
         success: function (rootUrl) {
-            console.log("succeeded with sign in");
+            console.log("succeeded with sign in" + rootUrl);
             location.href = rootUrl;
         },
         error: function() {
