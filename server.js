@@ -70,20 +70,20 @@ module.exports = app;
 //###############################################################
 //*/
 
-var app2 = express();
-app2.use(function (req, res, next) {
+//var app = express();
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
     next();
 });
 //var port = process.env.PORT || 5000;
 //loading index2.html 
-app2.use('/', express.static(__dirname + '/html'));
-app2.use('/v2', express.static(__dirname + '/html/index2.html'));
+app.use('/', express.static(__dirname + '/html'));
+app.use('/v2', express.static(__dirname + '/html/index2.html'));
 
-app2.get('/api/token', api.getToken);
-app2.get('/api/uploadtoken', api.getUploadToken);
-app2.get('/api/sessionId', function(req, res) {  
+app.get('/api/token', api.getToken);
+app.get('/api/uploadtoken', api.getUploadToken);
+app.get('/api/sessionId', function(req, res) {  
     var sessionId;  
     do {
         sessionId = randomValueBase64(6);
@@ -93,14 +93,14 @@ app2.get('/api/sessionId', function(req, res) {
     res.json(sessionId);
 });
 
-app2.get('/join', function(req, res) {
+app.get('/join', function(req, res) {
   var id = req.query.id;
   res.redirect('/participant.html?session=' + id);
 });
 
 // Currently only return the URN - could also return
 // the various explode, zoom factors, etc.
-app2.get('/api/getSession/:id', function(req, res) {  
+app.get('/api/getSession/:id', function(req, res) {  
     var sessionId = req.params.id;
     var idx = sessionIds.indexOf(sessionId);
     res.json(idx < 0 ? "" : models[idx]);
