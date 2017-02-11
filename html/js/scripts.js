@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     // Get the tokens
     console.log ("everything til here works");
-
+//############################################################################################
     get3LegToken(function(token) {
         var auth = $("#authenticate");
 
@@ -123,7 +123,7 @@ function get3LegToken(callback) {
 
     if (callback) {
         $.ajax({
-            url: '/user/token',
+            url: '/api/token',
             success: function (data) {
                 MyVars.token3Leg = data.token;
                 console.log('Returning new 3 legged token (User Authorization): ' + MyVars.token3Leg);
