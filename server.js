@@ -54,7 +54,7 @@ app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fo
 // CONFIG
 //*/
 ////////////////////////////////
-
+var port = process.env.PORT || 3000;
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
@@ -75,7 +75,7 @@ var api = require('./api');
 var http = require('http');
 var crypto = require('crypto');
 //changed port to 3000
-var port = process.env.PORT || 3000;
+
 var app = express();
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
