@@ -50,11 +50,11 @@ app.use('/js', express.static(__dirname + '/../node_modules/bootstrap/dist/js'))
 app.use('/js', express.static(__dirname + '/../node_modules/jquery/dist')); // redirect static calls
 app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css')); // redirect static calls
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
-app.set('port2', process.env.PORT || 3000); // main port// Already using port 5000
+//app.set('port2', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
 //*/
 ////////////////////////////////
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
