@@ -61,7 +61,7 @@ var port = process.env.PORT || 3000;
 var oauth = require('./oauth');
 var dm = require('./data.management');
 var md = require('./model.derivative');
-app.use('/', oauth); // redirect oauth API calls
+app.use('/oauth2', oauth); // redirect oauth API calls
 app.use('/dm', dm); // redirect our Data Management API calls
 app.use('/md', md); // redirect our Data Management API calls
 
@@ -69,12 +69,6 @@ module.exports = app;
 //###############################################################
 //###############################################################
 //*/
-// WEB SERVER
-//var express = require('express');
-var api = require('./api');
-var http = require('http');
-var crypto = require('crypto');
-//changed port to 3000
 
 var app = express();
 app.use(function (req, res, next) {
