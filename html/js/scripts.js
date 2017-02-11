@@ -135,7 +135,7 @@ function get3LegToken(callback) {
             }
         });
     } else {
-        console.log('Returning saved 3 legged token (User Authorization): ' + MyVars.token3Leg);
+        console.log('else version of Returning saved 3 legged token (User Authorization): ' + MyVars.token3Leg);
 
         return MyVars.token3Leg;
     }
