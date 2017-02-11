@@ -69,7 +69,9 @@ router.get('/user/token', function (req, res) {
 router.get('/user/authenticate', function (req, res) {
     // redirect the user to this page
     var url =
-        forgeOAuth2.ApiClient.instance.basePath +
+        //forgeOAuth2.ApiClient.instance.basePath +
+        // trying hard coding the authentication for now
+        'https://developer.api.autodesk.com/' +
         '/authentication/v1/authorize?response_type=code' +
         '&client_id=' + config.credentials.client_id +
         '&redirect_uri=' + config.callbackURL +
