@@ -100,7 +100,7 @@ function base64encode(str) {
 
 function signIn() {
     $.ajax({
-        url: '/oauth2/user/authenticate',
+        url: '/user/authenticate',
         success: function (rootUrl) {
             location.href = rootUrl;
         },
@@ -112,7 +112,7 @@ function signIn() {
 
 function logoff() {
     $.ajax({
-        url: '/oauth2/user/logoff',
+        url: '/user/logoff',
         success: function (oauthUrl) {
             location.href = oauthUrl;
         }
@@ -123,7 +123,7 @@ function get3LegToken(callback) {
 
     if (callback) {
         $.ajax({
-            url: '/oauth2/user/token',
+            url: '/user/token',
             success: function (data) {
                 MyVars.token3Leg = data.token;
                 console.log('Returning new 3 legged token (User Authorization): ' + MyVars.token3Leg);

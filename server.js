@@ -61,7 +61,7 @@ var port = process.env.PORT || 3000;
 var oauth = require('./oauth');
 var dm = require('./data.management');
 var md = require('./model.derivative');
-app.use('/oauth2', oauth); // redirect oauth API calls
+app.use('/', oauth); // redirect oauth API calls
 app.use('/dm', dm); // redirect our Data Management API calls
 app.use('/md', md); // redirect our Data Management API calls
 
