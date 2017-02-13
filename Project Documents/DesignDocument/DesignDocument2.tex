@@ -1,0 +1,485 @@
+%########################################
+%CS 461 CAPSTONE 
+%GROUP 20 - Griffin Gonsalves, Paul Kwak, Shawn Cross
+%FALL 2016
+%########################################
+\documentclass[letterpaper, 10pt, draftclsnofoot, compsoc, onecolumn]{IEEEtran}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage{color}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{color,soul}
+%\usepackage{biblatex}
+\usepackage{cite}
+\usepackage{hyperref}
+%\usepackage{digsig} %not a default package... just for signature field on final page.
+\usepackage{url}
+
+\usepackage{comment}
+
+\hypersetup{pdftex, colorlinks=true, linkcolor=black, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=SYSTEMS AND SOFTWARE REQUIREMENTS SPECIFICATION (SSRS) TEMPLATE, pdfauthor=Clinton Jeffery, pdfsubject=, pdfkeywords=}
+\usepackage[pdftex]{graphicx}
+% Outline numbering
+\setcounter{secnumdepth}{4}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
+\renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand\theparagraph{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+
+\parindent0pt
+\parskip 1.5ex plus 0.2ex minus 0.1ex
+\makeatletter
+
+\def\subsubsection{\@startsection{subsubsection}% name
+                                 {3}% level
+                                 {\z@}% indent (formerly \parindent)
+                                 {1ex plus 0.1ex minus 0.1ex}% before skip
+                                 {1ex}% after skip
+                                 {\normalfont\normalsize}}% style
+
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Page layout (geometry)
+\setlength\voffset{-1in}
+\setlength\hoffset{-1in}
+\setlength\topmargin{0.5in}
+\setlength\oddsidemargin{.75in}
+\setlength\evensidemargin{.75in}
+\setlength\textheight{8.278in}
+\setlength\textwidth{6.5in}
+\setlength\footskip{0.561in}
+\setlength\headheight{0.5in}
+\setlength\headsep{0.461in}
+% Footnote rule
+\setlength{\skip\footins}{0.0469in}
+\renewcommand\footnoterule{\vspace*{-0.0071in}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.0071in}}\vspace*{0.0398in}}
+% Pages styles
+\makeatletter
+\newcommand\ps@Standard{
+  \renewcommand\@oddhead{\hfill }
+  \renewcommand\@evenhead{\@oddhead}
+  \renewcommand\@oddfoot{\foreignlanguage{english}{\textcolor{black}{SSRS Page }}\foreignlanguage{english}{\textcolor{black}{\thepage{}}}}
+  \renewcommand\@evenfoot{\@oddfoot}
+  \renewcommand\thepage{\arabic{page}}
+}
+\newcommand\ps@FirstPage{
+  \renewcommand\@oddhead{}
+  \renewcommand\@evenhead{\@oddhead}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{\@oddfoot}
+  \renewcommand\thepage{\arabic{page}}
+}
+\makeatother
+\pagestyle{Standard}
+%\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+% footnotes configuration
+\makeatletter
+\renewcommand\thefootnote{\arabic{footnote}}
+\makeatother
+\title{Forge VR Explorer Requirements}
+\author{Shawn Cross, Griffin Gonsalves, Paul Kwak}
+\date{2016-11-3}
+
+
+\begin{document}
+
+\clearpage\setcounter{page}{1}\pagestyle{Standard}
+\thispagestyle{FirstPage}
+
+\bigskip
+
+{\centering\selectlanguage{english}\bfseries\color{black}
+Forge VR Explorer Design Document
+\par}
+
+\bigskip
+
+{\centering\selectlanguage{english}\bfseries\color{black}
+December 2 2016
+\par}
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+%\begin{center}
+%	\includegraphics[scale=0.8]{forge_logo.png}
+%\end{center}
+
+\vfill
+{\centering\selectlanguage{english}\bfseries\color{black}
+Abstract
+\par}
+
+{\centering\selectlanguage{english}\mdseries\color{black}
+	The Forge VR Explorer branches from an Autodesk prototype project called Vrok-It, which is a simple web-based 3D 
+	model viewer and mobile virtual reality (VR) explorer. The project will expand upon its ability to display uploaded 3D 
+	models in browser and in VR, and improve its accessibility. Conventionally, viewing 3D models in VR is a challenge if 
+	you have model files on many devices, or have a headset that only works in conjunction with a smart-phone. The 
+	Forge VR Explorer aims to do this by utilizing a web-based software that uses the features of the Autodesk Forge API. 
+	The project will also be expanded with new ideas and stretch goals as the project is developed.
+\par}
+\clearpage
+{\centering\selectlanguage{english}\bfseries\color{black}
+TABLE OF CONTENTS
+\par}
+
+\bigskip
+
+\setcounter{tocdepth}{2}
+\renewcommand\contentsname{}
+\tableofcontents
+
+\bigskip
+\clearpage
+
+\section{Introduction}
+The Forge Explorer is a web application capable of accomplishing several tasks. The web app allows for the upload of CAD files, renders them on the website utilizing the Forge APIs, allows the transfer and rendering of the models onto a user's mobile device, and then has the capability to allow the user to view the models using Google Cardboard or similar VR headsets- all in one place. This document aims to delve into the design of several key pieces of functionality and seeks to expand their design and structure. This spans from the overarching web layout, to individual components the Forge API the team will be implementing into the project.
+\subsection{Scope}
+The scope of this document covers the information regarding user experience data flows, the software design description and the design structure of the software. This design document includes information critical to the development of the project as a whole. This document does not cover specific implementation decisions or quality requirements.
+\subsection{Purpose}
+The purpose of this software design document is to describe the user experience flows and provide the software design description to its intended audience. Additionally, this document provides a framework for the project that the developers will be using in order to assess the progression of the software through its development lifespan. This includes the detailed description of critical design entities, components, and systems working together in the project.
+\subsection{Intended audience}
+This document is targeted at developers building and implementing the software, and the stakeholders who include: Patti Vrobel, the Autodesk Forge API team,  and developers of the original "Vrok-it" project that this is based off of. Core stakeholders also are working with the project group in order to maximize the projects potential.
+
+\subsection{Influences on SDD preparation}
+The SRS is the main influence on the SDD as it holds the requirements and features determined necessary by all the stakeholders. This drives the design to meet those requirements to properly satisfy all stakeholders. However, this also means that it sets the design constraints.
+
+\subsection{Design verification and design role validation}
+In order to verify that our software meets requirements, test cases will be used in order to walkthrough the system and demonstrate the actual functionality of the software system. In terms of user experience the verification and validation will be mainly done through some primary tests with Autodesk with final okay coming from the clients.
+
+\subsection{Design stakeholders and their concerns}
+	The primary stakeholder for this project is Patti Vrobel who works for Autodesk. User experience is a primary focus of both Patti and Autodesk, and serves as an overarching goal for the project. The project addresses this by adding and altering features to make the website more accessible for users.
+
+\bibliography{bibfile}
+\bibliographystyle{IEEETran}
+
+\section{Definitions}
+\begin{description}
+	\item{CAD} Computer Aided design is software used to design and view 3D models.
+
+	\item{CAD file} The type of files that can be uploaded to the website for viewing in the Forge viewer. 
+	We will  narrow down what types of files can be used as we progress through the development process.
+
+	\item{FORGE}~\cite{forge2016} A collection of API services provided by Autodesk that provide 3D modeling services and tools.
+
+	\item{Forge Viewer} This is one of the APIs in Forge. It displays 3D models from CAD files and allows for interaction with the model through clickable controls.
+	
+	\item{Model Derivative API} This is another API in Forge. It can generate SVF files that we can utilize in the application from other model filetypes.
+	
+	\item{VR} Acronym for virtual reality, typically a peripheral device or smartphone
+
+	\item{exploding model} A model viewing functionality that separates components from their original locations in order to gain an alternate view of the model.
+
+	\item{SVF file} The file format used by the forge viewer
+	
+	\item{SDD} Software Design Description, the document detailing the design of the systems for the project.
+	
+\end{description} 
+
+\section{Design Views}
+\subsection{Website Interface}
+Because the website is the focus of the project, we are hosting a new version of the website on a new project domain. The primary requirements for the website are to properly host, arrange and display all of the individual components of the project cohesively. This includes the components of file uploading, authentication, the forge viewer, and mobile device connection software. The main webpage serves as the central interface for the project, which is critical to the user experience. This planning is necessary in order to have control over the project hosting, and to test and deploy updates that will help make the application easier to use and faster to deploy.
+
+The interface will assist in the development phase by shortening the amount of time needed to implement initial setup to the website, which also increases the ability to spend time on other features of the project. This interface does not focus on the technical aspects of the components, and serves to ensure that the project heads toward a positive user experience though its simplicity and useful features. Technical details have been omitted as necessary to the diagram to emphasize some of the larger structure of the project as a whole. 
+
+\subsection{Interface Viewpoint: Interface}
+\begin{itemize}
+	 \item[]\textbf{Forge Viewer} Implementing the Forge Viewer into the page will involve calling the API from a script embedded in the page. The individual required files for the viewer are held in the site source files.
+	
+	\item[]\textbf{Forge Viewer Navigation} This component of the project encompasses the control modifications and adjustments made to the viewer to allow model exploring.
+	 
+	\item[]\textbf{File Upload} The file upload functionality will be available on the main page in a specific area. This would include 
+	
+	\item[]\textbf{Smartphone QR Code}  The smartphone QR code will also have its own page section and will be viewable on the main page of the site.
+	
+	\item[]\textbf{Model Derivative} This component is essential in preparing the model to be used in the viewer. It is used as a method of transforming a given model of one of many supported formats to SVF. This is accomplished by using an API call to the Model Derivative API.
+	
+	\item[]\textbf{Information and Other Site Content} The website will eventually come to encompass more content as the project progresses in development. These changes will be noted in blogs, and will be made visible on the project website. These additions to the site will most likely come as feature updates to previously described components or new features on new pages of the site.	
+\end{itemize}
+
+\subsubsection{Design relationships}
+The main webpage represents the core of the project, bringing in each component referenced in the document. Each component is loaded in either  by their respective API calls or plugins embedded in the page.
+\begin{figure}[ht]
+	\includegraphics[scale=0.30]{WebInterface.png}
+	\caption{Interface UML 2 component diagram}
+\end{figure}
+
+\subsection{Model Viewer}
+\label{modelView}
+The Forge Viewer is what powers the Explorer's 3D model viewer. By our requirements, the user must be able to see and interact the model they uploaded from the CAD file. This is accomplished by using the Forge Large Model Viewer, which uses WebGL rendering to display a SVF model in a specified area of a webpage. The model must be able to be manipulated and explored with both simple and intuitive controls. This includes both a viewer on a desktop machine as well as a separate viewer that is exclusively displayed on the smartphone. The user interacts with the model using the controls displayed on top of the viewer, which then modifies the camera in the actual viewer and in turn modifies the camera for the mobile device if connected. If a keyboard is connected, the inputs will be sent to the viewer for movement control.
+
+\subsection{Interface Viewpoint: Interaction}
+\begin{itemize}
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
+
+	\item[]\textbf{Listed Models} When a user first visits the website there will be a default list of various models that they will be able to select and view in the model. Once selected the model will be loaded into the viewer and become available for the user interact with. The user will also be given an option to upload their own models to view and interact with as well. 
+	
+	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
+	
+	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enable the model viewer to explore the 3D space around the model, and will be enabled within the API.
+
+	\item[]\textbf{Mobile Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
+	
+
+\end{itemize}
+\subsubsection{Design Relationships}
+	The uploaded file will be sent to the Viewer from the model derivative API described in section \ref{model derivative} after the file type is verified.
+	
+	The viewer is present on the smartphone and the web page. 
+
+\subsubsection{Design Constraints} the Viewer requires the proper SVF Format in order to display a model. 
+\begin{figure}[ht]
+	\includegraphics[scale=0.65]{viewerfromlist_360.png}
+	\caption{Forge Viewer List View Interface}
+\end{figure}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.80]{viewerwithupload_480.png}
+	\caption{Model Viewer Upload Option}
+\end{figure}
+
+
+
+
+
+\subsection{Local file upload}
+\label{local}
+	The user should be able to upload their own CAD files from a local storage device that they have access to. This will be some sort of button that is easily identifiable by the user that once selected will allow the user to browse through the local files on the current machine and select the CAD file that they would like to view. Once the file is selected the website should verify that the file is an allowed CAD drawing file. If the file is of the correct file type then the file should be converted to the SVF file type that is used by the forge viewer API. The user should be notified that the file was successfully uploaded to the website and the model that was in the file should be displayed in the list of choose-able models as well as displayed in the viewer. 
+
+\subsection{Interface viewpoint for local file upload}
+\begin{itemize}
+	\item[]\textbf{local upload button} There will be a button on the website for uploading files from local storage on the users machine. This button should be easy for the user to identify. Once the user has pressed the button then the user should have access to the local files on their machine.
+	\item[]\textbf{file selection} The user should be able to then navigate through their local files to find the CAD file that they are wanting to view.
+	\item[]\textbf{file type verification} Once a file has been selected by the user the website should verify that the file is actually usable. This should be done by checking that if the file is a CAD drawing file type that can be converted into an SVF file that is used by the viewer. If the file is a usable file then the website 			should simply proceed and convert the file. If the file is not the correct file type then the user should be notified of this and prompted to select a different file.  
+	\item[]\textbf{file size verification} Large file may not work well in the viewer in this case the website should determine if a file is to large for the viewer to handle. If the file the user has selected is to large then the user should be notified that the selected file is to large and be prompted to select a different file.
+	This can be done at the same time as verifying the file size.
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative API described in. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer. If the conversion request is unsuccessful then the user should be notified that their file could not be converted. 
+\end{itemize}
+
+\subsubsection{Design relationships}
+	The uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
+	
+	The converted file will be sent to the viewer described in section \ref{modelView}. 
+
+\subsubsection{design constraints} require that the user has the file that they are wanting to use on the current machine that they are using. They will also only be able use CAD drawing file when uploading a file to the website.  
+
+
+\subsubsection{Design rationale}
+	The reason for only letting users only use the CAD drawing file types because the files need to be converted to an SVF file to be used in the viewer. The conversion to SVF files is done using the model derivative API, and this API can only convert files that are CAD drawing files. 
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.45]{localUpload.png}
+	\caption{local file upload UML}
+\end{figure}
+
+\subsection{Non-local file upload}
+\label{nonLocal}
+	The user should be able to  access their files that are on an outside storage device and then upload these files to the website. There should be a button that the user can use to login to there outside storage. Once logged in there should be an interface that the user should be able use to navigate to the file that they want. After they have navigated to the file they want they should be able to select it and have it be uploaded to the viewer.  Our website should verify that the selected file is of the correct file type and size as well as convert the file to an SVF file using the model derivative API. If for any reason there is a failure in the file uploading process then the user should be notified of that failure and informed how to proceed.
+
+\subsection{Interface viewpoint for non-local file upload}
+\begin{itemize}
+	\item[]\textbf{non-local interface} This interface should be easy for the user to understand and navigate. They should be able to quickly and easily find any of the files that they are looking for.
+	\item[]\textbf{user login} Using the data management API the user will be asked to login to there Autodesk account to receive an authentication token. Once logged in the user will have access to any files located in their Autodesk storage systems. 
+	\item[]\textbf{file type verification} Once a file has been sent to the website from the outside storage, it should verify that the file is compatible with the types of files used by the model derivative API. This should be done by checking that if the file is one of the 60 different file types that can be converted into an SVF file. If the file is a usable file then the website should simply proceed with converting the file. If the file is not the correct file type then the user should be notified there was a problem and prompted to select a different file.  
+	\item[]\textbf{file selection} After the user has access they should then be able to navigate to the correct storage system their file is in and gain access to their files. Once a file is selected it should then be returned to the website. If returning the file is unsuccessful then the user should be notified and prompted to try 
+	again.
+	\item[]\textbf{file size verification} Large file may not work well in the viewer, in this case the website should determine if a file is to large for the viewer to handle. If the file is over 2MB then they should be warned that this might result in some the viewer not working at top performance. If the user has selected a file larger than 15MB then the user should be notified that this file is to large to handle and be prompted to select a different file.
+	\item[]\textbf{file conversion} The file conversion will be done through the use of the forge model derivative API. If the conversion request was successful then the file should be added to the current list of viewable models and also placed in the viewer described in section \ref{modelView}. If the conversion request is unsuccessful then the user should be notified that their file could not be converted. 
+\end{itemize}
+
+\subsubsection{Design relationships}
+\begin{itemize}
+	\item[]\textbf{Authentication and file upload} the user will receive a token from the OAuth API that will allow them to access the data management and model derivative APIs \ref{Three legged}
+	\item[]\textbf{Data management API and file upload} the user will gain access to there files through the use of the data management API described in section \ref{A360}
+	\item\textbf{Model derivative and file upload} the uploaded file will be sent to the model derivative described in section \ref{model derivative} after the file type is verified.
+	\item[]\textbf{Viewer and file upload} the converted file will be sent to the viewer described in section \ref{modelView}. 
+  \end{itemize}
+
+\subsubsection{design constraints} 
+	require that the file or file that the user is wanting to upload be located in the outside storage that they are wanting to use. They will also only be able use CAD drawing file when uploading a file to the website.  
+
+\subsubsection{Design rationale}
+	The reasoning letting users only use the CAD drawing file types is that the files will need to be converted into an SVF file that is usable by the forge viewer. The conversion to SVF files is done using the model derivative API, and this API can only convert files that are CAD drawing files. This will also keep the list of models that a user can select from being populated with files that don't do anything because they don't work in the viewer.  
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.35]{nonLocalUpload.png}
+	\caption{non-local file upload UML}
+\end{figure}
+
+\subsection{Mobile device connection}
+\label{mobileDevice}
+	The user should be able to connect their mobile device to the websites current session through the use of a QR code on the web page. The user will need to have a some way to scan the QR code with their mobile device. Once connected to the device the user should be able to see what is in the viewer on their device.
+
+\subsection{Mobile device connection Interface viewpoint}
+\begin{description}
+	\item[]\textbf{QR code} There should be a QR code generated at the beginning of every session on the web page. This will be done through the use of a JQuery plug-in~\cite{QR2016} that generates QR codes. The QR code should be somewhere on the web page that is easy for the user to find. 
+	\item[]\textbf{QR scanner} The user will need to have a way to scan the QR code. This will most likely be done through the use of an application on the users phone that will use there camera to scan the QR code. Any application that the user gets to scan the code should all work with the QR code on the website so there is no need to suggest a specific QR scanner to the user. 
+	\item[]\textbf{device connection} Once the user has successfully scanned the QR code their device should notify them that they are being connected to the current session. If there is any reason that the device could not connect to the session then the user should be notified that the connection has failed and advise them to try to connect again.
+	\item[]\textbf{device View} After the device has successfully connected to the current session then the user should be able to see the exact same thing on the device that is currently being displayed in the viewer. It should look as though there is two of the same images on the screen, this is for the use of viewing the object in a VR environment.  
+\end{description}
+
+\subsubsection{Design constraints}
+	The device the user is using must be able to use an application that will allow them to scan the QR code displayed on the website. 
+
+\subsubsection{Design Rationale}
+	The purpose of having a user be able to connect their mobile device to the website is for the use of viewing their models in a VR environment through the use of their mobile device and a VR headset. 
+
+\subsubsection{Design relationships}
+\begin{itemize}
+	\item[]\textbf{mobile device and viewer relationship} this will directly interact with the viewer that is on the website \ref{modelView}
+\end{itemize}
+
+\subsection{File conversion}
+\label{model derivative} 
+	The file conversion will be done using the forge Model Derivative API. This API will be sent a file anytime someone has uploaded a file to the website whether it be uploaded locally or uploaded from an Autodesk storage system. This API accepts about 60 different file types. If for some reason a file is unable to be converted then the user should be notified of the error. Once the API has finished the conversion it will return an SVF file. 
+
+\subsection{Interaction viewpoint for file conversion}
+\begin{description}
+	\item[]\textbf{conversion API} We will be using the forge model derivative API to convert the files uploaded to the website. We will be using this API because it is free and allows us to convert the files into the exact type of file used by the forge viewer API that we will also using. 
+	\item[]\textbf{file conversions} Once a user has selected and uploaded an appropriate file it is then sent to the model derivative API. The API will take the file and then convert it from the current file format to an SVF file. After the file is converted it should be returned to the website.
+	\item[]\textbf{converted file} The converted file will be placed in the list of viewable models that can loaded into the viewer during users current session.
+	\item[]\textbf{conversion failure} If the file the user was trying to upload could not be converted by the API it will return a failed request. If a failed request is received then the user should be notified that their file fail to be converted. There is also the possibility that the translation has timed out. If this happens the user should be notified and prompted to try uploading the file again.
+\end{description}
+
+\subsubsection{Design constraints}
+	The file or files that are uploaded must be one of the almost 60 different file types that the Model Derivative API can convert to an SVF file. 
+\subsubsection{Design relationships}
+\begin{itemize}
+	\item[]\textbf{model derivative and viewer relationship} converted files will be sent to the viewer API to be displayed on the website \ref{modelView}
+\end{itemize}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.7]{conversionUML.png}
+	\caption{File conversion interaction UML}
+\end{figure}
+
+\newpage
+\subsection{Data Authentication}
+\label{Two legged} 
+	If there are resources a user can access without needing to provide permissions the 2 legged authentication system will address this. This takes use of the Forge's Data Authentication API and their OAuth rest points. The application will have a 32 character string that serves as the "client ID" and there will also be a client secret (which act as the password) both will given as a query parameter. 
+\subsection{Interaction viewpoint for two legged authentication}
+	Application requires resources from the Autodesk API and/or servers that do not need a users permissions. Application uses the POST authenticate endpoint to send client ID and secret along with any necessary scopes. Upon successful validation of credentials, access token is returned. When the token expires the process must be repeated.
+\subsection{Design Concerns}
+	The data must be secure and the exchange must be quick. A drawback of using Autodesk API and/or servers is the heavy reliance on it. The performance of the application is dependent on Autodesk, if the servers are slow or down, so is the application.
+\subsection{Elements}
+\begin{description}
+	\item[]\textbf{Application} has a Client ID and Client Secret associated with it.
+	\item[]\textbf{Client ID} acts as application username, 32 character string and passed as the client id query
+	\item[]\textbf{Client secret} is the application password, 16 character string and passed as the client secret query
+	\item[]\textbf{Access token} is returned at the end of a successful authentication flow, 28 character string used for subsequent API calls to the Forge platform. 
+\end{description}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.7]{Authentication2legged.png}
+	\caption{Two legged OAuth UML sequence diagram}
+\end{figure}
+
+\subsection{Data Authentication}
+\label{Three legged} 
+	If there are resources the application requires that also require the permissions of the user. Then the 3 legged authentication will be used. This takes use of the Forge's Data Authentication API and their OAuth rest points. 
+\subsection{Interaction viewpoint for two legged authentication}
+	Application requires resources from the Autodesk API and/or servers that need a users permissions. Forge platform requires use of the "Authorization Code" grant type. User will be redirected to the Autodesk login (GET authorize endpoint). The user will have to register a new account if they do not have one. Then the user must explicitly accept the permissions the application requests. Using the callback URL the user is redirected to the application with a authorization code. With the code, client id and client secret, the application calls the POST gettoken endpoint. When successful the access token and refresh token are returned. The application is now able to obtain the resources needed. If the token expires the refresh token can use the POST refreshtoken endpoint to get a new access token. 
+\subsection{Design Concerns}
+	The data must be secure and the exchange must be quick. A drawback of using Autodesk API and/or servers is the heavy reliance on it. The performance of the application is dependent on Autodesk, if the servers are slow or down, so is the application. Three legged authentication also requires the login and permission of a user. If the user does not want or cannot provide permission then they are unable to use the application. Another concern is that the user must already own an account, if they do not they will have to create one. 
+\subsection{Elements}
+\begin{description}
+	\item[]\textbf{Application} has a Client ID and Client Secret associated with it.
+	\item[]\textbf{Client ID} acts as application username, 32 character string and passed as the client id query
+	\item[]\textbf{Client secret} is the application password, 16 character string and passed as the client secret query
+	\item[]\textbf{Access token} is returned at the end of a successful authentication flow, 28 character string used for subsequent API calls to the Forge platform. 
+	\item[]\textbf{Callback URL} is the URL the user started from before they were redirected to the Autodesk login. It is necessary in order to bring the user back to the website.
+	\item[]\textbf{Authorization code} is passed through the code query parameter when the user is returned to the application via the callback URL. Using POST gettoken endpoints as well as the client ID, client secret and this code, the application is able to receive an access token. The authorization code is 40 character string.
+	\item[]\textbf{Refresh token} can use the POST refreshtoken endpoint to get new three-legged access tokens with having to have the user repeat logging in. Refresh tokens are 42 characters strings.
+
+\end{description}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.55]{Authentication3legged.png}
+	\caption{Three legged OAuth UML sequence diagram}
+\end{figure}
+
+\subsection{Data Management API}
+\label{A360} 
+	A360 Personal requires 3-legged authorization for the application to access data. Then allows users to choose personal files for the application to use.
+\subsection{Context viewpoint for Data Management API}
+	In the flow the user wishes to access files from their A360 account. So to first do this they must login via the data authentication API. Once this is done the application is capable of using the resources from their A360 account. Next the users uses the data management API in order to choose the file they wish to use. 
+\subsection{Design Concerns}
+	Since all data that comes from A360 belongs to an account, it is assumed that a user first off, is registered and has an account. Furthermore, that the user logins in and through the Data Authentication API provides the permissions to the application to allow the use of A360's resources. Second is that files actually exist in the accounts storage, if there are no files the user has nothing to choose to use. If the user does not choose a CAD file this issue is not caught at this stage in the application, it is done later.
+\subsection{Elements}
+\subsubsection{Entities}
+\begin{description}
+	\item[]\textbf{Users} 
+	\item[]\textbf{Data Management API} allows users to access files in their A360 for any sort of use.
+	\item[]\textbf{Data Authentication API} provides the security and access of resources to the application.
+\end{description}
+\subsubsection{Relationships}
+\begin{description}
+	\item[]\textbf{User and Data Authentication's Relationship}: The user must login their Autodesk account and then provide explicit permissions for resources. This will give the authentication the okay to begin sending tokens. \ref{Two legged} and \ref{Three legged}
+	\item[]\textbf{User and Data Management's Relationship}: The user will select the files they want from the data management and the data management API will provide those files to the user. \ref{A360}
+	\item[]\textbf{Data Authentication and Data Management's Relationship}: The data authentication API will keep the token that allows the data management API to send resources to the application.
+\end{description}
+\subsubsection{Constraints}
+\begin{description}
+	\item[]\textbf{Users} must have a Autodesk account registered as well as files within the data management API.
+
+\end{description}
+
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{DataManageUseCase.png}
+	\caption{Data Management UML use case diagram}
+\end{figure}
+\newpage
+\subsection{View models in VR}
+\label{Mobile web based VR - Google Cardboard}
+	The Google Cardboard application allows for web pages to be loaded into Android WebView. This uses WebGL for websites to be able to be viewed in the Google Cardboard's VR.
+\subsection{Context viewpoint for WebView}
+	In the flow the user wishes to view the model on the website on their mobile device and then use Google Cardboard in order to view the model in VR. In order to do this they utilize the QR scanner to get the website. Then to view in VR they open their Google Cardboard application. From there they use the WebView to view the site in VR which accomplishes their goal.
+\subsection{Design Concerns}
+	This design instance assumes that the user owns Google Cardboard and its accompanied application. Since the viewing experience currently uses Android WebView, the only mobile devices supported are Android devices. As WebView utilizes WebGL support, Android versions below Lollipop are not supported.
+\subsection{Elements}
+\subsubsection{Entities}
+\begin{description}
+	\item[]\textbf{Users}
+	\item[]\textbf{The Website} displays 3D models.
+	\item[]\textbf{The user's mobile device} The hardware on which everything happens.
+	\item[]\textbf{Google Cardboard Application} has the WebView function that allows for the view of websites.
+\end{description}
+\subsubsection{Relationships}
+\begin{description}
+	\item[]\textbf{User and Website Relationship}: The user will scan the Websites QR code. The website will now display in the users device.
+	\item[]\textbf{User and Google Cardboard Application Relationship}: The user will open the application and the application will begin to run.
+	\item[]\textbf{Website and Google Cardboard Application Relationship}: The Google Cardboard application will take the website and put it through the WebView function, resulting in the Website becoming viewable in VR.
+the application.
+\end{description}
+\subsubsection{Constraints}
+\begin{description}
+	\item[]\textbf{The user's mobile device} must be Android and Android version Lollipop or higher. 
+\end{description}
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{ViewingUseCase.png}
+	\caption{Model Viewing on a mobile device UML use case diagram}
+\end{figure}
+
+
+\end{document}
+
+%@misc{a javascript library for building user interfaces - react,
+ %title={A JavaScript library for building user interfaces - React},
+ %url={https://facebook.github.io/react/},
+ %journal={A JavaScript library for building user interfaces - React}, 
+ %publisher={Facebook.com}}
+
