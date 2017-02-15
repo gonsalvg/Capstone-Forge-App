@@ -396,20 +396,21 @@ TABLE OF CONTENTS
 		\begin{enumerate}
 			\item{Option}
 				\begin{itemize}
-					\item OAuth2 is the open standard used in the Forge platform for token-based authentication and authorization. The basic flow for using OAuth commonly begins with an application making an HTTP call to a OAuth REST endpoint and providing its credentials. A token is returned to the application and then subsequent HTTP calls to various APIs on the platform include the token in the request header.
-					\begin{itemize}
-						\item Two-legged authentication: The default and simplest type of authentication. Should be used when an application makes a call to an API that utilizes resources that do not require the user's permission. The only interaction is between the application and the Forge platform. The user does not need to know about the authentication or provide authorization to the application for resource access.
-						\item Three-legged authentication: Used for when an application requires access to resources belonging to an end user, and so that user must provide explicit authorization. For a web application, this will automatically redirect to an Autodesk login page and ask for the user's consent. Then the user is redirected to the application, which is now capable to accessing those resources
-					\end{itemize}
+					\item Write code from scratch. There are many ways to do this, specifically using XMLHTTPrequests or ajax to listen and send information. These methods would then be received on a node.js server. The client side code would utilize javascript to interact when buttons on the website are pressed.
+					\item Adapt current and existing implementations of the Forge OAuth2 API into the already written Vrok.it code. The implementation under consideration uses node.js like Vrok.it already for the server hosting and also uses the express.js framework. It also contains working 3 legged authorization. The code also contains working Data Management and Model Derivative API which can be utilized on other sections of the project.
+					
 				\end{itemize}
-			\item{Goals} provides security to data interactions and also to resources that belong to users being exchanged.
+			\item{Goals} Correctly redirect the user to the Autodesk site and receive tokens. 
 			\item{Criteria being evaluated}
 				\begin{itemize}
-					\item{Whether users will need access to Forge resources}
-					\item{Usability, users have to login and have an Autodesk account}
+					\item{The amount of time necessary to write or rewrite the code and then test that code.}
+					\item{The ease of integration into Vrok.it's existing code.}
+					\item{Experience necessary to write code.}
 				\end{itemize}
-			\item{Discussion} There is a slight possibility to be using both. Two-legged for simple users and then three-legged for users with Autodesk accounts. Regardless of whether we accommodate simple users, we definitely will have to use three-legged. This is due to the use of the Forge Data Management API, users who store their files will be using the Forge platform. Thus will have to have users verify our application the permissions to access their files. As for the use of two-legged that will vary depending on what other pieces are added.
-			\item{Select Option} : The functionality of the Forge Data Management API revolves around users files so we will definitely have to utilize three-legged.
+			\item{Discussion}: The best things writing code from scratch provide is better understanding of the code, easier integration with already written Vrok.it and lower possiblity of code conflicts. Code written for the express purpose of working with Vrok.it, will do everything necessary with nothing extra unless needed. With code that has no extraneous lines leads to less errors due to unwanted interactions. The disadvantages to scratch writing code would be the lack of experience the group has with Javascript. Furthermore, with time constraints it becomes more difficult to write code from scratch as most, if not all of it will have to be researched and then written ground up. 
+
+Adapting the already written API has one extremely severe drawback, it must be integrated into Vrok.it's existing code. It is entirely possible that the code may not even be compatible with Vrok.it. However, there are many advantages to adapting the existing code. The documentation is already there, the time necessary to adapt the code should be significantly less than writing from scratch and the accessible Data Management and Model Derivative API's help cut down on man hours.
+			\item{Select Option} : Adapt already written code. The time saving benefits of not having to write three sets of code for each API are immense. Furthermore, the code as currently written is testable, whereas the scratch code could take time before reaching a testable state. 
 		\end{enumerate}
 
 	\subsection{Viewing in VR}
@@ -435,14 +436,6 @@ TABLE OF CONTENTS
 				\end{itemize}
 			\item{Discussion}: Google Cardboard has several advantages. First off it's incredibly cheap price, will allow for greater accessibility. Especially for developers, each us will be able to use our own and testing models should be easy. Second is the high number of application that display models and their easy access (free). This gives us an easy way to compare our work, framerate wise. Finally since our current setup utilizes Vrot.it and already had a QR scanner to port the models to our phones. It becomes a matter of adjusting the model and then using the VR format Cardboard uses to get our desired VR model. Oculus and Vive come with the advantage of having higher hardware to work with. Our need to detect hardware becomes less of an issue since both work with PC's and then display to the phone via other methods. This comes at their high cost and additionally the applications out for those options don't utilize our current setup. In fact would change our setup completely since they alleviate the need to even upload files and just change our problem to converting CAD files to work with Unity. 
 			\item{Select Option}: Google Cardboard is significantly cheaper and perfectly fits within the way we have setup in order to utilize what we have. 
-		\end{enumerate}
-	\subsection{Technology 9}
-		\begin{enumerate}
-			\item{Option}
-			\item{Goals}
-			\item{Criteria being evaluated}
-			\item{Discussion}
-			\item{Select Option}
 		\end{enumerate}
 
 
