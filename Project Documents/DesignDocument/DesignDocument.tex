@@ -224,13 +224,13 @@ The Forge Viewer is what powers the Explorer's 3D model viewer. By our requireme
 
 \subsection{Interface Viewpoint: Interaction}
 \begin{itemize}
-	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
+	\item[]\textbf{Main Viewer Window} By default, there will be at least one viewer within the desktop website after a user has completed their file upload.  This includes the Viewer Controls component. The viewer uses a WebGL graphics backend that is integrated into the webpage, then called with the Forge API. If an error is detected, the viewer should fall back to an inactive state.
 
 	\item[]\textbf{Listed Models} When a user first visits the website there will be a default list of various models that they will be able to select and view in the model. Once selected the model will be loaded into the viewer and become available for the user interact with. The user will also be given an option to upload their own models to view and interact with as well. 
 	
-	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. If a keyboard is connected, then a set of keys can be used to control the viewer in a basic and straightforward manner.
+	\item[]\textbf{Viewer Controls} The viewer is interacted with by using the Large Model Viewer's API, which is a small set of controls in a compact interface that appears at the bottom of the viewer. This set of controls can rotate, zoom, explode, or toggle settings for viewing the model. 
 	
-	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. This will essentially enable the model viewer to explore the 3D space around the model, and will be enabled within the API.
+	\item[]\textbf{Model Viewer Navigation} This allows for keyboard and mouse input as a new option for controlling the Forge Viewer. Currently, the viewer can support keyboard controls for movement, which ideally can be enabled for an additional source of movement and manipulation for the user. This will essentially enable the model viewer to explore the 3D space around the model, and will be enabled within an extension for the Viewer, which is a javascript file specifically for the Viewer.
 
 	\item[]\textbf{Mobile Viewer} The Main Viewer must control a separate instance of the Viewer that runs exclusively for the connected smartphone, and matches the exact position and viewing of the desktop viewer. The main viewer is also responsible for handling the controls for the second viewer. These viewers are hosted within the web page.
 	
