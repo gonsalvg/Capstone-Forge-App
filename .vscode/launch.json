@@ -12,20 +12,20 @@
             "type": "node",
             "request": "attach",
             "name": "Attach to Port",
-            "port": 5000
+            "port": 3000
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:5000",
+            "url": "http://localhost:3000",
             "webRoot": "${workspaceRoot}"
         },
         {
             "type": "chrome",
             "request": "attach",
             "name": "Attach to Chrome",
-            "port": 5000,
+            "port": 3000,
             "webRoot": "${workspaceRoot}"
         }
     ]
