@@ -1,0 +1,23 @@
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {section}{\numberline {2}Technologies}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}File Uploading Locally}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}File Uploading Non-Local}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}File conversion}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Connecting the users device}{7}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Website UI Redesign}{8}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Data Management API}{9}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Model Viewer}{11}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}Forge Authentication}{12}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}Viewing in VR}{12}{subsection.2.9}
+\contentsline {section}{\numberline {3}Conclusion}{14}{section.3}
