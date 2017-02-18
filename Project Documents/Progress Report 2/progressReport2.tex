@@ -1,6 +1,7 @@
 \documentclass[10pt,draftclsnofoot,onecolumn]{IEEEtran}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{comment}
 
 \graphicspath{ {} }
 
@@ -16,6 +17,7 @@
 \setlength\footskip{0.561in}
 \setlength\headheight{0.5in}
 \setlength\headsep{0.461in}
+
 \begin{document}
 \pagenumbering{gobble}
 \title{Winter Progress Report}
@@ -46,10 +48,10 @@ We have been able to get the Vrok project set up and running on our own webspace
 After we get the 3-legged authentication working we then need to make sure that the file navigation system users will interface with to get to their file from the outside services is working correctly. We also need to begin making more UI changes. We have an interface for the file and data management of the project, though we need to modify several of the other web pages and javascript files to accommodate it, and adapt it to work with the rest of the project. Kean Walmsley, a developer who has been working with us from Autodesk, has also informed us that an updated viewer is now available that incorporates the use of stereographics on mobile devices. This is exactly what we need so we will need to get that updated on our version of the website as well. As we continue to progress on the project we hope to update the UI in a quick and speedy manner along with our additions.
 
 \section{Problems and Solutions}
-The biggest problem that we have ran into so far is getting the 3-legged authentication working. At first we were going to try doing this from scratch but this was proving to be very difficult. After looking through what some other people had done to get this working we realized that getting this to work from scratch would take a great deal of time. We then began to look for some APIs that have this done already. We we able to find an Autodesk github repo with a lot of different examples of how the forge APIs can be used. In this repo was an example of how to use the model derivative with Node.js that had the 3-legged incorporated into it and had a file navigation system that we also liked. So after talikng to Kean we decided that the best solution for us was to integrate this API into the website. Kean also knows the person that created the API so he said if we were having any trouble with the integration that he could possibly get ahold of that person and have them help us with the integration.
+The biggest problem that we have ran into so far is getting the 3-legged authentication working. At first we were going to try doing this from scratch but this was proving to be very difficult. After looking through what some other people had done to get this working we realized that getting this to work from scratch would take a great deal of time. We then began to look for some APIs that have this done already. We we able to find an Autodesk github repo with a lot of different examples of how the forge APIs can be used. In this repo was an example of how to use the model derivative with Node.js that had the 3-legged incorporated into it and had a file navigation system that we also liked. So after talking to Kean we decided that the best solution for us was to integrate this API into the website. Kean also knows the person that created the API so he said if we were having any trouble with the integration that he could possibly get ahold of that person and have them help us with the integration.
 
 
-
+\begin{comment}
 \section{Retrospective}
 
 \begin{center}
@@ -65,7 +67,7 @@ After Autodesk University was over our client has become much more available to 
  \hline
 \end{tabular}
 \end{center}
-
+\end{comment}
 
 \section{Weekly summaries}
 \subsection{Week 3}
