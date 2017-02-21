@@ -15,7 +15,10 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
- ///*
+var app = express();
+var api = require('./api');
+var http = require('http');
+var crypto = require('crypto');
  /*
 'use strict';
 
@@ -109,10 +112,7 @@ router.get('/api/forge/callback/oauth', function (req, res) {
 //###############################################################
 
 //############### Keans code ####################
-var app = express();
-var api = require('./api');
-var http = require('http');
-var crypto = require('crypto');
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
