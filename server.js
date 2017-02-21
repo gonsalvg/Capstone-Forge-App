@@ -15,14 +15,18 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
- ///*
+
+var api = require('./api');
+var http = require('http');
+var crypto = require('crypto');
+ 
 'use strict';
 
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
-
+var router = express.Router();
 // this session will be used to save the oAuth token
 app.use(cookieParser());
 app.set('trust proxy', 1) // trust first proxy - HTTPS on Heroku 
@@ -52,9 +56,9 @@ app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css'
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
 //app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
-//*/
+
 ////////////////////////////////
-var port = process.env.PORT || 3000;
+
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
@@ -67,11 +71,16 @@ app.use('/dm', dm); // redirect our Data Management API calls
 app.use('/md', md); // redirect our Data Management API calls
 
 module.exports = app;
-//###############################################################
-//###############################################################
-//*/
 
-//var app = express();
+
+var port = process.env.PORT || 3000;
+var forgeapis = require('forge-apis');
+//############################### OAuth code ######################
+
+//###############################################################
+
+//############### Keans code ####################
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
