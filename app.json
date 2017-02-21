@@ -12,14 +12,16 @@
   ],
   "env": {
     "FORGE_CLIENT_ID": {
-      "description": "Forge Client ID"
+      "description": "Forge Client ID",
+      "value": "c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr" 
     },
     "FORGE_CLIENT_SECRET": {
-      "description": "Forge Client Secret"
+      "description": "Forge Client Secret",
+      "value": "Ag4uxZEzKfB5n7A2"
     },
     "FORGE_CALLBACK_URL": {
       "description": "Callback URL of your app, required for 3-legged OAuth",
-      "value": "https://murmuring-cove-16220.herokuapp.com/"
+      "value": "http://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth"
     }
   },
   "website": "https://developer.api.autodesk.com/",
