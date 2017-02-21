@@ -36,7 +36,7 @@ router.get('/user/logoff', function (req, res) {
     req.session.destroy();
     res.end('/');
 });
-/*
+
 // return name & picture of the user for the front-end
 // the forge @me endpoint returns more information
 router.get('/user/profile', function (req, res) {
@@ -55,7 +55,7 @@ router.get('/user/profile', function (req, res) {
             console.log(error);
         });
 });
-*/
+
 // return the public token of the current user
 // the public token should have a limited scope (read-only)
 router.get('/user/token', function (req, res) {
