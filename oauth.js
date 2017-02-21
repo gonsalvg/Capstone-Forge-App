@@ -91,7 +91,7 @@ router.get('/api/forge/callback/oauth', function (req, res) {
     // first get a full scope token for internal use (server-side)
     //oauth3legged.gettoken(config.credentials.client_id, config.credentials.client_secret, 'authorization_code', code, config.callbackURL)
     var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
-
+    console.log(code);
     req.getToken(code)
         .then(function (data) {
             tokenSession.setTokenInternal(data.access_token);
