@@ -56,7 +56,7 @@ app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css'
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
 //app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
-/*
+
 ////////////////////////////////
 
 ////////////////////////////////
@@ -71,12 +71,12 @@ app.use('/dm', dm); // redirect our Data Management API calls
 app.use('/md', md); // redirect our Data Management API calls
 
 module.exports = app;
-*/
 
-var port = process.env.PORT || 5000;
+
+var port = process.env.PORT || 3000;
 var forgeapis = require('forge-apis');
 //############################### OAuth code ######################
-
+/*
 'use strict'; // http://www.w3schools.com/js/js_strict.asp
 
 // token handling in session
@@ -169,7 +169,7 @@ router.get('/api/forge/callback/oauth', function (req, res) {
             res.end(JSON.stringify(error));
         });
 });
-
+*/
 //###############################################################
 
 //############### Keans code ####################
