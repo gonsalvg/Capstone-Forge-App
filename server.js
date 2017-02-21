@@ -26,7 +26,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
-
+var router = express.Router();
 // this session will be used to save the oAuth token
 app.use(cookieParser());
 app.set('trust proxy', 1) // trust first proxy - HTTPS on Heroku 
