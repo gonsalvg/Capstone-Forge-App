@@ -15,11 +15,11 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
-var app = express();
+
 var api = require('./api');
 var http = require('http');
 var crypto = require('crypto');
- /*
+ 
 'use strict';
 
 var express = require('express');
@@ -56,7 +56,7 @@ app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css'
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
 //app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
-
+/*
 ////////////////////////////////
 var port = process.env.PORT || 3000;
 ////////////////////////////////
