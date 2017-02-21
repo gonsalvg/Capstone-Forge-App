@@ -58,7 +58,7 @@ app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fo
 // CONFIG
 /*
 ////////////////////////////////
-var port = process.env.PORT || 3000;
+
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
@@ -73,6 +73,7 @@ app.use('/md', md); // redirect our Data Management API calls
 module.exports = app;
 */
 //###################  New Code #########################
+var port = process.env.PORT || 5000;
 var forgeapis = require('forge-apis');
 
 // wait for Autodesk callback (oAuth callback)
