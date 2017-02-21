@@ -24,7 +24,8 @@
     "forge-data-management": "*",
     "forge-model-derivative": "*",
     "forge-oauth2": "*",
-    "forge-oss": "*"
+    "forge-oss": "*",
+    "forge-apis": "*"
   },
 
   "scripts": {

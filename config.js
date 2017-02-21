@@ -21,7 +21,7 @@
 module.exports = {
 
     // this this callback URL when creating your client ID and secret
-    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth',
+    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/',
 
     // set enviroment variables or hard-code here
     credentials: {
@@ -30,8 +30,8 @@ module.exports = {
     },
 
     // Required scopes for your application on server-side
-    scopeInternal: 'data:read',
+    scopeInternal: ['data:read'],
     // Required scope of the token sent to the client
-    scopePublic: 'data:read'
+    scopePublic: ['data:read']
 };
 //data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete put back in later

@@ -58,6 +58,7 @@ var port = process.env.PORT || 3000;
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
+var forgeapis = require('forge-apis');
 var oauth = require('./oauth');
 var dm = require('./data.management');
 var md = require('./model.derivative');
