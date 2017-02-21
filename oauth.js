@@ -26,7 +26,7 @@ var express = require('express');
 var router = express.Router();
 
 // forge oAuth package
-//var forgeOAuth2 = require('forge-oauth2');
+var forgeOAuth2 = require('forge-oauth2');
 // forge config information, such as client ID and secret
 var config = require('./config');
 
