@@ -15,18 +15,14 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
-
-var api = require('./api');
-var http = require('http');
-var crypto = require('crypto');
- 
+ ///*
 'use strict';
 
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
-var router = express.Router();
+
 // this session will be used to save the oAuth token
 app.use(cookieParser());
 app.set('trust proxy', 1) // trust first proxy - HTTPS on Heroku 
@@ -56,9 +52,9 @@ app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css'
 app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
 //app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
-/*
+//*/
 ////////////////////////////////
-
+var port = process.env.PORT || 3000;
 ////////////////////////////////
 ///*
 // prepare our API endpoint routing
@@ -71,49 +67,11 @@ app.use('/dm', dm); // redirect our Data Management API calls
 app.use('/md', md); // redirect our Data Management API calls
 
 module.exports = app;
-*/
-//###################  New Code #########################
-var port = process.env.PORT || 5000;
-var forgeapis = require('forge-apis');
-
-// wait for Autodesk callback (oAuth callback)
-router.get('/api/forge/callback/oauth', function (req, res) {
-    var code = req.query.code;
-    var oauth3legged = new forgeOAuth2.ThreeLeggedApi();
-    var tokenSession = new token(req.session);
-
-    // first get a full scope token for internal use (server-side)
-    //oauth3legged.gettoken(config.credentials.client_id, config.credentials.client_secret, 'authorization_code', code, config.callbackURL)
-    var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
-
-    req.getToken(code)
-        .then(function (data) {
-            tokenSession.setTokenInternal(data.access_token);
-            console.log('Internal token (full scope): ' + tokenSession.getTokenInternal()); // debug
-
-            // then refresh and get a limited scope token that we can send to the client
-            //oauth3legged.refreshtoken(config.credentials.client_id, config.credentials.client_secret, 'refresh_token', data.refresh_token, { scope:config.scopePublic })
-            var req2 = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
-            req2.refreshToken(data)
-                .then(function (data) {
-                    tokenSession.setTokenPublic(data.access_token);
-                    tokenSession.setExpiresInPublic(data.expires_in);
-                    console.log('Public token (limited scope): ' + tokenSession.getTokenPublic()); // debug
-                    res.redirect('/');
-                })
-                .catch(function (error) {
-                    res.end(JSON.stringify(error));
-                });
-        })
-        .catch(function (error) {
-            res.end(JSON.stringify(error));
-        });
-});
-
 //###############################################################
+//###############################################################
+//*/
 
-//############### Keans code ####################
-
+//var app = express();
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');

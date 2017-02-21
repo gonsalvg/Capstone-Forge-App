@@ -79,6 +79,8 @@ router.get('/user/authenticate', function (req, res) {
     res.end(url);
 });
 
+var forgeapis = require('forge-apis');
+
 // wait for Autodesk callback (oAuth callback)
 router.get('/api/forge/callback/oauth', function (req, res) {
     var code = req.query.code;
@@ -87,14 +89,15 @@ router.get('/api/forge/callback/oauth', function (req, res) {
 
     // first get a full scope token for internal use (server-side)
     //oauth3legged.gettoken(config.credentials.client_id, config.credentials.client_secret, 'authorization_code', code, config.callbackURL)
-        var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
-        req.getToken(code)
+    var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
+
+    req.getToken(code)
         .then(function (data) {
             tokenSession.setTokenInternal(data.access_token);
             console.log('Internal token (full scope): ' + tokenSession.getTokenInternal()); // debug
 
             // then refresh and get a limited scope token that we can send to the client
-            //oauth3legged.refreshtoken(config.credentials.client_id, config.credentials.client_secret, 'refresh_token', data.refresh_token, config.scopePublic)
+            //oauth3legged.refreshtoken(config.credentials.client_id, config.credentials.client_secret, 'refresh_token', data.refresh_token, { scope:config.scopePublic })
             var req2 = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
             req2.refreshToken(data)
                 .then(function (data) {
