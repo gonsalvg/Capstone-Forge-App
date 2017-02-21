@@ -20,7 +20,7 @@
 
 // token handling in session
 var token = require('./token');
-
+var forgeapis = require('forge-apis');
 // web framework
 var express = require('express');
 var router = express.Router();
@@ -76,10 +76,11 @@ router.get('/user/authenticate', function (req, res) {
         '&client_id=' + config.credentials.client_id +
         '&redirect_uri=' + config.callbackURL +
         '&scope=' + config.scopeInternal;
+        console.log(url);
     res.end(url);
 });
 
-var forgeapis = require('forge-apis');
+
 
 // wait for Autodesk callback (oAuth callback)
 router.get('/api/forge/callback/oauth', function (req, res) {
