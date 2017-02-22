@@ -34,7 +34,7 @@
     "nodemon": "nodemon start.js --ignore www/"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "*"
   },
 
   "repository": {
