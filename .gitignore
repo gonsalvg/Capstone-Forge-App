@@ -5,3 +5,10 @@ Progress Report/progressReportCopy.tex
 Project Requirements/requirements.aux
 DesignDocument/DesignDocument.log
 DesignDocument/DesignDocument.out
+server/.vs/VSWorkspaceState.json
+*.sqlite
+server/.vs/server/v15/.suo
+html/.vs/ProjectSettings.json
+html/.vs/config/applicationhost.config
+server/.vs/ProjectSettings.json
+*.suo
