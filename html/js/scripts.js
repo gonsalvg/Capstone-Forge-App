@@ -44,9 +44,6 @@ $(document).ready(function () {
         $("#forgeUploadHidden").trigger("click");
     });
 
-    // Get the tokens
-    console.log ("everything til here works");
-//############################################################################################
     get3LegToken(function(token) {
         var auth = $("#authenticate");
 
