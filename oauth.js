@@ -90,8 +90,8 @@ router.get('/api/forge/callback/oauth', function (req, res) {
     var tokenSession = new token(req.session);
 
     // first get a full scope token for internal use (server-side)
-    oauth3legged.gettoken(config.credentials.client_id, config.credentials.client_secret, 'authorization_code', code, config.callbackURL)
-    //var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
+    //oauth3legged.gettoken(config.credentials.client_id, config.credentials.client_secret, 'authorization_code', code, config.callbackURL)
+    var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
     console.log(code);
     req.getToken(code)
         .then(function (data) {
@@ -99,8 +99,8 @@ router.get('/api/forge/callback/oauth', function (req, res) {
             console.log('Internal token (full scope): ' + tokenSession.getTokenInternal()); // debug
 
             // then refresh and get a limited scope token that we can send to the client
-            oauth3legged.refreshtoken(config.credentials.client_id, config.credentials.client_secret, 'refresh_token', data.refresh_token, { scope:config.scopePublic })
-            //var req2 = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
+            //oauth3legged.refreshtoken(config.credentials.client_id, config.credentials.client_secret, 'refresh_token', data.refresh_token, { scope:config.scopePublic })
+            var req2 = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
             req2.refreshToken(data)
                 .then(function (data) {
                     tokenSession.setTokenPublic(data.access_token);
