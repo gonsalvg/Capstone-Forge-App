@@ -20,14 +20,13 @@
 
 // token handling in session
 var token = require('./token');
-var forgeapis = require('forge-apis');
+
 // web framework
 var express = require('express');
 var router = express.Router();
 
-// forge oAuth package
-var forgeOAuth2 = require('forge-oauth2');
-var forgeapis = require('forge-apis');
+var forgeSDK = require('forge-apis');
+
 // forge config information, such as client ID and secret
 var config = require('./config');
 
@@ -38,74 +37,55 @@ router.get('/user/logoff', function (req, res) {
     res.end('/');
 });
 
-// return name & picture of the user for the front-end
-// the forge @me endpoint returns more information
-router.get('/user/profile', function (req, res) {
-    var tokenSession = new token(req.session);
-    forgeOAuth2.ApiClient.instance.authentications ['oauth2_access_code'].accessToken = tokenSession.getTokenInternal();
-    var oa3Info = new forgeOAuth2.InformationalApi();
-    oa3Info.aboutMe()
-        .then(function (data) {
-            var profile = {
-                'name': data.firstName + ' ' + data.lastName,
-                'picture': data.profileImages.sizeX20
-            };
-            res.end(JSON.stringify(profile));
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-});
-
 // return the public token of the current user
 // the public token should have a limited scope (read-only)
 router.get('/user/token', function (req, res) {
     console.log('Getting user token'); // debug
     var tokenSession = new token(req.session);
-    console.log('Public token:' + tokenSession.getTokenPublic());
-    res.json({ token: tokenSession.getTokenPublic(), expires_in: tokenSession.getExpiresInPublic() });
+    // json returns empty object if the entry values are undefined
+    // so let's avoid that
+    var tp = tokenSession.getPublicCredentials() ? tokenSession.getPublicCredentials().access_token : "";
+    var te = tokenSession.getPublicCredentials() ? tokenSession.getPublicCredentials().expires_in : "";
+    console.log('Public token:' + tp);
+    res.json({ token: tp, expires_in: te });
 });
 
 // return the forge authenticate url
 router.get('/user/authenticate', function (req, res) {
     // redirect the user to this page
     var url =
-        //forgeOAuth2.ApiClient.instance.basePath +
-        // trying hard coding the authentication for now
-        'https://developer.api.autodesk.com' +
+        "https://developer.api.autodesk.com" +
         '/authentication/v1/authorize?response_type=code' +
         '&client_id=' + config.credentials.client_id +
         '&redirect_uri=' + config.callbackURL +
-        '&scope=' + config.scopeInternal;
-        console.log(url);
+        '&scope=' + config.scopeInternal.join(" ");
     res.end(url);
 });
-
-
 
 // wait for Autodesk callback (oAuth callback)
 router.get('/api/forge/callback/oauth', function (req, res) {
     var code = req.query.code;
-    var oauth3legged = new forgeOAuth2.ThreeLeggedApi();
     var tokenSession = new token(req.session);
 
     // first get a full scope token for internal use (server-side)
-    //oauth3legged.gettoken(config.credentials.client_id, config.credentials.client_secret, 'authorization_code', code, config.callbackURL)
-    var req = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
+    var req = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
     console.log(code);
     req.getToken(code)
-        .then(function (data) {
-            tokenSession.setTokenInternal(data.access_token);
-            console.log('Internal token (full scope): ' + tokenSession.getTokenInternal()); // debug
+        .then(function (internalCredentials) {
+
+            tokenSession.setInternalCredentials(internalCredentials);
+            tokenSession.setInternalOAuth(req);
+
+            console.log('Internal token (full scope): ' + internalCredentials.access_token); // debug
 
             // then refresh and get a limited scope token that we can send to the client
-            //oauth3legged.refreshtoken(config.credentials.client_id, config.credentials.client_secret, 'refresh_token', data.refresh_token, { scope:config.scopePublic })
-            var req2 = new forgeapis.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
-            req2.refreshToken(data)
-                .then(function (data) {
-                    tokenSession.setTokenPublic(data.access_token);
-                    tokenSession.setExpiresInPublic(data.expires_in);
-                    console.log('Public token (limited scope): ' + tokenSession.getTokenPublic()); // debug
+            var req2 = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
+            req2.refreshToken(internalCredentials)
+                .then(function (publicCredentials) {
+                    tokenSession.setPublicCredentials(publicCredentials);
+                    tokenSession.setPublicOAuth(req2);
+
+                    console.log('Public token (limited scope): ' + publicCredentials.access_token); // debug
                     res.redirect('/');
                 })
                 .catch(function (error) {

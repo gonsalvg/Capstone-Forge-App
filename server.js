@@ -49,11 +49,13 @@ var crypto = require('crypto');
 //#################Adams Code#############################
 //###############################################################
 // prepare server routing
-app.use('/', express.static(__dirname + '/../html')); // redirect static calls
-app.use('/js', express.static(__dirname + '/../node_modules/bootstrap/dist/js')); // redirect static calls
-app.use('/js', express.static(__dirname + '/../node_modules/jquery/dist')); // redirect static calls
-app.use('/css', express.static(__dirname + '/../node_modules/bootstrap/dist/css')); // redirect static calls
-app.use('/fonts', express.static(__dirname + '/../node_modules/bootstrap/dist/fonts')); // redirect static calls
+app.use('/', express.static(__dirname + '/html')); // redirect static calls
+//app.use('/js', express.static(__dirname + '/html/js')); // redirect static calls
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect static calls
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect static calls
+app.use('/js', express.static(__dirname + '/node_modules/jstree/dist')); // redirect static calls
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect static calls
+app.use('/fonts', express.static(__dirname + '/node_modules/bootstrap/dist/fonts')); // redirect static calls
 //app.set('port', process.env.PORT || 3000); // main port// Already using port 5000
 // CONFIG
 
@@ -88,8 +90,8 @@ app.use(function (req, res, next) {
 });
 //var port = process.env.PORT || 5000;
 //loading index2.html 
-app.use('/', express.static(__dirname + '/html'));
-app.use('/v2', express.static(__dirname + '/html/index2.html'));
+//adam app.use('/', express.static(__dirname + '/html'));
+//adam app.use('/v2', express.static(__dirname + '/html/index2.html'));
 
 app.get('/api/token', api.getToken);
 app.get('/api/uploadtoken', api.getUploadToken);

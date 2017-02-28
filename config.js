@@ -21,7 +21,7 @@
 module.exports = {
 
     // this this callback URL when creating your client ID and secret
-    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth',
+    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth',//'https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth',
 
 
     // set enviroment variables or hard-code here
@@ -31,7 +31,8 @@ module.exports = {
     },
 
     // Required scopes for your application on server-side
-    scopeInternal: ['data:read'], // for forge-apis this needs to be an array
+    scopeInternal: ['data:read', 'data:write', 'data:create', 'data:search',
+         'bucket:create', 'bucket:read', 'bucket:update', 'bucket:delete'], // for forge-apis this needs to be an array
 // Required scope of the token sent to the client
     scopePublic: ['data:read']
 };
