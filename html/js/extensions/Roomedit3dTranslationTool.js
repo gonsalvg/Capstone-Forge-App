@@ -302,7 +302,7 @@ Roomedit3dTranslationTool = function (viewer, options) {
     };
 
     this.handleKeyDown = function(event, keyCode) {
-      return false;
+      return true;
     };
 
     this.handleKeyUp = function(event, keyCode) {
