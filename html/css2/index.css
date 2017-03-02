@@ -9,7 +9,7 @@
 
 .forgeViewer {
     border:1px solid silver; padding: 0;
-    height:500px; vertical-align: middle;
+    height:auto; vertical-align: middle; /*trying to get viewer to auto size based on page layout*/
     background-repeat: no-repeat; background-position: center;
     overflow: hidden;
 }
