@@ -13,14 +13,17 @@
   "env": {
     "FORGE_CLIENT_ID": {
       "description": "Forge Client ID",
-      "value": "c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr" 
+      //"value": "nxhoaHAjAuqVS6nNt9UjYRVUCX58NGxv" // This is for  testing on localhost
+      "value": "c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr"  
     },
     "FORGE_CLIENT_SECRET": {
       "description": "Forge Client Secret",
+      //"value": "7VwIeGMg8r6xATWL" // This is for testing on localhost
       "value": "Ag4uxZEzKfB5n7A2"
     },
     "FORGE_CALLBACK_URL": {
       "description": "Callback URL of your app, required for 3-legged OAuth",
+      //"value": "http://localhost:3000/api/forge/callback/oauth" // This is for  testing on localhost
       "value": "https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth"
     }
   },

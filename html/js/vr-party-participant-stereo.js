@@ -26,6 +26,7 @@ function initialize() {
     
     _sessionId = getURLParameter('session');
     if (_sessionId) {
+        /*
         var buttonName = 'Connect';
         var panel = document.getElementById('control');
         var button = document.createElement('div');
@@ -35,6 +36,8 @@ function initialize() {
         button.onclick = connect;
             
         panel.appendChild(button);
+        */
+        connect();
     }
 }
 
@@ -43,7 +46,7 @@ function connect() {
     $('#layer1').hide();
 
     try {
-        _vrDisplay.requestPresent([{source: $('#layer2')[0]}]);
+        // _vrDisplay.requestPresent([{source: $('#layer2')[0]}]);
     }
     catch (ex) {}
     
@@ -126,6 +129,7 @@ function launchScopedViewer(urn) {
 
                             // Added for WebVR support
                             
+                            /*
                             _viewer.impl.setRenderCallback(
                                 function(fn) {
                                     var pose = _vrDisplay.getPose();
@@ -134,6 +138,7 @@ function launchScopedViewer(urn) {
                                     _vrDisplay.requestAnimationFrame(fn);
                                 }
                             );
+                            */
                                 
                             //_viewer.setQualityLevel(false, false);
                             //_viewer.setGroundShadow(true);
@@ -171,7 +176,11 @@ function launchScopedViewer(urn) {
         showMessage('Disconnected', true);
         
         _viewer.uninitialize();
-        _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#viewer')[0], { wantInfoButton : false});
+        _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#viewer')[0], {
+            wantInfoButton : false,
+            extensions: [ 'Autodesk.Viewing.WebVR' ],
+            experimental: [ 'webVR_orbitModel' ]
+        });
     }
 }
 
@@ -436,7 +445,7 @@ function finishProgress() {
         if (!_orbitInitialPosition) {
             _orbitInitialPosition = _viewer.navigation.getPosition();
         }
-        var vec = _viewerLeft.model.getUpVector();
+        var vec = _viewer.model.getUpVector();
         _upVector = new THREE.Vector3(vec[0], vec[1], vec[2]);
 
         _viewer.loadExtension('Autodesk.ADN.Viewing.Extension.VR', {});

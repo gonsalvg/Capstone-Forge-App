@@ -1010,7 +1010,10 @@ function initializeViewer(urn) {
     cleanupViewer();
 
     console.log("Launching Autodesk Viewer for: " + urn);
-
+    //Hide the about html after the user selects which of there files they would like to view
+    $('#aboutDiv').hide();
+    $('#3dViewDiv').show();
+    
     var options = {
         'document': 'urn:' + urn,
         'env': 'AutodeskProduction',
@@ -1020,7 +1023,8 @@ function initializeViewer(urn) {
     if (MyVars.viewer) {
         loadDocument(MyVars.viewer, options.document);
     } else {
-        var viewerElement = document.getElementById('forgeViewer');
+        //call 3dViewDiv instaed of forgeViewer
+        var viewerElement = document.getElementById('3dViewDiv');
         MyVars.viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
         Autodesk.Viewing.Initializer(
             options,
@@ -1030,6 +1034,7 @@ function initializeViewer(urn) {
                 addSelectionListener(MyVars.viewer);
             }
         );
+        resetSize(MyVars.viewer.container);
     }
 }
 
@@ -1130,4 +1135,13 @@ function showProgress(text, status) {
     }
 }
 
-
+// From Keans code Resize the element for the viewer to display in
+function resetSize(elem, fullHeight) {
+    elem.style.width = window.innerWidth - 360 + 'px'; // subtract the left column
+    if (fullHeight) {
+        elem.style.height = '';
+    }
+    else {
+        elem.style.height = (window.innerHeight - 40) + 'px'; // subtract the table padding
+    }
+}
