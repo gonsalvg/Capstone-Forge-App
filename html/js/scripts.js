@@ -1026,6 +1026,7 @@ function initializeViewer(urn) {
         //call 3dViewDiv instaed of forgeViewer
         var viewerElement = document.getElementById('3dViewDiv');
         MyVars.viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
+        resetSize(MyVars.viewer.container);
         Autodesk.Viewing.Initializer(
             options,
             function () {
@@ -1034,7 +1035,7 @@ function initializeViewer(urn) {
                 addSelectionListener(MyVars.viewer);
             }
         );
-        resetSize(MyVars.viewer.container);
+
     }
 }
 

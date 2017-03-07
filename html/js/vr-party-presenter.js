@@ -166,9 +166,9 @@ function launchUrn(urn) {
                     
                 if (viewerToClose) {
                     viewerToClose.finish();
-                }
-                
-                loadModel(_viewer, model);
+                }         
+                     
+                loadModel(_viewer, model); 
             }
         );
     }
