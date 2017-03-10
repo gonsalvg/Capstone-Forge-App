@@ -1017,6 +1017,8 @@ function initializeViewer(urn) {
     var options = {
         'document': 'urn:' + urn,
         'env': 'AutodeskProduction',
+        extensions: ['Autodesk.Viewing.WebVR'],
+        experimental: ['webVR_orbitModel'],
         'getAccessToken': get3LegToken // this works fine, but if I pass get3LegToken it only works the first time
     };
 
@@ -1026,6 +1028,8 @@ function initializeViewer(urn) {
         //call 3dViewDiv instaed of forgeViewer
         var viewerElement = document.getElementById('3dViewDiv');
         MyVars.viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
+        //temporary fix for viewing.
+        Autodesk.Viewing.Private.token.tokenRefreshInterval = 0;
         resetSize(MyVars.viewer.container);
         Autodesk.Viewing.Initializer(
             options,
