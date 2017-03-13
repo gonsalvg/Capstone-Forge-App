@@ -12,3 +12,4 @@ html/.vs/ProjectSettings.json
 html/.vs/config/applicationhost.config
 server/.vs/ProjectSettings.json
 *.suo
+.vs/VSWorkspaceState.json

@@ -1011,7 +1011,7 @@ function initializeViewer(urn) {
 
     console.log("Launching Autodesk Viewer for: " + urn);
     //Hide the about html after the user selects which of there files they would like to view
-    $('#aboutDiv').hide();
+    //$('#aboutDiv').hide(); //moving about page so viewer is prepped on load
     $('#3dViewDiv').show();
     
     var options = {
