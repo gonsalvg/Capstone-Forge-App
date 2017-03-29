@@ -1,5 +1,5 @@
 var _socket = io();
-var _isThreeLegged = false;
+var _isThreeLegged = true;
 var _selectedOption;
 var _sessionId;
 var _viewer;
