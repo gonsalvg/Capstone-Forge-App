@@ -18,11 +18,9 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
+            "sourceMaps": false,
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceRoot}/*",
-            "sourceMapPathOverrides": {
-             "/source/*": "${workspaceRoot}/*"
-            }
+            "webRoot": "${workspaceRoot}/html/js"
         },
         {
             "type": "chrome",

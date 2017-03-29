@@ -14,6 +14,8 @@ var _socket = io();
 var _sessionId;
 var _rotation;
 
+var viewingOption; //get the viewing options
+
 // Get the VRDisplay and save it for later.
 var _vrDisplay = null;
 navigator.getVRDisplays().then(function(displays) {
@@ -104,10 +106,20 @@ function launchScopedViewer(urn) {
         unwatchProgress();
     
         clearMessage();
+
+
+        if(_isThreeLegged) {
+            viewingOption = urn;
+            urn = viewingOption.document;
+        }
+        else{
+            urn = urn.ensurePrefix('urn:');
+            viewingOption = getScopedViewingOptions(urn);
+        }
         
-        urn = urn.ensurePrefix('urn:');
+       
         Autodesk.Viewing.Initializer(
-            getScopedViewingOptions(urn),
+            viewingOption,
             function() {
                 //_viewer.initialize();
                 Autodesk.Viewing.Document.load(
