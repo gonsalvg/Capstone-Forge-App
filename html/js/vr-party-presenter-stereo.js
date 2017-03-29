@@ -1751,7 +1751,8 @@ function getThreeLeggedScopedOptions(urn){
     var options = {
         'document': 'urn:' + urn,
         'env': 'AutodeskProduction',
-        'getAccessToken': get3LegToken 
+        'getAccessToken': get3LegToken,
+        'refreshToken' : get3LegToken 
     };
     return options;   
 }
