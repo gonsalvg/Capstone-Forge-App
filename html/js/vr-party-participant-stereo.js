@@ -108,16 +108,15 @@ function launchScopedViewer(urn) {
         clearMessage();
 
 
-        if(_isThreeLegged) {
-            viewingOption = urn;
-            urn = viewingOption.document;
-        }
-        else{
-            urn = urn.ensurePrefix('urn:');
-            viewingOption = getScopedViewingOptions(urn);
-        }
         
-       
+        if(_isThreeLegged)
+            viewingOption =  getThreeLeggedScopedOptions(urn);
+        else
+            viewingOption = getScopedViewingOptions(urn);
+            
+        urn = urn.ensurePrefix('urn:');
+        
+       Autodesk.Viewing.Private.token.tokenRefreshInterval = 0;
         Autodesk.Viewing.Initializer(
             viewingOption,
             function() {
@@ -127,7 +126,6 @@ function launchScopedViewer(urn) {
                     function(documentData) {
                         var model = getModel(documentData);
                         if (!model) return;
-            
                         // Uninitializing the viewers helps with stability
                         
                         if (_viewer) {
@@ -137,8 +135,7 @@ function launchScopedViewer(urn) {
                         
                         if (!_viewer) {
                             _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#viewer')[0], { wantInfoButton : false });
-                            _viewer.start();                    
-
+                            _viewer.start();
                             // Added for WebVR support
                             
                             /*

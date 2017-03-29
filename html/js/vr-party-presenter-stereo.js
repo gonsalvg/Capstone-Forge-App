@@ -1,6 +1,5 @@
 var _socket = io();
 var _isThreeLegged = true;
-var _selectedOption;
 var _sessionId;
 var _viewer;
 var _last_distance_to_target;
@@ -1626,7 +1625,7 @@ function initializeViewer(urn) {
         'getAccessToken': get3LegToken // this works fine, but if I pass get3LegToken it only works the first time
     };
 
-    _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: options });
+    _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn });
 
     if (MyVars.viewer) {
         loadDocument(MyVars.viewer, options.document);
@@ -1748,7 +1747,11 @@ function showProgress(text, status) {
     }
 }
 
-function getThreeLeggedScopedOptions(){
-    
-    return _selectedOption;   
+function getThreeLeggedScopedOptions(urn){
+    var options = {
+        'document': 'urn:' + urn,
+        'env': 'AutodeskProduction',
+        'getAccessToken': get3LegToken 
+    };
+    return options;   
 }
