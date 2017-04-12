@@ -139,10 +139,15 @@ function launchUrn(urn) {
     
     // Uninitializing the viewer helps with stability
     if (_viewer) {
-        viewerToClose = _viewer;
+        _viewer.finish();
         _viewer = null;
     }
-    
+
+    if(_isThreeLegged){
+        //Autodesk.Viewing.Private.token.tokenRefreshInterval = 0;
+        Autodesk.Viewing.Initializer(getViewingOptions(), function() {});
+    }
+
     if (urn) {
         
         $('#aboutDiv').hide();
@@ -151,7 +156,7 @@ function launchUrn(urn) {
         _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn });
     
         urn = urn.ensurePrefix('urn:');
-        
+
         Autodesk.Viewing.Document.load(
             urn,
             function(documentData) {
@@ -183,6 +188,7 @@ function launchUrn(urn) {
         _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#3dViewDiv')[0]);
         resetSize(_viewer.container);
     }
+    _isThreeLegged = false;
 }
 
 
@@ -1598,11 +1604,15 @@ function preparePropertyTree(urn, guid, objectId, props) {
 
 function cleanupViewer() {
     // Clean up previous instance
-    if (MyVars.viewer && MyVars.viewer.model) {
+    /*if (_viewer && _viewer.model) {
         console.log("Unloading current model from Autodesk Viewer");
 
-        MyVars.viewer.impl.unloadModel(MyVars.viewer.model);
-        MyVars.viewer.impl.sceneUpdated(true);
+        _viewer.impl.unloadModel(_viewer.model);
+        _viewer.impl.sceneUpdated(true);
+    }*/
+    if (_viewer) {
+        _viewer.finish();
+        _viewer = null;
     }
 }
 
@@ -1627,23 +1637,23 @@ function initializeViewer(urn) {
 
     _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn });
 
-    if (MyVars.viewer) {
-        loadDocument(MyVars.viewer, options.document);
+    if (_viewer) {
+        loadDocument(_viewer, options.document);
     } else {
         //call 3dViewDiv instaed of forgeViewer
         var viewerElement = document.getElementById('3dViewDiv');
-        MyVars.viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
+        _viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerElement, {});
         
         //temporary fix for viewing.
         Autodesk.Viewing.Private.token.tokenRefreshInterval = 0;
         //reset the size of the div for the viewer.
-        resetSize(MyVars.viewer.container);
+        resetSize(_viewer.container);
         Autodesk.Viewing.Initializer(
             options,
             function () {
-                MyVars.viewer.start(); // this would be needed if we also want to load extensions
-                loadDocument(MyVars.viewer, options.document);
-                addSelectionListener(MyVars.viewer);
+                _viewer.start(); // this would be needed if we also want to load extensions
+                loadDocument(_viewer, options.document);
+                addSelectionListener(_viewer);
             }
         );
 
@@ -1702,8 +1712,8 @@ function loadDocument(viewer, documentId) {
 }
 
 function selectInViewer(objectIds) {
-    if (MyVars.viewer) {
-        MyVars.viewer.select(objectIds);
+    if (_viewer) {
+        _viewer.select(objectIds);
     }
 }
 

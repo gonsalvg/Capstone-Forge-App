@@ -116,7 +116,7 @@ function launchScopedViewer(urn) {
             
         urn = urn.ensurePrefix('urn:');
         
-       Autodesk.Viewing.Private.token.tokenRefreshInterval = 0;
+        Autodesk.Viewing.Private.token.tokenRefreshInterval = 0;
         Autodesk.Viewing.Initializer(
             viewingOption,
             function() {
