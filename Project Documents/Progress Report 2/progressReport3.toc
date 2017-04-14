@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Project Recap}{1}{section.1}
+\contentsline {section}{\numberline {2}Current Progress}{1}{section.2}
+\contentsline {section}{\numberline {3}Remaining Tasks}{1}{section.3}
+\contentsline {section}{\numberline {4}Weekly summaries}{2}{section.4}
+\contentsline {subsection}{\numberline {4.1}Winter Week 1}{2}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Winter Week 2}{2}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Winter Week 3}{2}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Winter Week 4}{3}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Winter Week 5}{3}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Winter Week 6}{3}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}Winter Week 7}{4}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Winter Week 8}{4}{subsection.4.8}
+\contentsline {section}{\numberline {5}Team Evaluation}{4}{section.5}
