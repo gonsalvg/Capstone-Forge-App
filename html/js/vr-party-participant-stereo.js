@@ -295,7 +295,7 @@ function initConnection() {
             console.log("val: ", msg.value);
             console.log("token", _3LegToken);
             console.log("expire", _expires_in);
-            console.log("expire", _isThreeLegged);
+            console.log("threeLegged", _isThreeLegged);
             launchScopedViewer(msg.value, msg.disconnecting);
         }
         else if (msg.name === 'zoom') {
@@ -622,5 +622,7 @@ function getThreeLeggedScopedOptions(urn){
 }
 
 function get3leggedinfo(callback) {
+    console.log("Token: ", _3LegToken);
+    console.log("Expires: ", _expires_in);
     callback(_3LegToken, _expires_in);
 }

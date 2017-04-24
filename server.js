@@ -124,6 +124,9 @@ console.log('Listening on port ' + port + '...');
 
 var sessionIds = [];
 var models = [];
+var tokens = [];
+var expires = [];
+var threeLeg = [];
 var zoomFactors = [];
 var explodeFactors = [];
 var isolateIds = [];
@@ -148,6 +151,9 @@ io.on('connection', function(socket) {
         // Add our session info to the beginning of our various arrays
         sessionIds.unshift(session.id);
         models.unshift(null);
+        tokens.unshift(null);
+        expires.unshift(null);
+        threeLeg.unshift(null);
         zoomFactors.unshift(defZoom);
         explodeFactors.unshift(defExplode);
         isolateIds.unshift(defIsolate);
@@ -166,7 +172,7 @@ io.on('connection', function(socket) {
             
             if (models[idx]) {
                 // Bring this user up to speed with the state of the session
-                emitDirectAndLog(socket, { name: 'load', value: models[idx] });
+                emitDirectAndLog(socket, { name: 'load', value: models[idx], token: tokens[idx], expires: expires[idx], threeLegged: threeLeg[idx] });
                 if (zoomFactors[idx] !== defZoom) {
                     emitDirectAndLog(socket, { name: 'zoom', value: zoomFactors[idx] });
                 }
@@ -202,6 +208,9 @@ io.on('connection', function(socket) {
             // Clean up state
             sessionIds.splice(idx, 1);
             models.splice(idx, 1);
+            tokens.splice(idx, 1);
+            threeLeg.splice(idx, 1);
+            expires.splice(idx, 1);
             zoomFactors.splice(idx, 1);
             explodeFactors.splice(idx, 1);
             isolateIds.splice(idx, 1);
@@ -223,6 +232,9 @@ io.on('connection', function(socket) {
             if (command.name === 'load') {
                 // Create our default settings for the model
                 models[idx] = command.value;
+                tokens[idx] = command.token;
+                expires[idx] = command.expires;
+                threeLeg[idx] = command.threeLegged;
                 zoomFactors[idx] = defZoom;
                 explodeFactors[idx] = defExplode;
                 isolateIds[idx] = defIsolate;
