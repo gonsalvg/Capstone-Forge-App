@@ -148,12 +148,13 @@ function launchUrn(urn) {
         Autodesk.Viewing.Initializer(getViewingOptions(), function() {});
     }
 
+    _isThreeLegged = false;
     if (urn) {
         
         $('#aboutDiv').hide();
         $('#3dViewDiv').show();
         
-        _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn });
+        _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn, threeLegged: _isThreeLegged});
     
         urn = urn.ensurePrefix('urn:');
 
@@ -188,7 +189,6 @@ function launchUrn(urn) {
         _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#3dViewDiv')[0]);
         resetSize(_viewer.container);
     }
-    _isThreeLegged = false;
 }
 
 
@@ -1639,7 +1639,7 @@ function initializeViewer(urn) {
     console.log("Token: ", MyVars.token3Leg);
     console.log("Expires: ", MyVars.expires_in);
 
-    _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn, token: MyVars.token3Leg, expires: MyVars.expires_in });
+    _socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn, token: MyVars.token3Leg, expires: MyVars.expires_in, threeLegged: _isThreeLegged });
 
     if (_viewer) {
         loadDocument(_viewer, options.document);
@@ -1760,13 +1760,3 @@ function showProgress(text, status) {
         }
     }
 }
-
-/*function getThreeLeggedScopedOptions(urn){
-    var options = {
-        'document': 'urn:' + urn,
-        'env': 'AutodeskProduction',
-        'getAccessToken': get3LegToken,
-        'refreshToken' : get3LegToken 
-    };
-    return options;   
-}*/

@@ -15,6 +15,7 @@ var _sessionId;
 var _rotation;
 var _3LegToken;
 var _expires_in;
+var _isThreeLegged;
 
 var viewingOption; //get the viewing options
 
@@ -290,9 +291,11 @@ function initConnection() {
         if (msg.name === 'load') {
             _3LegToken = msg.token;
             _expires_in = msg.expires;
+            _isThreeLegged = msg.threeLegged;
             console.log("val: ", msg.value);
             console.log("token", _3LegToken);
             console.log("expire", _expires_in);
+            console.log("expire", _isThreeLegged);
             launchScopedViewer(msg.value, msg.disconnecting);
         }
         else if (msg.name === 'zoom') {
