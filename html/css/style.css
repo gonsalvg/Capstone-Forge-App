@@ -1,32 +1,32 @@
 body {
-  font-family: "Lato", sans-serif;
-  font-size: 12px;
-  -webkit-text-size-adjust: none;
-  color: #333;
-  margin: 0 auto;
-  padding: 10px;
-  display: block;
-  position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    -webkit-text-size-adjust: none;
+    color: #333;
+    margin: 0 auto;
+    padding: 10px;
+    display: block;
+    position: relative;
 }
 
 p.info {
-  font-family: "Lato", sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .cmd-btn-small, .cmd-btn-small-x {
-  font-family: "Lato",  sans-serif;
-  font-size: 12px;
-  border: 1px solid #555;
-  border-radius: 2px;
-  color: #555;
-  text-transform: uppercase;
-  text-align: center;
-  width: 120px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    border: 1px solid #555;
+    border-radius: 2px;
+    color: #555;
+    text-transform: uppercase;
+    text-align: center;
+    width: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .cmd-btn-small {

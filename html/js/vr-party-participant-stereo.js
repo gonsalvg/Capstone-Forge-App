@@ -13,6 +13,9 @@ var _lastVert, _lastHoriz;
 var _socket = io();
 var _sessionId;
 var _rotation;
+var _3LegToken;
+var _expires_in;
+var _isThreeLegged;
 
 var viewingOption; //get the viewing options
 
@@ -120,7 +123,6 @@ function launchScopedViewer(urn) {
         Autodesk.Viewing.Initializer(
             viewingOption,
             function() {
-                //_viewer.initialize();
                 Autodesk.Viewing.Document.load(
                     urn,
                     function(documentData) {
@@ -287,6 +289,13 @@ function launchViewer(urn) {
 function initConnection() {
     _socket.on('lmv-command', function(msg) {
         if (msg.name === 'load') {
+            _3LegToken = msg.token;
+            _expires_in = msg.expires;
+            _isThreeLegged = msg.threeLegged;
+            console.log("val: ", msg.value);
+            console.log("token", _3LegToken);
+            console.log("expire", _expires_in);
+            console.log("threeLegged", _isThreeLegged);
             launchScopedViewer(msg.value, msg.disconnecting);
         }
         else if (msg.name === 'zoom') {
@@ -601,4 +610,19 @@ function zoomInOrOut(viewer, pos, factor) {
     direction.normalize();
     direction.multiplyScalar(factor);
     return direction.add(target);
+}
+
+function getThreeLeggedScopedOptions(urn){
+    var options = {
+        'document': 'urn:' + urn,
+        'env': 'AutodeskProduction',
+        'getAccessToken': get3leggedinfo
+    };
+    return options;   
+}
+
+function get3leggedinfo(callback) {
+    console.log("Token: ", _3LegToken);
+    console.log("Expires: ", _expires_in);
+    callback(_3LegToken, _expires_in);
 }
