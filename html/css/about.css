@@ -10,7 +10,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Lato", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 h1, p.desc {
@@ -27,7 +27,7 @@ a, a:link, a:visited, a:visited:hover, a:hover {
 }
 
 a {
-  color: #006699;
+    color: #3566CB;
 }
 
 a:hover {
@@ -39,12 +39,12 @@ a:active, a:hover {
 }
 
 img {
-  margin: 5px auto;
-  display:block;
-  width: 60%;
-  border-color: #555;
-  border-style: solid;
-  border-width: 10px;
+    margin: 5px auto;
+    display: block;
+    width: 60%;
+    border-color: #3566CB;
+    border-style: solid;
+    border-width: 5px;
 }
 
 figure {
