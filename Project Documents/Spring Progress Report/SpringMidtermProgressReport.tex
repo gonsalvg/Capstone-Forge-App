@@ -18,6 +18,46 @@
 \setlength\headheight{0.5in}
 \setlength\headsep{0.461in}
 
+% Taken from Lena Herrmann at 
+% http://lenaherrmann.net/2010/05/20/javascript-syntax-highlighting-in-the-latex-listings-package
+\usepackage{listings}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+
 \begin{document}
 \pagenumbering{gobble}
 \title{Winter Progress Report}
@@ -47,7 +87,106 @@ We currently have a few bugs that we are trying to get sorted out. One of the bu
 
 \section{Problems and Solutions}
 One of the first problems we ran into was getting three-legged authentication working. It turned out that it required a lot more work that we had initially thought it would be. To solve this problem, we decided to use an API that not only allowed us to connect the user to their A360 accounts as wanted it already had a file tree system set up that would let users access their file. First we couldn't gain access to the users A360 account after integrating the API into our project. We found that this was because we were using the wrong version of node.js and once updated we could then connect to A360 as wanted. The next problem we ran into was that we couldn't get the selected model into the viewer even though it was being downloaded properly. It turns out that the viewer being initialized in multiple spots in the program was causing the problem. Our mentor Adam found a solution to this problem and once I implemented it the models could then be loaded into the viewer as wanted. The problem I am working on currently is that once the user picks a model from their A360 account and it is loaded in the viewer they should be able to then have others connect to this same session via the qr code on the website. After the person connects they should be able to see the model that is on the main website. The problem is that the wrong authentication token is being passed to the participant so they can retrieve the model. After discussing the problem with one of our mentors Kean. A solution we found to this problem is to use the socket IO system that was already in place. we created three variables, one boolean to determine if three-legged or two-legged authentication was being used, and then two more that would hold the three-legged token and the time till expiration. We then passed them to the participant and created a callback function to be called by the initializer when they were needed. This solution proved successful and actually proved to work very well. The final problem we ran into was that the viewer wouldn't show the model from a user’s A360 account if they had first chose to look at a model from list. To fix this problem I found that we could just uninitialize the viewer and then reinitialize it every time the user choses a new model.
+\section{Code Pieces}
 
+\medskip
+\begin{lstlisting}[caption=Exchanging Authorization Code for Token function]
+router.get('/api/forge/callback/oauth', function (req, res) {
+    var code = req.query.code;
+    var tokenSession = new token(req.session);
+
+    // first get a full scope token for internal use (server-side)
+    var req = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
+    console.log(code);
+    req.getToken(code)
+        .then(function (internalCredentials) {
+
+            tokenSession.setInternalCredentials(internalCredentials);
+            tokenSession.setInternalOAuth(req);
+
+            console.log('Internal token (full scope): ' + internalCredentials.access_token); // debug
+
+            // then refresh and get a limited scope token that we can send to the client
+            var req2 = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
+            req2.refreshToken(internalCredentials)
+                .then(function (publicCredentials) {
+                    tokenSession.setPublicCredentials(publicCredentials);
+                    tokenSession.setPublicOAuth(req2);
+
+                    console.log('Public token (limited scope): ' + publicCredentials.access_token); // debug
+                    res.redirect('/');
+                })
+                .catch(function (error) {
+                    res.end(JSON.stringify(error));
+                });
+        })
+        .catch(function (error) {
+            res.end(JSON.stringify(error));
+        });
+});
+\end{lstlisting}
+\begin{lstlisting}[caption=Package depedencies]
+  "dependencies": {
+    "socket.io": "*",
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "formidable": "^1.0.17",
+    "morgan": "^1.7.0",
+    "oauth": "^0.9.14",
+    "request": "^2.72.0",
+    "trim": "0.0.1",
+    "forge-apis": "*",
+    "jstree": "*"
+  },
+\end{lstlisting}
+\begin{lstlisting}[caption=Login related functions]
+
+function signIn() {
+    $.ajax({
+        url: '/user/authenticate',
+        success: function (rootUrl) {
+            console.log("succeeded with sign in" + rootUrl);
+            location.href = rootUrl;
+        },
+        error: function() {
+            console.log("Failure at sign in");
+        }
+    });
+}
+
+function logoff() {
+    $.ajax({
+        url: '/user/logoff',
+        success: function (oauthUrl) {
+            location.href = oauthUrl;
+        }
+    });
+}
+
+function get3LegToken(callback) {
+
+    if (callback) {
+        $.ajax({
+            url: '/user/token',
+            success: function (data) {
+                MyVars.token3Leg = data.token;
+                console.log('Returning new 3 legged token (User Authorization): ' + MyVars.token3Leg);
+                callback(data.token, data.expires_in);
+            },
+            error: function() {
+                console.log("Err in get3legtoken callback ajax");
+            }
+        });
+    } else {
+        console.log('else version of Returning saved 3 legged token (User Authorization): ' + MyVars.token3Leg);
+
+        return MyVars.token3Leg;
+    }
+}
+\end{lstlisting}
 
 
 \section{Weekly summaries}
