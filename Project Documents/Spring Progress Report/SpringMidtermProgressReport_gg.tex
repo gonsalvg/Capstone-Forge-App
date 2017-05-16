@@ -18,49 +18,9 @@
 \setlength\headheight{0.5in}
 \setlength\headsep{0.461in}
 
-% Taken from Lena Herrmann at 
-% http://lenaherrmann.net/2010/05/20/javascript-syntax-highlighting-in-the-latex-listings-package
-\usepackage{listings}
-\usepackage{color}
-\definecolor{lightgray}{rgb}{.9,.9,.9}
-\definecolor{darkgray}{rgb}{.4,.4,.4}
-\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
-
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
-
-\lstset{
-   language=JavaScript,
-   backgroundcolor=\color{lightgray},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
-}
-
-
 \begin{document}
 \pagenumbering{gobble}
-\title{Spring Progress Report}
+\title{Winter Progress Report}
 \author{Group 20: Shawn Cross, Paul Kwak, Griffin Gonsalves}
 \maketitle
 \hspace*{\fill}\IEEEauthorblockA{Capstone - Spring 2017}\hspace*{\fill}
@@ -75,7 +35,7 @@ This document expands upon Group 20's progress with the project as it stands as 
 
 \section{Project Recap}
 %Purposes and Goals
-Our project seeks to improve and build upon Vrok.it increasing the usability while simultaneously integrating more functionality using Forge. The Forge API collection has several APIs that facilitate development with 3D modeling and creating applications like ours. The end product will be capable of uploading CAD files via local user files or through Data Management’s allowing access to a user’s A360 account, displaying the files as models through the File Viewer, file conversion with the Model Derivative, viewing the site on a mobile device via QR scanner and then viewing the site, specifically models, in VR with Google Cardboard.
+Our project seeks to improve and build upon Vrok.it increasing the usability while simultaneously integrating new functionality using Forge and other APIs. The Forge API collection has several APIs that facilitate 3D modeling and creating applications like ours. The end product will be capable of uploading CAD files via local user files or through Data Management’s allowing access to a user’s A360 account, displaying the files as models through the File Viewer, file conversion with the Model Derivative, viewing the site on a mobile device via QR scanner and then viewing the site, specifically models, in VR with Google Cardboard.
 
 Our team is motivated to provide these powerful features and to gain experience developing a larger scale project, in addition to honing programming and teamwork skills. While the foundation is now laid out, we are excited to add more ideas and additional features to our project. For instance, in order to provide support for additional VR devices, we want to ensure the project is useful on a low-cost scenario by utilizing Google's Cardboard headset.
 
@@ -83,203 +43,12 @@ Our team is motivated to provide these powerful features and to gain experience 
 We have been able to get the Vrok project set up and running on our own web space at https://murmuring-cove-16220.herokuapp.com/. After we were able to get this up and running we began to start implementing our changes to the site. We were able to get the bucket set up that is need for uploading file to the website and make it so that the website will only let user upload certain file types when going through their file on their local machines. We then began to work on the 3-legged authentication required to allow users to get file from there different Autodesk storage services. This is where we began to run into some problems. We found that it was a bit more difficult to do this than we had initially expected. But we were able to find an API that did exactly what we wanted and after talking to one of our mentors Kean of Autodesk we decided that integrating the API into our current website would be the best solution to our problem. Integrating the API was more challenging than we had anticipated but we brought in Adam, the person who created the API to help with the integration. After realizing that we need to update the version of node.js and migrating to the newer versions of the Forge APIs we were able to get Adam's API working with our project for the most part. Once we had the API allowing us to connect to the Autodesk servers we began to get work on getting it to retrieve models from users A360 accounts. This worked well but we ran into difficulty when trying to get the models to show up in the viewer. Once we got this working the next task was to make it so that these models could also be viewed by a participant. This part seemed to give us the most trouble because we had to find a way to pass the information from the main website to the participant. After I finally got this all working the website was mainly complete and we currently working on fixing any bugs we have could find since completion.
 
 \section{Remaining Tasks}
-We currently have a few bugs that we are trying to get sorted out. One of the bugs is with the UI and is a problem with two div’s overlapping after a model is loaded into the viewer. The other bugs that we know about might be bugs from the actual forge viewer API and that means we won't be able to fix these bugs ourselves. We can let our client know of the bugs we found so she can inform the Forge API developers at Autodesk. We are also currently working on our pitch and will be recording that this week to get feedback from our TA before the expo.
+We currently have a few bugs that we are trying to get sorted out. One of the bugs is with the UI and is a problem with two div’s overlapping after a model is loaded into the viewer. The other bugs that we know about might be bugs from the actual forge viewer API and that means we won't be able to fix these bugs ourselves. We can let our client know of the bugs we found so she can inform the Forge API developers at Autodesk. We are also currently working on our pitch and will be recoding that this week to get feedback from our TA before the expo.
 
 \section{Problems and Solutions}
 One of the first problems we ran into was getting three-legged authentication working. It turned out that it required a lot more work that we had initially thought it would be. To solve this problem, we decided to use an API that not only allowed us to connect the user to their A360 accounts as wanted it already had a file tree system set up that would let users access their file. First we couldn't gain access to the users A360 account after integrating the API into our project. We found that this was because we were using the wrong version of node.js and once updated we could then connect to A360 as wanted. The next problem we ran into was that we couldn't get the selected model into the viewer even though it was being downloaded properly. It turns out that the viewer being initialized in multiple spots in the program was causing the problem. Our mentor Adam found a solution to this problem and once I implemented it the models could then be loaded into the viewer as wanted. The problem I am working on currently is that once the user picks a model from their A360 account and it is loaded in the viewer they should be able to then have others connect to this same session via the qr code on the website. After the person connects they should be able to see the model that is on the main website. The problem is that the wrong authentication token is being passed to the participant so they can retrieve the model. After discussing the problem with one of our mentors Kean. A solution we found to this problem is to use the socket IO system that was already in place. we created three variables, one boolean to determine if three-legged or two-legged authentication was being used, and then two more that would hold the three-legged token and the time till expiration. We then passed them to the participant and created a callback function to be called by the initializer when they were needed. This solution proved successful and actually proved to work very well. The final problem we ran into was that the viewer wouldn't show the model from a user’s A360 account if they had first chose to look at a model from list. To fix this problem I found that we could just uninitialize the viewer and then reinitialize it every time the user choses a new model.
-\section{Code Pieces}
-\begin{lstlisting}[caption=Site layout: HTML iframe table skeleton and Viewer]
-<body onload="initialize();" onbeforeunload="terminate();" onresize="resize();">
-        <table cellpadding="10px">
-            <tr>
-                <td valign="top" style="min-width:300px;text-align:center;">
-                    <div class="highlight" id="join"></div>
 
-                    <br/>
-                    <a id="url" target="_blank" title="Scan this QR code to connect to this session from your mobile device: the browser will create a Google Cardboard-compatible 3D view"><div id="qrcode"></div></a>
-...
-<td valign="top">
-                    <div id="layer1">
-                        <div id="3dViewDiv"></div>
-                    </div>
-                    <div id="layer2" class="aboutLayer">
-                        <div display="none" id="aboutDiv">
-                            <!--embed class="full" src="about.html"></embed-->
-                            <object type="text/html" class="full" data="about.html"></object>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-\end{lstlisting}
-\medskip
-\begin{lstlisting}[caption=Site layout: CSS for side panel and main page]
-body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    -webkit-text-size-adjust: none;
-    color: #333;
-    margin: 0 auto;
-    padding: 10px;
-    display: block;
-    position: relative;
-}
 
-p.info {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.cmd-btn-small, .cmd-btn-small-x {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    border: 1px solid #555;
-    border-radius: 2px;
-    color: #555;
-    text-transform: uppercase;
-    text-align: center;
-    width: 120px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-\end{lstlisting}
-
-\medskip
-
-\begin{lstlisting}[caption=Exchanging Authorization Code for Token function]
-router.get('/api/forge/callback/oauth', function (req, res) {
-    var code = req.query.code;
-    var tokenSession = new token(req.session);
-
-    // first get a full scope token for internal use (server-side)
-    var req = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
-    console.log(code);
-    req.getToken(code)
-        .then(function (internalCredentials) {
-
-            tokenSession.setInternalCredentials(internalCredentials);
-            tokenSession.setInternalOAuth(req);
-
-            console.log('Internal token (full scope): ' + internalCredentials.access_token); // debug
-
-            // then refresh and get a limited scope token that we can send to the client
-            var req2 = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
-            req2.refreshToken(internalCredentials)
-                .then(function (publicCredentials) {
-                    tokenSession.setPublicCredentials(publicCredentials);
-                    tokenSession.setPublicOAuth(req2);
-
-                    console.log('Public token (limited scope): ' + publicCredentials.access_token); // debug
-                    res.redirect('/');
-                })
-                .catch(function (error) {
-                    res.end(JSON.stringify(error));
-                });
-        })
-        .catch(function (error) {
-            res.end(JSON.stringify(error));
-        });
-});
-\end{lstlisting}
-\begin{lstlisting}[caption=Package depedencies]
-  "dependencies": {
-    "socket.io": "*",
-    "body-parser": "^1.15.1",
-    "cookie-parser": "^1.4.3",
-    "ejs": "^2.4.1",
-    "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "formidable": "^1.0.17",
-    "morgan": "^1.7.0",
-    "oauth": "^0.9.14",
-    "request": "^2.72.0",
-    "trim": "0.0.1",
-    "forge-apis": "*",
-    "jstree": "*"
-  },
-\end{lstlisting}
-\begin{lstlisting}[caption=Login related functions]
-
-function signIn() {
-    $.ajax({
-        url: '/user/authenticate',
-        success: function (rootUrl) {
-            console.log("succeeded with sign in" + rootUrl);
-            location.href = rootUrl;
-        },
-        error: function() {
-            console.log("Failure at sign in");
-        }
-    });
-}
-
-function logoff() {
-    $.ajax({
-        url: '/user/logoff',
-        success: function (oauthUrl) {
-            location.href = oauthUrl;
-        }
-    });
-}
-
-function get3LegToken(callback) {
-
-    if (callback) {
-        $.ajax({
-            url: '/user/token',
-            success: function (data) {
-                MyVars.token3Leg = data.token;
-                console.log('Returning new 3 legged token (User Authorization): ' + MyVars.token3Leg);
-                callback(data.token, data.expires_in);
-            },
-            error: function() {
-                console.log("Err in get3legtoken callback ajax");
-            }
-        });
-    } else {
-        console.log('else version of Returning saved 3 legged token (User Authorization): ' + MyVars.token3Leg);
-
-        return MyVars.token3Leg;
-    }
-}
-
-\end{lstlisting}
-\begin{lstlisting}[caption=local file upload restriction]
-<input type="file" id="fileElem" style="display:none" accept=".rvt, .iam, .dwfx, .nwc, .dwg, .stp" onchange="onFilesDialogCalled(this.files);" multiple/>
-\end{lstlisting}
-\begin{lstlisting}[caption=non-local file upload restriction]
-function getThreeLeggedScopedOptions(urn){
-    var options = {
-        'document': 'urn:' + urn,
-        'env': 'AutodeskProduction',
-        'getAccessToken': get3leggedinfo
-    };
-    return options;   
-}
-
-function get3leggedinfo(callback) {
-    console.log("Token: ", _3LegToken);
-    console.log("Expires: ", _expires_in);
-    callback(_3LegToken, _expires_in);
-}
-\end{lstlisting}
-\begin{lstlisting}[caption=socket.io for passing three legged information]
-_socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn, token: MyVars.token3Leg, expires: MyVars.expires_in, threeLegged: _isThreeLegged });
-\end{lstlisting}
-
-\newpage
-\begin{figure}[ht]
-	\includegraphics[scale=0.8]{modelviewer.png}
-	\caption{Forge's Model Viewer and controls}
-\end{figure}
-\begin{figure}[ht]
-	\includegraphics[scale=0.2]{project.png}
-	\caption{Stereoscopic View of Model Chair}
-\end{figure}
-
-\newpage
 
 \section{Weekly summaries}
 \subsection{Week 3}
