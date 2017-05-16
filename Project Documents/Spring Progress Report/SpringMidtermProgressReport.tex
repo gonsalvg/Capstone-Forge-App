@@ -186,8 +186,32 @@ function get3LegToken(callback) {
         return MyVars.token3Leg;
     }
 }
+
+\end{lstlisting}
+\begin{lstlisting}[caption=local file upload restriction]
+<input type="file" id="fileElem" style="display:none" accept=".rvt, .iam, .dwfx, .nwc, .dwg, .stp" onchange="onFilesDialogCalled(this.files);" multiple/>
+\end{lstlisting}
+\begin{lstlisting}[caption=non-local file upload restriction]
+function getThreeLeggedScopedOptions(urn){
+    var options = {
+        'document': 'urn:' + urn,
+        'env': 'AutodeskProduction',
+        'getAccessToken': get3leggedinfo
+    };
+    return options;   
+}
+
+function get3leggedinfo(callback) {
+    console.log("Token: ", _3LegToken);
+    console.log("Expires: ", _expires_in);
+    callback(_3LegToken, _expires_in);
+}
+\end{lstlisting}
+\begin{lstlisting}[caption=socket.io for passing three legged information]
+_socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn, token: MyVars.token3Leg, expires: MyVars.expires_in, threeLegged: _isThreeLegged });
 \end{lstlisting}
 
+\newpage
 \begin{figure}[ht]
 	\includegraphics[scale=0.9]{modelviewer.png}
 	\caption{Forge's Model Viewer}
