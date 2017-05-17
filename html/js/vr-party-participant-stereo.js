@@ -136,7 +136,9 @@ function launchScopedViewer(urn) {
                         }
                         
                         if (!_viewer) {
-                            _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#viewer')[0], { wantInfoButton : false });
+                            _viewer = new Autodesk.Viewing.Private.GuiViewer3D($('#viewer')[0], { wantInfoButton : false,
+                            extensions: [ 'Autodesk.Viewing.WebVR' ],
+                            experimental: [ 'webVR_orbitModel' ] });
                             _viewer.start();
                             // Added for WebVR support
                             
