@@ -1,0 +1,77 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Project Requirements}{}% 2
+\BOOKMARK [1][-]{section.3}{Introduction}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Scope}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{OVERALL DESCRIPTION}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{PRODUCT PERSPECTIVE}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{PRODUCT FUNCTIONS}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.3}{USER CHARACTERISTICS}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.4}{SYSTEM LEVEL \(NON-FUNCTIONAL\) REQUIREMENTS}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{SPECIFIC REQUIREMENTS}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{SYSTEM FEATURES}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{GANTT CHART}{}% 13
+\BOOKMARK [1][-]{section.7}{UPDATED GANTT CHART}{}% 14
+\BOOKMARK [1][-]{section.8}{Design Document}{}% 15
+\BOOKMARK [1][-]{section.9}{Introduction}{}% 16
+\BOOKMARK [2][-]{subsection.9.1}{Scope}{section.9}% 17
+\BOOKMARK [2][-]{subsection.9.2}{Purpose}{section.9}% 18
+\BOOKMARK [2][-]{subsection.9.3}{Intended audience}{section.9}% 19
+\BOOKMARK [2][-]{subsection.9.4}{Influences on SDD preparation}{section.9}% 20
+\BOOKMARK [2][-]{subsection.9.5}{Design verification and design role validation}{section.9}% 21
+\BOOKMARK [2][-]{subsection.9.6}{Design stakeholders and their concerns}{section.9}% 22
+\BOOKMARK [1][-]{section.10}{Definitions}{}% 23
+\BOOKMARK [1][-]{section.11}{Design Views}{}% 24
+\BOOKMARK [2][-]{subsection.11.1}{Website Interface}{section.11}% 25
+\BOOKMARK [2][-]{subsection.11.2}{Interface Viewpoint: Interface}{section.11}% 26
+\BOOKMARK [2][-]{subsection.11.3}{Model Viewer}{section.11}% 27
+\BOOKMARK [2][-]{subsection.11.4}{Interface Viewpoint: Interaction}{section.11}% 28
+\BOOKMARK [2][-]{subsection.11.5}{Local file upload}{section.11}% 29
+\BOOKMARK [2][-]{subsection.11.6}{Interface viewpoint for local file upload}{section.11}% 30
+\BOOKMARK [2][-]{subsection.11.7}{Non-local file upload}{section.11}% 31
+\BOOKMARK [2][-]{subsection.11.8}{Interface viewpoint for non-local file upload}{section.11}% 32
+\BOOKMARK [2][-]{subsection.11.9}{Mobile device connection}{section.11}% 33
+\BOOKMARK [2][-]{subsection.11.10}{Mobile device connection Interface viewpoint}{section.11}% 34
+\BOOKMARK [2][-]{subsection.11.11}{File conversion}{section.11}% 35
+\BOOKMARK [2][-]{subsection.11.12}{Interaction viewpoint for file conversion}{section.11}% 36
+\BOOKMARK [2][-]{subsection.11.13}{Data Authentication}{section.11}% 37
+\BOOKMARK [2][-]{subsection.11.14}{Interaction viewpoint for two legged authentication}{section.11}% 38
+\BOOKMARK [2][-]{subsection.11.15}{Design Concerns}{section.11}% 39
+\BOOKMARK [2][-]{subsection.11.16}{Elements}{section.11}% 40
+\BOOKMARK [2][-]{subsection.11.17}{Data Authentication}{section.11}% 41
+\BOOKMARK [2][-]{subsection.11.18}{Interaction viewpoint for two legged authentication}{section.11}% 42
+\BOOKMARK [2][-]{subsection.11.19}{Design Concerns}{section.11}% 43
+\BOOKMARK [2][-]{subsection.11.20}{Elements}{section.11}% 44
+\BOOKMARK [2][-]{subsection.11.21}{Data Management API}{section.11}% 45
+\BOOKMARK [2][-]{subsection.11.22}{Context viewpoint for Data Management API}{section.11}% 46
+\BOOKMARK [2][-]{subsection.11.23}{Design Concerns}{section.11}% 47
+\BOOKMARK [2][-]{subsection.11.24}{Elements}{section.11}% 48
+\BOOKMARK [2][-]{subsection.11.25}{View models in VR}{section.11}% 49
+\BOOKMARK [2][-]{subsection.11.26}{Context viewpoint for WebView}{section.11}% 50
+\BOOKMARK [2][-]{subsection.11.27}{Design Concerns}{section.11}% 51
+\BOOKMARK [2][-]{subsection.11.28}{Elements}{section.11}% 52
+\BOOKMARK [1][-]{section.12}{Design Document Changes}{}% 53
+\BOOKMARK [1][-]{section.13}{Technology Review}{}% 54
+\BOOKMARK [1][-]{section.14}{Introduction}{}% 55
+\BOOKMARK [1][-]{section.15}{Technologies}{}% 56
+\BOOKMARK [2][-]{subsection.15.1}{File Uploading}{section.15}% 57
+\BOOKMARK [2][-]{subsection.15.2}{File conversion}{section.15}% 58
+\BOOKMARK [2][-]{subsection.15.3}{Connecting the users device}{section.15}% 59
+\BOOKMARK [2][-]{subsection.15.4}{Website UI Redesign}{section.15}% 60
+\BOOKMARK [2][-]{subsection.15.5}{Data Management API}{section.15}% 61
+\BOOKMARK [2][-]{subsection.15.6}{Model Viewer}{section.15}% 62
+\BOOKMARK [2][-]{subsection.15.7}{Forge Authentication}{section.15}% 63
+\BOOKMARK [2][-]{subsection.15.8}{Viewing in VR}{section.15}% 64
+\BOOKMARK [2][-]{subsection.15.9}{Technology 9}{section.15}% 65
+\BOOKMARK [1][-]{section.16}{Conclusion}{}% 66
+\BOOKMARK [1][-]{section.17}{Technology Review Changes}{}% 67
+\BOOKMARK [1][-]{section.18}{Weekly blogs}{}% 68
+\BOOKMARK [2][-]{subsection.18.1}{Fall}{section.18}% 69
+\BOOKMARK [2][-]{subsection.18.2}{Winter}{section.18}% 70
+\BOOKMARK [2][-]{subsection.18.3}{Spring}{section.18}% 71
+\BOOKMARK [1][-]{section.19}{Project Documentation}{}% 72
+\BOOKMARK [1][-]{section.20}{How we learned the technology}{}% 73
+\BOOKMARK [1][-]{section.21}{What We Learned}{}% 74
+\BOOKMARK [2][-]{subsection.21.1}{Shawn Cross}{section.21}% 75
+\BOOKMARK [2][-]{subsection.21.2}{Paul Kwak}{section.21}% 76
+\BOOKMARK [2][-]{subsection.21.3}{Griffin Gonslaves}{section.21}% 77

@@ -140,7 +140,6 @@
 \date{2016-11-3}
 
 
-
 \begin{document}
 \pagenumbering{gobble}
 \title{Spring Progress Report}
@@ -626,6 +625,14 @@ GANTT CHART}
 \begin{center}
 	\includegraphics[scale=0.8]{GanttChart.jpg}
 \end{center}
+\clearpage
+\section[UPDATED GANTT CHART]{\selectlanguage{english}\rmfamily\bfseries\color{black}
+UPDATED GANTT CHART}
+
+\begin{center}
+	\includegraphics[scale=0.8]{NewGantt.png}
+\end{center}
+
 
 %DesignDocument
 \newpage
@@ -1664,8 +1671,27 @@ If I were to redo the project from Fall could tell myself things, I would tell m
 \section{Project Documentation}
 This project is a public website. Users can come to the website and gain access to and CAD files they have on their computer or in an Autodesk account.\\
 
-%%Block Diagrams HERE
-
+\newpage
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{DataManageUseCase.png}
+	\caption{Data Management UML use case diagram}
+\end{figure}
+\newpage
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{Authentication3legged.png}
+	\caption{3 Legged Authentication}
+\end{figure}
+\newpage
+\begin{figure}[ht]
+	\includegraphics[scale=0.4]{nonLocalUpload.png}
+	\caption{Non Local upload }
+\end{figure}
+\newpage
+\begin{figure}[ht]
+	\includegraphics[scale=0.6]{localUpload.png}
+	\caption{Local upload}
+\end{figure}
+\newpage
 Our website is already up and functioning but if one desired to create the website from the ground up they would take these steps. Set-up a Heroku application. Use the server files provided within our github and connect them to the Heroku. Next sign up for a Autodesk Forge account and create an app. In this app make sure to get the client secret and ID. Change the server files to correspond to that secret and ID. In the Forge callback URL make sure to use the Heroku URL with the '/api/forge/callback/oauth' extension. Using these steps our version with the login should work after this, the user would have to setup their own bucket and and load models into it to have the models clickable on the site.\\
 
 To run the site you need to have CAD file located on the user's local machine or the user must have some in an Autodesk account that user have access to. Then you have to upload the file to the website. Once the file is uploaded the user will then be able to interact with the object in the viewer on the website. If other people have have the link to the current session they will be able to join that session and then be able to see what the host is seeing and doing to the object in the viewer. This give the users an opportunity to have a conference about the object over the Internet. Users can also view these models in a VR environment by scanning a QR code on the website with a compatible phone and a Google cardboard headset.\\
@@ -1685,18 +1711,32 @@ What have you learned about project management?
 
 What have you learned about working in teams?
 
+If you could do it all over, what would you do differently
+
 \subsection{Paul Kwak}
 What technical information did you learn?
 
-How to learn, read, write and understand Javascript. As well as, setting up a server using Heroku. Debugging and adapting API\\
+How to learn, read, write and understand Javascript. As well as, setting up a server using Heroku. Debugging and adapting API as well as prewritten code.
 
 What non-technical information did you learn?
 
+How work as a group, organizing weekly meetings, how to function as a team as well as a communicating long distance and short distance. To delve more into this, working as a group is something thats done from a young age in school. However, most times the stakes are low, in capstone the stakes are much higher. It is considered a contract and there are potential dollars at stake for the clients. In the case of the student, time which is a valuable variable could be wasted. The penalty for failure is large number of dollars as well as an entire year of schooling. Moving on to weekly meetings, even for professionals like our client, there were many times where not all members were able to be present. The value in being able to attend each and every meeting was quite high, simply being able to attend, let alone organize a meeting is an imperative skill to have. Communication is very difficult, technology is able to keep is contact more, but also allows us to hide if need be. Many tasks can be taken care of from long distance, but the most work was always done face to face. The value in being able to decide when each is the best choice is important.
+
 What have you learned about project work?
+
+There are many complications, the more pieces there are the more has to be done. Even when looking to optimize work load it can take lots of time and effort to document what has been changed. For instance simply adapting a pre-built library saved us countless hours, but even so we had to spend a large amount of time to make sure it worked. On top of that, we had to fill out a large amount of documentation talking about this change. The more is added the more project work we have to do as well.
 
 What have you learned about project management?
 
+Having one person be a dedicated leader goes a long way. Fact of the matter is, all work is not the same. There will less in certain areas and more in others, but having a leader to delegate and split the work as best as they can manage keeps work from being wasted. It is not always on the leader though, each member always has the responsilibity of making sure they know what others and they themselves are to do.
+
 What have you learned about working in teams?
+
+I believe the points mentioned above answer this question well.
+
+If you could do it all over, what would you do differently
+
+If I were to redo the project from Fall could tell myself things, I would tell myself to take a larger initiative in leadering the project and to start work early to have more time with bugs and such. Advance working, doing things as soon as possible to account for any sort of situation ( technology problems, communication break down, etc).
 
 \subsection{Griffin Gonslaves}
 What technical information did you learn?
@@ -1708,4 +1748,6 @@ What have you learned about project work?
 What have you learned about project management?
 
 What have you learned about working in teams?
+
+If you could do it all over, what would you do differently
 \end{document}
