@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\html",
+    "\\html\\css",
+    "\\html\\css2",
+    "\\html\\fonts",
+    "\\html\\js",
     "\\server"
   ],
-  "SelectedNode": "\\html\\indextest.html",
+  "SelectedNode": "\\html\\participant.html",
   "PreviewInSolutionExplorer": false
 }
