@@ -156,5 +156,5 @@
 \contentsline {section}{\numberline {20}How we learned the technology}{77}{section.20}
 \contentsline {section}{\numberline {21}What We Learned}{77}{section.21}
 \contentsline {subsection}{\numberline {21.1}Shawn Cross}{77}{subsection.21.1}
-\contentsline {subsection}{\numberline {21.2}Paul Kwak}{78}{subsection.21.2}
-\contentsline {subsection}{\numberline {21.3}Griffin Gonslaves}{79}{subsection.21.3}
+\contentsline {subsection}{\numberline {21.2}Paul Kwak}{79}{subsection.21.2}
+\contentsline {subsection}{\numberline {21.3}Griffin Gonslaves}{80}{subsection.21.3}
