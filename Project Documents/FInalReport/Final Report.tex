@@ -1773,4 +1773,188 @@ Overall, I think communication is probably the most important part of teamwork f
 If you could do it all over, what would you do differently
 
 At the beginning of the project, I felt incredibly anxious about the project, and felt I had a lot expected of me. Really, I think I should have tried to talk to as many people as humanly possible about the project- Including asking for opinions from peers, teachers, and anyone else really. I feel like that would have helped me out immensely in getting a better start on the project, both mentally and in terms of establishing stronger goals. 
+
+\newpage
+\section{Appendix 1}
+\begin{lstlisting}[caption=Site layout: HTML iframe table skeleton and Viewer]
+<body onload="initialize();" onbeforeunload="terminate();" onresize="resize();">
+        <table cellpadding="10px">
+            <tr>
+                <td valign="top" style="min-width:300px;text-align:center;">
+                    <div class="highlight" id="join"></div>
+
+                    <br/>
+                    <a id="url" target="_blank" title="Scan this QR code to connect to this session from your mobile device: the browser will create a Google Cardboard-compatible 3D view"><div id="qrcode"></div></a>
+...
+<td valign="top">
+                    <div id="layer1">
+                        <div id="3dViewDiv"></div>
+                    </div>
+                    <div id="layer2" class="aboutLayer">
+                        <div display="none" id="aboutDiv">
+                            <!--embed class="full" src="about.html"></embed-->
+                            <object type="text/html" class="full" data="about.html"></object>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+\end{lstlisting}
+\medskip
+\begin{lstlisting}[caption=Site layout: CSS for side panel and main page]
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    -webkit-text-size-adjust: none;
+    color: #333;
+    margin: 0 auto;
+    padding: 10px;
+    display: block;
+    position: relative;
+}
+
+p.info {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cmd-btn-small, .cmd-btn-small-x {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    border: 1px solid #555;
+    border-radius: 2px;
+    color: #555;
+    text-transform: uppercase;
+    text-align: center;
+    width: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+\end{lstlisting}
+
+\medskip
+
+\begin{lstlisting}[caption=Exchanging Authorization Code for Token function]
+router.get('/api/forge/callback/oauth', function (req, res) {
+    var code = req.query.code;
+    var tokenSession = new token(req.session);
+
+    // first get a full scope token for internal use (server-side)
+    var req = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopeInternal);
+    console.log(code);
+    req.getToken(code)
+        .then(function (internalCredentials) {
+
+            tokenSession.setInternalCredentials(internalCredentials);
+            tokenSession.setInternalOAuth(req);
+
+            console.log('Internal token (full scope): ' + internalCredentials.access_token); // debug
+
+            // then refresh and get a limited scope token that we can send to the client
+            var req2 = new forgeSDK.AuthClientThreeLegged(config.credentials.client_id, config.credentials.client_secret, config.callbackURL, config.scopePublic);
+            req2.refreshToken(internalCredentials)
+                .then(function (publicCredentials) {
+                    tokenSession.setPublicCredentials(publicCredentials);
+                    tokenSession.setPublicOAuth(req2);
+
+                    console.log('Public token (limited scope): ' + publicCredentials.access_token); // debug
+                    res.redirect('/');
+                })
+                .catch(function (error) {
+                    res.end(JSON.stringify(error));
+                });
+        })
+        .catch(function (error) {
+            res.end(JSON.stringify(error));
+        });
+});
+\end{lstlisting}
+\begin{lstlisting}[caption=Package depedencies]
+  "dependencies": {
+    "socket.io": "*",
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "formidable": "^1.0.17",
+    "morgan": "^1.7.0",
+    "oauth": "^0.9.14",
+    "request": "^2.72.0",
+    "trim": "0.0.1",
+    "forge-apis": "*",
+    "jstree": "*"
+  },
+\end{lstlisting}
+\begin{lstlisting}[caption=Login related functions]
+
+function signIn() {
+    $.ajax({
+        url: '/user/authenticate',
+        success: function (rootUrl) {
+            console.log("succeeded with sign in" + rootUrl);
+            location.href = rootUrl;
+        },
+        error: function() {
+            console.log("Failure at sign in");
+        }
+    });
+}
+
+function logoff() {
+    $.ajax({
+        url: '/user/logoff',
+        success: function (oauthUrl) {
+            location.href = oauthUrl;
+        }
+    });
+}
+
+function get3LegToken(callback) {
+
+    if (callback) {
+        $.ajax({
+            url: '/user/token',
+            success: function (data) {
+                MyVars.token3Leg = data.token;
+                console.log('Returning new 3 legged token (User Authorization): ' + MyVars.token3Leg);
+                callback(data.token, data.expires_in);
+            },
+            error: function() {
+                console.log("Err in get3legtoken callback ajax");
+            }
+        });
+    } else {
+        console.log('else version of Returning saved 3 legged token (User Authorization): ' + MyVars.token3Leg);
+
+        return MyVars.token3Leg;
+    }
+}
+
+\end{lstlisting}
+\begin{lstlisting}[caption=local file upload restriction]
+<input type="file" id="fileElem" style="display:none" accept=".rvt, .iam, .dwfx, .nwc, .dwg, .stp" onchange="onFilesDialogCalled(this.files);" multiple/>
+\end{lstlisting}
+\begin{lstlisting}[caption=non-local file upload restriction]
+function getThreeLeggedScopedOptions(urn){
+    var options = {
+        'document': 'urn:' + urn,
+        'env': 'AutodeskProduction',
+        'getAccessToken': get3leggedinfo
+    };
+    return options;   
+}
+
+function get3leggedinfo(callback) {
+    console.log("Token: ", _3LegToken);
+    console.log("Expires: ", _expires_in);
+    callback(_3LegToken, _expires_in);
+}
+\end{lstlisting}
+\begin{lstlisting}[caption=socket.io for passing three legged information]
+_socket.emit('lmv-command', { session: _sessionId, name: 'load', value: urn, token: MyVars.token3Leg, expires: MyVars.expires_in, threeLegged: _isThreeLegged });
+\end{lstlisting}
+
 \end{document}
