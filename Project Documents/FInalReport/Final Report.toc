@@ -36,96 +36,30 @@
 \contentsline {section}{\numberline {3}Introduction}{4}{section.3}
 \contentsline {subsection}{\numberline {3.1}Scope}{4}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}DEFINITIONS, ACRONYMS, AND ABBREVIATIONS}{4}{subsection.3.2}
-\contentsline {section}{\numberline {4}OVERALL DESCRIPTION}{5}{section.4}
-\contentsline {subsection}{\numberline {4.1}PRODUCT PERSPECTIVE}{5}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}PRODUCT FUNCTIONS}{5}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}USER CHARACTERISTICS}{5}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}SYSTEM LEVEL (NON-FUNCTIONAL) REQUIREMENTS}{5}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Software Interfaces}{5}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}User Interfaces}{6}{subsubsection.4.4.2}
-\contentsline {section}{\numberline {5}SPECIFIC REQUIREMENTS}{6}{section.5}
-\contentsline {subsection}{\numberline {5.1}SYSTEM FEATURES}{6}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}File Uploading}{6}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Viewable Model}{6}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}Smartphone Connection}{7}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}Forge Authentication}{7}{subsubsection.5.1.4}
-\contentsline {subsubsection}{\numberline {5.1.5}Data Management}{8}{subsubsection.5.1.5}
-\contentsline {subsubsection}{\numberline {5.1.6}Model Derivative}{8}{subsubsection.5.1.6}
-\contentsline {subsubsection}{\numberline {5.1.7}VR device support}{9}{subsubsection.5.1.7}
+\contentsline {section}{References}{5}{section*.2}
+\contentsline {section}{\numberline {4}OVERALL DESCRIPTION}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}PRODUCT PERSPECTIVE}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}PRODUCT FUNCTIONS}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}USER CHARACTERISTICS}{6}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}SYSTEM LEVEL (NON-FUNCTIONAL) REQUIREMENTS}{6}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Software Interfaces}{6}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}User Interfaces}{7}{subsubsection.4.4.2}
+\contentsline {section}{\numberline {5}SPECIFIC REQUIREMENTS}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}SYSTEM FEATURES}{7}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}File Uploading}{7}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Viewable Model}{7}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Smartphone Connection}{8}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Forge Authentication}{8}{subsubsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.5}Data Management}{9}{subsubsection.5.1.5}
+\contentsline {subsubsection}{\numberline {5.1.6}Model Derivative}{9}{subsubsection.5.1.6}
+\contentsline {subsubsection}{\numberline {5.1.7}VR device support}{10}{subsubsection.5.1.7}
 \select@language {english}
 \select@language {english}
-\contentsline {section}{\numberline {6}GANTT CHART}{10}{section.6}
+\contentsline {section}{\numberline {6}GANTT CHART}{11}{section.6}
 \select@language {english}
 \select@language {english}
-\contentsline {section}{\numberline {7}UPDATED GANTT CHART}{11}{section.7}
-\contentsline {section}{\numberline {8}Design Document}{12}{section.8}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\select@language {english}
-\contentsline {section}{\numberline {9}Introduction}{13}{section.9}
-\contentsline {subsection}{\numberline {9.1}Scope}{13}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Purpose}{13}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Intended audience}{13}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}Influences on SDD preparation}{13}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}Design verification and design role validation}{14}{subsection.9.5}
-\contentsline {subsection}{\numberline {9.6}Design stakeholders and their concerns}{14}{subsection.9.6}
-\contentsline {section}{\numberline {10}Definitions}{14}{section.10}
-\contentsline {section}{\numberline {11}Design Views}{14}{section.11}
-\contentsline {subsection}{\numberline {11.1}Website Interface}{14}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}Interface Viewpoint: Interface}{15}{subsection.11.2}
-\contentsline {subsubsection}{\numberline {11.2.1}Design relationships}{15}{subsubsection.11.2.1}
-\contentsline {subsection}{\numberline {11.3}Model Viewer}{16}{subsection.11.3}
-\contentsline {subsection}{\numberline {11.4}Interface Viewpoint: Interaction}{16}{subsection.11.4}
-\contentsline {subsubsection}{\numberline {11.4.1}Design Relationships}{17}{subsubsection.11.4.1}
-\contentsline {subsubsection}{\numberline {11.4.2}Design Constraints}{17}{subsubsection.11.4.2}
-\contentsline {subsection}{\numberline {11.5}Local file upload}{17}{subsection.11.5}
-\contentsline {subsection}{\numberline {11.6}Interface viewpoint for local file upload}{18}{subsection.11.6}
-\contentsline {subsubsection}{\numberline {11.6.1}Design relationships}{19}{subsubsection.11.6.1}
-\contentsline {subsubsection}{\numberline {11.6.2}design constraints}{19}{subsubsection.11.6.2}
-\contentsline {subsubsection}{\numberline {11.6.3}Design rationale}{19}{subsubsection.11.6.3}
-\contentsline {subsection}{\numberline {11.7}Non-local file upload}{19}{subsection.11.7}
-\contentsline {subsection}{\numberline {11.8}Interface viewpoint for non-local file upload}{20}{subsection.11.8}
-\contentsline {subsubsection}{\numberline {11.8.1}Design relationships}{21}{subsubsection.11.8.1}
-\contentsline {subsubsection}{\numberline {11.8.2}design constraints}{21}{subsubsection.11.8.2}
-\contentsline {subsubsection}{\numberline {11.8.3}Design rationale}{21}{subsubsection.11.8.3}
-\contentsline {subsection}{\numberline {11.9}Mobile device connection}{21}{subsection.11.9}
-\contentsline {subsection}{\numberline {11.10}Mobile device connection Interface viewpoint}{22}{subsection.11.10}
-\contentsline {subsubsection}{\numberline {11.10.1}Design constraints}{23}{subsubsection.11.10.1}
-\contentsline {subsubsection}{\numberline {11.10.2}Design Rationale}{23}{subsubsection.11.10.2}
-\contentsline {subsubsection}{\numberline {11.10.3}Design relationships}{23}{subsubsection.11.10.3}
-\contentsline {subsection}{\numberline {11.11}File conversion}{23}{subsection.11.11}
-\contentsline {subsection}{\numberline {11.12}Interaction viewpoint for file conversion}{23}{subsection.11.12}
-\contentsline {subsubsection}{\numberline {11.12.1}Design constraints}{24}{subsubsection.11.12.1}
-\contentsline {subsubsection}{\numberline {11.12.2}Design relationships}{24}{subsubsection.11.12.2}
-\contentsline {subsection}{\numberline {11.13}Data Authentication}{25}{subsection.11.13}
-\contentsline {subsection}{\numberline {11.14}Interaction viewpoint for two legged authentication}{25}{subsection.11.14}
-\contentsline {subsection}{\numberline {11.15}Design Concerns}{25}{subsection.11.15}
-\contentsline {subsection}{\numberline {11.16}Elements}{25}{subsection.11.16}
-\contentsline {subsection}{\numberline {11.17}Data Authentication}{25}{subsection.11.17}
-\contentsline {subsection}{\numberline {11.18}Interaction viewpoint for two legged authentication}{26}{subsection.11.18}
-\contentsline {subsection}{\numberline {11.19}Design Concerns}{27}{subsection.11.19}
-\contentsline {subsection}{\numberline {11.20}Elements}{27}{subsection.11.20}
-\contentsline {subsection}{\numberline {11.21}Data Management API}{27}{subsection.11.21}
-\contentsline {subsection}{\numberline {11.22}Context viewpoint for Data Management API}{27}{subsection.11.22}
-\contentsline {subsection}{\numberline {11.23}Design Concerns}{28}{subsection.11.23}
-\contentsline {subsection}{\numberline {11.24}Elements}{28}{subsection.11.24}
-\contentsline {subsubsection}{\numberline {11.24.1}Entities}{28}{subsubsection.11.24.1}
-\contentsline {subsubsection}{\numberline {11.24.2}Relationships}{29}{subsubsection.11.24.2}
-\contentsline {subsubsection}{\numberline {11.24.3}Constraints}{29}{subsubsection.11.24.3}
-\contentsline {subsection}{\numberline {11.25}View models in VR}{30}{subsection.11.25}
-\contentsline {subsection}{\numberline {11.26}Context viewpoint for WebView}{30}{subsection.11.26}
-\contentsline {subsection}{\numberline {11.27}Design Concerns}{30}{subsection.11.27}
-\contentsline {subsection}{\numberline {11.28}Elements}{30}{subsection.11.28}
-\contentsline {subsubsection}{\numberline {11.28.1}Entities}{30}{subsubsection.11.28.1}
-\contentsline {subsubsection}{\numberline {11.28.2}Relationships}{30}{subsubsection.11.28.2}
-\contentsline {subsubsection}{\numberline {11.28.3}Constraints}{31}{subsubsection.11.28.3}
-\contentsline {section}{\numberline {12}Design Document Changes}{32}{section.12}
-\contentsline {section}{\numberline {13}Technology Review}{33}{section.13}
+\contentsline {section}{\numberline {7}UPDATED GANTT CHART}{12}{section.7}
+\contentsline {section}{\numberline {8}Design Document}{13}{section.8}
 \select@language {english}
 \select@language {english}
 \select@language {english}
@@ -134,26 +68,93 @@
 \select@language {english}
 \select@language {english}
 \select@language {english}
-\contentsline {section}{\numberline {14}Introduction}{34}{section.14}
-\contentsline {section}{\numberline {15}Technologies}{34}{section.15}
-\contentsline {subsection}{\numberline {15.1}File Uploading}{34}{subsection.15.1}
-\contentsline {subsection}{\numberline {15.2}File conversion}{35}{subsection.15.2}
-\contentsline {subsection}{\numberline {15.3}Connecting the users device}{37}{subsection.15.3}
-\contentsline {subsection}{\numberline {15.4}Website UI Redesign}{38}{subsection.15.4}
-\contentsline {subsection}{\numberline {15.5}Data Management API}{39}{subsection.15.5}
-\contentsline {subsection}{\numberline {15.6}Model Viewer}{40}{subsection.15.6}
-\contentsline {subsection}{\numberline {15.7}Forge Authentication}{41}{subsection.15.7}
-\contentsline {subsection}{\numberline {15.8}Viewing in VR}{42}{subsection.15.8}
-\contentsline {subsection}{\numberline {15.9}Technology 9}{43}{subsection.15.9}
-\contentsline {section}{\numberline {16}Conclusion}{43}{section.16}
-\contentsline {section}{\numberline {17}Technology Review Changes}{44}{section.17}
-\contentsline {section}{\numberline {18}Weekly blogs}{45}{section.18}
-\contentsline {subsection}{\numberline {18.1}Fall}{45}{subsection.18.1}
-\contentsline {subsection}{\numberline {18.2}Winter}{54}{subsection.18.2}
-\contentsline {subsection}{\numberline {18.3}Spring}{63}{subsection.18.3}
-\contentsline {section}{\numberline {19}Project Documentation}{71}{section.19}
-\contentsline {section}{\numberline {20}How we learned the technology}{76}{section.20}
-\contentsline {section}{\numberline {21}What We Learned}{76}{section.21}
-\contentsline {subsection}{\numberline {21.1}Shawn Cross}{76}{subsection.21.1}
-\contentsline {subsection}{\numberline {21.2}Paul Kwak}{77}{subsection.21.2}
-\contentsline {subsection}{\numberline {21.3}Griffin Gonslaves}{78}{subsection.21.3}
+\contentsline {section}{\numberline {9}Introduction}{14}{section.9}
+\contentsline {subsection}{\numberline {9.1}Scope}{14}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Purpose}{14}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Intended audience}{14}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Influences on SDD preparation}{14}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}Design verification and design role validation}{15}{subsection.9.5}
+\contentsline {subsection}{\numberline {9.6}Design stakeholders and their concerns}{15}{subsection.9.6}
+\contentsline {section}{\numberline {10}Definitions}{15}{section.10}
+\contentsline {section}{\numberline {11}Design Views}{15}{section.11}
+\contentsline {subsection}{\numberline {11.1}Website Interface}{15}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.2}Interface Viewpoint: Interface}{16}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Design relationships}{16}{subsubsection.11.2.1}
+\contentsline {subsection}{\numberline {11.3}Model Viewer}{17}{subsection.11.3}
+\contentsline {subsection}{\numberline {11.4}Interface Viewpoint: Interaction}{17}{subsection.11.4}
+\contentsline {subsubsection}{\numberline {11.4.1}Design Relationships}{18}{subsubsection.11.4.1}
+\contentsline {subsubsection}{\numberline {11.4.2}Design Constraints}{18}{subsubsection.11.4.2}
+\contentsline {subsection}{\numberline {11.5}Local file upload}{18}{subsection.11.5}
+\contentsline {subsection}{\numberline {11.6}Interface viewpoint for local file upload}{19}{subsection.11.6}
+\contentsline {subsubsection}{\numberline {11.6.1}Design relationships}{20}{subsubsection.11.6.1}
+\contentsline {subsubsection}{\numberline {11.6.2}design constraints}{20}{subsubsection.11.6.2}
+\contentsline {subsubsection}{\numberline {11.6.3}Design rationale}{20}{subsubsection.11.6.3}
+\contentsline {subsection}{\numberline {11.7}Non-local file upload}{20}{subsection.11.7}
+\contentsline {subsection}{\numberline {11.8}Interface viewpoint for non-local file upload}{21}{subsection.11.8}
+\contentsline {subsubsection}{\numberline {11.8.1}Design relationships}{22}{subsubsection.11.8.1}
+\contentsline {subsubsection}{\numberline {11.8.2}design constraints}{22}{subsubsection.11.8.2}
+\contentsline {subsubsection}{\numberline {11.8.3}Design rationale}{22}{subsubsection.11.8.3}
+\contentsline {subsection}{\numberline {11.9}Mobile device connection}{22}{subsection.11.9}
+\contentsline {subsection}{\numberline {11.10}Mobile device connection Interface viewpoint}{23}{subsection.11.10}
+\contentsline {subsubsection}{\numberline {11.10.1}Design constraints}{24}{subsubsection.11.10.1}
+\contentsline {subsubsection}{\numberline {11.10.2}Design Rationale}{24}{subsubsection.11.10.2}
+\contentsline {subsubsection}{\numberline {11.10.3}Design relationships}{24}{subsubsection.11.10.3}
+\contentsline {subsection}{\numberline {11.11}File conversion}{24}{subsection.11.11}
+\contentsline {subsection}{\numberline {11.12}Interaction viewpoint for file conversion}{24}{subsection.11.12}
+\contentsline {subsubsection}{\numberline {11.12.1}Design constraints}{25}{subsubsection.11.12.1}
+\contentsline {subsubsection}{\numberline {11.12.2}Design relationships}{25}{subsubsection.11.12.2}
+\contentsline {subsection}{\numberline {11.13}Data Authentication}{26}{subsection.11.13}
+\contentsline {subsection}{\numberline {11.14}Interaction viewpoint for two legged authentication}{26}{subsection.11.14}
+\contentsline {subsection}{\numberline {11.15}Design Concerns}{26}{subsection.11.15}
+\contentsline {subsection}{\numberline {11.16}Elements}{26}{subsection.11.16}
+\contentsline {subsection}{\numberline {11.17}Data Authentication}{26}{subsection.11.17}
+\contentsline {subsection}{\numberline {11.18}Interaction viewpoint for two legged authentication}{27}{subsection.11.18}
+\contentsline {subsection}{\numberline {11.19}Design Concerns}{28}{subsection.11.19}
+\contentsline {subsection}{\numberline {11.20}Elements}{28}{subsection.11.20}
+\contentsline {subsection}{\numberline {11.21}Data Management API}{28}{subsection.11.21}
+\contentsline {subsection}{\numberline {11.22}Context viewpoint for Data Management API}{28}{subsection.11.22}
+\contentsline {subsection}{\numberline {11.23}Design Concerns}{29}{subsection.11.23}
+\contentsline {subsection}{\numberline {11.24}Elements}{29}{subsection.11.24}
+\contentsline {subsubsection}{\numberline {11.24.1}Entities}{29}{subsubsection.11.24.1}
+\contentsline {subsubsection}{\numberline {11.24.2}Relationships}{30}{subsubsection.11.24.2}
+\contentsline {subsubsection}{\numberline {11.24.3}Constraints}{30}{subsubsection.11.24.3}
+\contentsline {subsection}{\numberline {11.25}View models in VR}{31}{subsection.11.25}
+\contentsline {subsection}{\numberline {11.26}Context viewpoint for WebView}{31}{subsection.11.26}
+\contentsline {subsection}{\numberline {11.27}Design Concerns}{31}{subsection.11.27}
+\contentsline {subsection}{\numberline {11.28}Elements}{31}{subsection.11.28}
+\contentsline {subsubsection}{\numberline {11.28.1}Entities}{31}{subsubsection.11.28.1}
+\contentsline {subsubsection}{\numberline {11.28.2}Relationships}{31}{subsubsection.11.28.2}
+\contentsline {subsubsection}{\numberline {11.28.3}Constraints}{32}{subsubsection.11.28.3}
+\contentsline {section}{\numberline {12}Design Document Changes}{33}{section.12}
+\contentsline {section}{\numberline {13}Technology Review}{34}{section.13}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\contentsline {section}{\numberline {14}Introduction}{35}{section.14}
+\contentsline {section}{\numberline {15}Technologies}{35}{section.15}
+\contentsline {subsection}{\numberline {15.1}File Uploading}{35}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}File conversion}{36}{subsection.15.2}
+\contentsline {subsection}{\numberline {15.3}Connecting the users device}{38}{subsection.15.3}
+\contentsline {subsection}{\numberline {15.4}Website UI Redesign}{39}{subsection.15.4}
+\contentsline {subsection}{\numberline {15.5}Data Management API}{40}{subsection.15.5}
+\contentsline {subsection}{\numberline {15.6}Model Viewer}{41}{subsection.15.6}
+\contentsline {subsection}{\numberline {15.7}Forge Authentication}{42}{subsection.15.7}
+\contentsline {subsection}{\numberline {15.8}Viewing in VR}{43}{subsection.15.8}
+\contentsline {subsection}{\numberline {15.9}Technology 9}{44}{subsection.15.9}
+\contentsline {section}{\numberline {16}Conclusion}{44}{section.16}
+\contentsline {section}{\numberline {17}Technology Review Changes}{45}{section.17}
+\contentsline {section}{\numberline {18}Weekly blogs}{46}{section.18}
+\contentsline {subsection}{\numberline {18.1}Fall}{46}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Winter}{55}{subsection.18.2}
+\contentsline {subsection}{\numberline {18.3}Spring}{64}{subsection.18.3}
+\contentsline {section}{\numberline {19}Project Documentation}{72}{section.19}
+\contentsline {section}{\numberline {20}How we learned the technology}{77}{section.20}
+\contentsline {section}{\numberline {21}What We Learned}{77}{section.21}
+\contentsline {subsection}{\numberline {21.1}Shawn Cross}{77}{subsection.21.1}
+\contentsline {subsection}{\numberline {21.2}Paul Kwak}{79}{subsection.21.2}
+\contentsline {subsection}{\numberline {21.3}Griffin Gonslaves}{80}{subsection.21.3}
