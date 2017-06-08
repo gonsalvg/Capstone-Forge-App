@@ -53,13 +53,13 @@
 \contentsline {subsubsection}{\numberline {5.1.5}Data Management}{9}{subsubsection.5.1.5}
 \contentsline {subsubsection}{\numberline {5.1.6}Model Derivative}{9}{subsubsection.5.1.6}
 \contentsline {subsubsection}{\numberline {5.1.7}VR device support}{10}{subsubsection.5.1.7}
+\contentsline {section}{\numberline {6}What requirements changed/added/deleted?}{10}{section.6}
 \select@language {english}
 \select@language {english}
-\contentsline {section}{\numberline {6}GANTT CHART}{11}{section.6}
+\contentsline {section}{\numberline {7}GANTT CHART}{11}{section.7}
 \select@language {english}
 \select@language {english}
-\contentsline {section}{\numberline {7}UPDATED GANTT CHART}{12}{section.7}
-\contentsline {section}{\numberline {8}What requirements changed/added/deleted?}{12}{section.8}
+\contentsline {section}{\numberline {8}UPDATED GANTT CHART}{12}{section.8}
 \contentsline {section}{\numberline {9}Design Document}{13}{section.9}
 \select@language {english}
 \select@language {english}
