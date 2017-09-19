@@ -21,16 +21,16 @@
 module.exports = {
 
     // this this callback URL when creating your client ID and secret
-    callbackURL: 'http://localhost:3000/api/forge/callback/oauth', // This is for testing on localhost
-    //callbackURL: 'https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth',
+    //callbackURL: 'http://localhost:3000/api/forge/callback/oauth', // This is for testing on localhost
+    callbackURL: 'https://murmuring-cove-16220.herokuapp.com/api/forge/callback/oauth',
 
 
     // set enviroment variables or hard-code here
     credentials: {
-        client_id: process.env.FORGE_CLIENT_ID || 'nxhoaHAjAuqVS6nNt9UjYRVUCX58NGxv', // This is for testing on localhost
-        client_secret: process.env.FORGE_CLIENT_SECRET || '7VwIeGMg8r6xATWL' // This is for testing on localhost
-        //client_id: process.env.FORGE_CLIENT_ID || 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
-        //client_secret: process.env.FORGE_CLIENT_SECRET || 'Ag4uxZEzKfB5n7A2'
+        //client_id: process.env.FORGE_CLIENT_ID || 'nxhoaHAjAuqVS6nNt9UjYRVUCX58NGxv', // This is for testing on localhost
+        //client_secret: process.env.FORGE_CLIENT_SECRET || '7VwIeGMg8r6xATWL' // This is for testing on localhost
+        client_id: process.env.FORGE_CLIENT_ID || 'c8TGgN1qfJPRRyqEr4oXGaKhLnPrN1Tr',
+        client_secret: process.env.FORGE_CLIENT_SECRET || 'Ag4uxZEzKfB5n7A2'
     },
 
     // Required scopes for your application on server-side
